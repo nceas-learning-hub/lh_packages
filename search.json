@@ -1,5 +1,71 @@
 [
   {
+    "objectID": "2_setup_lessons.html",
+    "href": "2_setup_lessons.html",
+    "title": "Set up lessons",
+    "section": "",
+    "text": "Set up a schedule of course lessons\nDescription\nCreate the structure necessary to implement an ordered set of lessons in the Quarto book format. The user provides a character vector of lesson names (filenames, bare or with .qmd extension); these and associated materials (images, data) are copied from coreRlessons package into the course project (created with init_course()). Sets up the index.qmd, _quarto.yml, and some additional files.\n\nUsage\nsetup_lessons(lessons, modules = NULL, overwrite = FALSE)\nArguments\nlessons \nInformation on the lessons to be included in the course, as a character vector or data.frame. A character vector containing the names (bare or .qmd extension) of the lessons, in order; optionally, a named character vector where the names are course modules (e.g., \"Day 1\", \"Day 2\"). Alternately, a data.frame with columns \"module\" and \"lesson\", similar to the named character vector.\n\nmodules \nAn additional way to provide module information for the lessons: a vector of module names that matches the length of the lessons vector. Caution: if modules is not NULL, and module names are provided directly in lessons, this argument will take precedence.\n\noverwrite   \nIf there is already an existing lessons structure, and overwrite = FALSE, will return an error. If the user wishes to create a new lesson structure, then overwrite = TRUE will remove the existing structure in its entirety and create a new structure based on the lesson names.\n\nExamples\nRun examples\n\n## Not run: \nsetup_lessons(lessons = c(\"activity_reproducibility_lego\",\n                          \"lecture_tidy_data.qmd\",\n                          \"github_collaboration\",\n                          \"r_functions.qmd\"))\n### modules as named vector\nlesson_mods &lt;- available_lessons()$lesson[1:6] |&gt; setNames(c(1, 1, 2, 2, 3, 3))\nsetup_lessons(lessons = lesson_mods)\n\n### modules as argument\nsetup_lessons(lessons = available_lessons()$lesson[1:6],\n              modules = rep(c(\"day 1\", \"day 2\"), each = 3))\n\n### modules and course as dataframe\nexample_course &lt;- coreRlessons::example_course\nhead(example_course, 3)\n#   module                        lesson\n# 1  Day 1    r_programming_introduction\n# 2  Day 1    r_quarto_literate_analysis\n# 3  Day 1 activity_reproducibility_lego\nsetup_lessons(example_course)\n\n## End(Not run)",
+    "crumbs": [
+      "Building a course",
+      "Set up lessons"
+    ]
+  },
+  {
+    "objectID": "4_update_lessons.html",
+    "href": "4_update_lessons.html",
+    "title": "Update lessons",
+    "section": "",
+    "text": "Update lessons in a coreR course\nDescription\nUpdate lessons in a coreR course\n\nUsage\nupdate_lessons(lessons = \"all\", pkg = \"coreRlessons\", version = NULL)\nArguments\nlessons \nA vector of specific lessons to be updated, based on file names (bare or with .qmd extension). If lesson names don't match lessons in the source book, an error will be returned. The default all will update all available lessons, i.e., those whose lesson names match those in the source book. Customized lessons, whose names do not match those in the source book, will not be updated, even with version = 'all'.\n\npkg \nName of the package where lessons are curated, default \"coreRlessons\"\n\nversion \nA version of the coreR package from which the updated lessons should be pulled. version can be given as a commit hash, a tag, a version, or a date.\n\nExamples\nRun examples\n\n# update_lessons(lessons = c(\"git-github-intro\", \"r-creating-packages.qmd\"),\n#                version = \"v0.0.1\")",
+    "crumbs": [
+      "Building a course",
+      "Update lessons"
+    ]
+  },
+  {
+    "objectID": "6_content_guide.html",
+    "href": "6_content_guide.html",
+    "title": "Content guidelines",
+    "section": "",
+    "text": "See https://cambiotraining.github.io/quarto-course-template/materials/02-content_guidelines.html for ideas",
+    "crumbs": [
+      "Contributing a lesson",
+      "Content guidelines"
+    ]
+  },
+  {
+    "objectID": "6_content_guide.html#headers-and-such",
+    "href": "6_content_guide.html#headers-and-such",
+    "title": "Content guidelines",
+    "section": "1 Headers and such",
+    "text": "1 Headers and such",
+    "crumbs": [
+      "Contributing a lesson",
+      "Content guidelines"
+    ]
+  },
+  {
+    "objectID": "6_content_guide.html#code-formatting",
+    "href": "6_content_guide.html#code-formatting",
+    "title": "Content guidelines",
+    "section": "2 Code formatting",
+    "text": "2 Code formatting\n\ncode that needs to be run, identical to what we want to show the reader:\ncode that needs to be run, but is different than we want to show the reader, e.g., reading in a file from a different source than presented in the lesson: #| include: false\ncode that doesn’t need to be run: enclose in code block fence with language name next to it for syntax highlighting (e.g., ```r instead of in curly braces ```{r} used for a functioning code block!).\noptional, use footnotes by including # &lt;1&gt; at the end of a line, then a 1. footnote text here - this works in functional code or non-functional code!\n\n```r\nx &lt;- 3 * 4\n```\n1. This is an example of a footnote!\nwill render like:\n1x &lt;- 3 * 4\n\n1\n\nThis is an example of a footnote!",
+    "crumbs": [
+      "Contributing a lesson",
+      "Content guidelines"
+    ]
+  },
+  {
+    "objectID": "6_content_guide.html#callouts",
+    "href": "6_content_guide.html#callouts",
+    "title": "Content guidelines",
+    "section": "3 Callouts",
+    "text": "3 Callouts\nQuarto offers some built-in callout blocks to set content off against the normal body text. Note that we’ve customized the colors of our callouts to better match our course styling (see the lh_theme extension).\n\n3.1 Standard callouts\nThere are five built-in callouts signalling different levels of urgency:\n\ntip {.callout-tip}\nnote {.callout-note}\ncaution {.callout-caution}\nwarning {.callout-warning}\nimportant {.callout-important}\n\nSee the callout reference for how to create these.\nBased on the color and icons, here are recommendations on when and how to use these, in descending order of urgency:\n\n\n\n\n\n\nImportant\n\n\n\nUse {.callout-important} to highlight things that the reader must pay attention to, or essential ideas and concepts.\n\n\n\n\n\n\n\n\nWarning\n\n\n\nUse {.callout-warning} to highlight common “gotchas” such as common user errors or unexpected behavior.\n\n\n\n\n\n\n\n\nCaution\n\n\n\nUse {.callout-caution} to indicate materials under development; consider using {.callout-warning} for other cases.\n\n\n\n\n\n\n\n\nNote\n\n\n\nUse {.callout-note} to communicate deeper ideas or understandings that are not critical to understanding the lesson at hand. The instructor might skip over these while teaching. If the reader does not read this, they may miss out, but nothing bad will happen.\n\n\n\n\n\n\n\n\nTip\n\n\n\nUse {.callout-tip} to communicate learning objectives, key points, and helpful tips and tricks.\n\n\n\n\n3.2 Custom callouts\nThere are currently four custom callouts for different types of tasks:\n\nexercise {.callout-exercise}\nhint {.callout-hint}\nanswer {.callout-answer}\nexample {.callout-example}\n\nThese custom callouts work thanks to Tavares, H., van Rongen, M., Cardona, A. (2024). Course Development Guidelines. https://cambiotraining.github.io/quarto-course-template/. Unfortunately, the title is not responsive to the title argument in the callout or to the header-style titling that the built-in callouts can use. The collapse option also seems to be unresponsive currently.\n\n\n\n\n\n\nExercise 1\n\n\n\n\n\n\nUse {.callout-exercise} for exercises. The current default numbers exercises within a given page. Click on the hint and answer callouts below to reveal the information in them.\n\n\n\n\n\n\nHint\n\n\n\n\n\n\nUse {.callout-hint} for hints to the exercise - defaults to collapse=true for obvious reasons. Note they can be nested within an exercise, or stand-alone.\n\n\n\n\n\n\n\n\n\n\nAnswer\n\n\n\n\n\n\nUse {.callout-answer} for answers to the exercise - defaults to collapse=true for obvious reasons. Note they can be nested within an exercise, or stand-alone.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExample\n\n\n\n\n\n\nUse {.callout-example} for examples, e.g., example data or example.",
+    "crumbs": [
+      "Contributing a lesson",
+      "Content guidelines"
+    ]
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "The {coreR} package",
@@ -121,17 +187,6 @@
     ]
   },
   {
-    "objectID": "3_custom_lessons.html",
-    "href": "3_custom_lessons.html",
-    "title": "Customize lessons",
-    "section": "",
-    "text": "Vignette about customizing a lesson (structure basics, slides, images, data)\n\nrearranging the schedule\n\nuse setup_lessons with new inputs and overwrite = TRUE\nmanually edit the _quarto.yml to rearrange lessons in the desired order\n\nnote, the numbered prefixes are only for file organization and are not functional, so switching the first and second lessons, no need to rename the files, just swap the lines in the _quarto.yml even if they look out of order\n\n\ncustomize an existing lesson\n\nrecommend changing file name - to protect it from update_lessons and to distinguish it from existing versions of lessons\nrecommend changing names on supporting folders to reflect the file name\n\nif you like your changes, and think we should incorporate them, feel free to fork the coreRlessons, update the files accordingly (see the structure guide and content guide), and submit a pull request.\nadding a new lesson\n\ncreate your own qmd, create file structure for supporting files, and edit the _quarto.yml to put the new lesson in the proper place in the schedule.",
-    "crumbs": [
-      "Building a course",
-      "Customize lessons"
-    ]
-  },
-  {
     "objectID": "1_init_course.html",
     "href": "1_init_course.html",
     "title": "Initialize a course",
@@ -143,69 +198,14 @@
     ]
   },
   {
-    "objectID": "2_setup_lessons.html",
-    "href": "2_setup_lessons.html",
-    "title": "Set up lessons",
+    "objectID": "3_custom_lessons.html",
+    "href": "3_custom_lessons.html",
+    "title": "Customize lessons",
     "section": "",
-    "text": "Set up a schedule of course lessons\nDescription\nCreate the structure necessary to implement an ordered set of lessons in the Quarto book format. The user provides a character vector of lesson names (filenames, bare or with .qmd extension); these and associated materials (images, data) are copied from coreRlessons package into the course project (created with init_course()). Sets up the index.qmd, _quarto.yml, and some additional files.\n\nUsage\nsetup_lessons(lessons, modules = NULL, overwrite = FALSE)\nArguments\nlessons \nInformation on the lessons to be included in the course, as a character vector or data.frame. A character vector containing the names (bare or .qmd extension) of the lessons, in order; optionally, a named character vector where the names are course modules (e.g., \"Day 1\", \"Day 2\"). Alternately, a data.frame with columns \"module\" and \"lesson\", similar to the named character vector.\n\nmodules \nAn additional way to provide module information for the lessons: a vector of module names that matches the length of the lessons vector. Caution: if modules is not NULL, and module names are provided directly in lessons, this argument will take precedence.\n\noverwrite   \nIf there is already an existing lessons structure, and overwrite = FALSE, will return an error. If the user wishes to create a new lesson structure, then overwrite = TRUE will remove the existing structure in its entirety and create a new structure based on the lesson names.\n\nExamples\nRun examples\n\n## Not run: \nsetup_lessons(lessons = c(\"activity_reproducibility_lego\",\n                          \"lecture_tidy_data.qmd\",\n                          \"github_collaboration\",\n                          \"r_functions.qmd\"))\n### modules as named vector\nlesson_mods &lt;- available_lessons()$lesson[1:6] |&gt; setNames(c(1, 1, 2, 2, 3, 3))\nsetup_lessons(lessons = lesson_mods)\n\n### modules as argument\nsetup_lessons(lessons = available_lessons()$lesson[1:6],\n              modules = rep(c(\"day 1\", \"day 2\"), each = 3))\n\n### modules and course as dataframe\nexample_course &lt;- coreRlessons::example_course\nhead(example_course, 3)\n#   module                        lesson\n# 1  Day 1    r_programming_introduction\n# 2  Day 1    r_quarto_literate_analysis\n# 3  Day 1 activity_reproducibility_lego\nsetup_lessons(example_course)\n\n## End(Not run)",
+    "text": "Vignette about customizing a lesson (structure basics, slides, images, data)\n\nrearranging the schedule\n\nuse setup_lessons with new inputs and overwrite = TRUE\nmanually edit the _quarto.yml to rearrange lessons in the desired order\n\nnote, the numbered prefixes are only for file organization and are not functional, so switching the first and second lessons, no need to rename the files, just swap the lines in the _quarto.yml even if they look out of order\n\n\ncustomize an existing lesson\n\nrecommend changing file name - to protect it from update_lessons and to distinguish it from existing versions of lessons\nrecommend changing names on supporting folders to reflect the file name\n\nif you like your changes, and think we should incorporate them, feel free to fork the coreRlessons, update the files accordingly (see the structure guide and content guide), and submit a pull request.\nadding a new lesson\n\ncreate your own qmd, create file structure for supporting files, and edit the _quarto.yml to put the new lesson in the proper place in the schedule.",
     "crumbs": [
       "Building a course",
-      "Set up lessons"
-    ]
-  },
-  {
-    "objectID": "4_update_lessons.html",
-    "href": "4_update_lessons.html",
-    "title": "Update lessons",
-    "section": "",
-    "text": "Update lessons in a coreR course\nDescription\nUpdate lessons in a coreR course\n\nUsage\nupdate_lessons(lessons = \"all\", pkg = \"coreRlessons\", version = NULL)\nArguments\nlessons \nA vector of specific lessons to be updated, based on file names (bare or with .qmd extension). If lesson names don't match lessons in the source book, an error will be returned. The default all will update all available lessons, i.e., those whose lesson names match those in the source book. Customized lessons, whose names do not match those in the source book, will not be updated, even with version = 'all'.\n\npkg \nName of the package where lessons are curated, default \"coreRlessons\"\n\nversion \nA version of the coreR package from which the updated lessons should be pulled. version can be given as a commit hash, a tag, a version, or a date.\n\nExamples\nRun examples\n\n# update_lessons(lessons = c(\"git-github-intro\", \"r-creating-packages.qmd\"),\n#                version = \"v0.0.1\")",
-    "crumbs": [
-      "Building a course",
-      "Update lessons"
-    ]
-  },
-  {
-    "objectID": "6_content_guide.html",
-    "href": "6_content_guide.html",
-    "title": "Content guidelines",
-    "section": "",
-    "text": "See https://cambiotraining.github.io/quarto-course-template/materials/02-content_guidelines.html for ideas",
-    "crumbs": [
-      "Contributing a lesson",
-      "Content guidelines"
-    ]
-  },
-  {
-    "objectID": "6_content_guide.html#headers-and-such",
-    "href": "6_content_guide.html#headers-and-such",
-    "title": "Content guidelines",
-    "section": "1 Headers and such",
-    "text": "1 Headers and such",
-    "crumbs": [
-      "Contributing a lesson",
-      "Content guidelines"
-    ]
-  },
-  {
-    "objectID": "6_content_guide.html#code-formatting",
-    "href": "6_content_guide.html#code-formatting",
-    "title": "Content guidelines",
-    "section": "2 Code formatting",
-    "text": "2 Code formatting\n\ncode that needs to be run, identical to what we want to show the reader:\ncode that needs to be run, but is different than we want to show the reader, e.g., reading in a file from a different source than presented in the lesson: #| include: false\ncode that doesn’t need to be run: enclose in code block fence with language name next to it for syntax highlighting (e.g., ```r instead of in curly braces ```{r} used for a functioning code block!).\noptional, use footnotes by including # &lt;1&gt; at the end of a line, then a 1. footnote text here - this works in functional code or non-functional code!\n\n```r\nx &lt;- 3 * 4\n```\n1. This is an example of a footnote!\nwill render like:\n1x &lt;- 3 * 4\n\n1\n\nThis is an example of a footnote!",
-    "crumbs": [
-      "Contributing a lesson",
-      "Content guidelines"
-    ]
-  },
-  {
-    "objectID": "6_content_guide.html#callouts",
-    "href": "6_content_guide.html#callouts",
-    "title": "Content guidelines",
-    "section": "3 Callouts",
-    "text": "3 Callouts\nQuarto offers some built-in callout blocks to set content off against the normal body text. Note that we’ve customized the colors of our callouts to better match our course styling (see the lh_theme extension).\n\n3.1 Standard callouts\nThere are five built-in callouts signalling different levels of urgency:\n\ntip {.callout-tip}\nnote {.callout-note}\ncaution {.callout-caution}\nwarning {.callout-warning}\nimportant {.callout-important}\n\nSee the callout reference for how to create these.\nBased on the color and icons, here are recommendations on when and how to use these, in descending order of urgency:\n\n\n\n\n\n\nImportant\n\n\n\nUse {.callout-important} to highlight things that the reader must pay attention to, or essential ideas and concepts.\n\n\n\n\n\n\n\n\nWarning\n\n\n\nUse {.callout-warning} to highlight common “gotchas” such as common user errors or unexpected behavior.\n\n\n\n\n\n\n\n\nCaution\n\n\n\nUse {.callout-caution} to indicate materials under development; consider using {.callout-warning} for other cases.\n\n\n\n\n\n\n\n\nNote\n\n\n\nUse {.callout-note} to communicate deeper ideas or understandings that are not critical to understanding the lesson at hand. The instructor might skip over these while teaching. If the reader does not read this, they may miss out, but nothing bad will happen.\n\n\n\n\n\n\n\n\nTip\n\n\n\nUse {.callout-tip} to communicate learning objectives, key points, and helpful tips and tricks.\n\n\n\n\n3.2 Custom callouts\nThere are currently four custom callouts for different types of tasks:\n\nexercise {.callout-exercise}\nhint {.callout-hint}\nanswer {.callout-answer}\nexample {.callout-example}\n\nThese custom callouts work thanks to Tavares, H., van Rongen, M., Cardona, A. (2024). Course Development Guidelines. https://cambiotraining.github.io/quarto-course-template/. Unfortunately, the title is not responsive to the title argument in the callout or to the header-style titling that the built-in callouts can use. The collapse option also seems to be unresponsive currently.\n\n\n\n\n\n\nExercise 1\n\n\n\n\n\n\nUse {.callout-exercise} for exercises. The current default numbers exercises within a given page. Click on the hint and answer callouts below to reveal the information in them.\n\n\n\n\n\n\nHint\n\n\n\n\n\n\nUse {.callout-hint} for hints to the exercise - defaults to collapse=true for obvious reasons. Note they can be nested within an exercise, or stand-alone.\n\n\n\n\n\n\n\n\n\n\nAnswer\n\n\n\n\n\n\nUse {.callout-answer} for answers to the exercise - defaults to collapse=true for obvious reasons. Note they can be nested within an exercise, or stand-alone.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExample\n\n\n\n\n\n\nUse {.callout-example} for examples, e.g., example data or example.",
-    "crumbs": [
-      "Contributing a lesson",
-      "Content guidelines"
+      "Customize lessons"
     ]
   }
 ]

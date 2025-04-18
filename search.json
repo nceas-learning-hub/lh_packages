@@ -1,0 +1,211 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "The {coreR} package",
+    "section": "",
+    "text": "The {coreR} package (and its sister package, {coreRlessons}) were developed to make it easy to set up a course for the NCEAS Learning Hub, particularly the {coreR} course offerings.\n\n\n\n\n\n\nTo install:\n\n\n\nYou will need to install both {coreR} (for functionality) and {coreRlessons} (for content):\nremotes::install_github('nceas-learning-hub/coreR')\nremotes::install_github('nceas-learning-hub/coreRlessons')",
+    "crumbs": [
+      "Welcome",
+      "The `{coreR}` package"
+    ]
+  },
+  {
+    "objectID": "index.html#course-development-with-corer",
+    "href": "index.html#course-development-with-corer",
+    "title": "The {coreR} package",
+    "section": "",
+    "text": "The {coreR} package (and its sister package, {coreRlessons}) were developed to make it easy to set up a course for the NCEAS Learning Hub, particularly the {coreR} course offerings.\n\n\n\n\n\n\nTo install:\n\n\n\nYou will need to install both {coreR} (for functionality) and {coreRlessons} (for content):\nremotes::install_github('nceas-learning-hub/coreR')\nremotes::install_github('nceas-learning-hub/coreRlessons')",
+    "crumbs": [
+      "Welcome",
+      "The `{coreR}` package"
+    ]
+  },
+  {
+    "objectID": "index.html#what-does-corer-do",
+    "href": "index.html#what-does-corer-do",
+    "title": "The {coreR} package",
+    "section": "1 What does {coreR} do?",
+    "text": "1 What does {coreR} do?\nThe {coreR} package has a few key functions:\n\ninit_course() initializes a course by setting up a new repository and adding some metadata about the course based on user input.\nsetup_lessons() copies selected lessons from the {coreRlessons} package into the course repository and sets up the structure of the course as a Quarto website.\nupdate_lessons() will update lessons (or revert to older ones) based on user selection of a version of the {coreRlessons} package.",
+    "crumbs": [
+      "Welcome",
+      "The `{coreR}` package"
+    ]
+  },
+  {
+    "objectID": "index.html#what-does-corerlessons-do",
+    "href": "index.html#what-does-corerlessons-do",
+    "title": "The {coreR} package",
+    "section": "2 What does {coreRlessons} do?",
+    "text": "2 What does {coreRlessons} do?\nThe {coreRlessons} package doesn’t have any functions, but instead houses lessons as Quarto documents, along with templates and support files to construct a course. Why is this separate from {coreR}?\n\nFirst, it seemed like a good idea to allow the course lesson content to be version-controlled separately from the package containing the functions.\n\nSecond, this allows for other instructors or organizations to create their own lesson content or structure that can play nicely with the {coreR} functionality - for example, if the curriculum for the Delta Stewardship Council diverged from the {coreR} curriculum, we could create a {deltaLessons} package to contain different content, and even a different style or format.\n\nThird, it allows an instructor to choose different versions of the content and perhaps update an old course, if the materials for the old course are significantly out of date, using GitHub release tags that refer to different versions of the content related to specific points in time.",
+    "crumbs": [
+      "Welcome",
+      "The `{coreR}` package"
+    ]
+  },
+  {
+    "objectID": "index.html#why-corer",
+    "href": "index.html#why-corer",
+    "title": "The {coreR} package",
+    "section": "3 Why {coreR}?",
+    "text": "3 Why {coreR}?\n\n3.1 Where we’re at\nFor years NCEAS has been offering courses through the Learning Hub and the Arctic Data Center, among other efforts. The course offerings include lessons on collaboration with Git and GitHub, reproducibility with R and RStudio, and fundamental techniques of working with all kinds of data. As of October 2024, these courses have been built in the nceas-training repository of the NCEAS GitHub organization, with each course built on a separate branch. These courses are rendered by GitHub actions set up in the repro-research-course repository, where the courses are linked to an NCEAS URL, and archived in the repo.\nThis system has worked for years, and the lesson offerings have grown organically over time to 116 different .Rmds and .qmds. But setting up a new course is a little tricky - after establishing a desired curriculum, an instructor needs to manually identify relevant lessons from a long list of files with inconsistent file naming, and then needs to manually set up files to link to these lessons, all within a new branch to avoid affecting other lessons (and to work with the Github actions to publish the course). The lesson catalog contains duplicates, updated versions, deprecated lessons, etc. The instructor then frequently has to make edits to the lessons, on that separate branch. As of this writing, there are 43 separate branches, each likely holding improvements and valuable edits that cannot easily be resolved into the “best” version of each lesson. This branch method works, but is fragile, difficult to navigate, and uses branches in a different way than typically designed.\n\n\n3.2 Where we’re going\nBy setting up a new NCEAS Learning Hub organization, and designing the {coreR} and {coreRlessons} packages, we can accomplish a few things:\n\nMake it far easier to set up a typical Learning Hub training by automating and streamlining many of the setup steps.\nCurate the course offerings and try to outline some standards for adding additional course offerings, for consistency.\nUse distinct repositories to host each course, rather than branches all held within a single repository.\nUpdate course lessons so that old course offerings can be brought into line with current course offerings (or lessons can be reverted to old versions).\nUse GitHub Pages to publish courses to the web.\nPut into practice many of the workflows we preach :)",
+    "crumbs": [
+      "Welcome",
+      "The `{coreR}` package"
+    ]
+  },
+  {
+    "objectID": "index.html#acknowledgments",
+    "href": "index.html#acknowledgments",
+    "title": "The {coreR} package",
+    "section": "4 Acknowledgments",
+    "text": "4 Acknowledgments\nJulia Stewart Lowndes, Allison Horst, Jenny Bryan\nTavares, H., van Rongen, M., Cardona, A. (2024). Course Development Guidelines. https://cambiotraining.github.io/quarto-course-template/",
+    "crumbs": [
+      "Welcome",
+      "The `{coreR}` package"
+    ]
+  },
+  {
+    "objectID": "5_structure_guide.html",
+    "href": "5_structure_guide.html",
+    "title": "Course rendering",
+    "section": "",
+    "text": "Tips, suggestions, standards, naming conventions, structure for new lessons\nSee https://cambiotraining.github.io/quarto-course-template/materials/01-render_guidelines.html for an idea of how to organize it\nThe coreR course structure is a website with a left sidebar to navigate among lessons and a right sidebar to show the contents of the current lesson.",
+    "crumbs": [
+      "Contributing a lesson",
+      "Course rendering"
+    ]
+  },
+  {
+    "objectID": "5_structure_guide.html#quarto.yml",
+    "href": "5_structure_guide.html#quarto.yml",
+    "title": "Course rendering",
+    "section": "1 _quarto.yml",
+    "text": "1 _quarto.yml\nIn the course repository, the _quarto.yml contains all the information on how to render the website.",
+    "crumbs": [
+      "Contributing a lesson",
+      "Course rendering"
+    ]
+  },
+  {
+    "objectID": "5_structure_guide.html#lessons",
+    "href": "5_structure_guide.html#lessons",
+    "title": "Course rendering",
+    "section": "2 Lessons",
+    "text": "2 Lessons\nThe lesson .qmd files are copied out of the lessons package ({coreRlessons} by default) and into the course repository. To maintain some order, a prefix is appended to the lesson names, e.g., s01_r_programming_introduction.qmd.\n\n\n\n\n\n\n.Rmd vs .qmd\n\n\n\nFor consistency, lesson files must be Quarto documents with a .qmd extension and a yaml header containing only the title. Older lessons in .Rmd format should be updated.",
+    "crumbs": [
+      "Contributing a lesson",
+      "Course rendering"
+    ]
+  },
+  {
+    "objectID": "5_structure_guide.html#lesson-supporting-files",
+    "href": "5_structure_guide.html#lesson-supporting-files",
+    "title": "Course rendering",
+    "section": "3 Lesson supporting files",
+    "text": "3 Lesson supporting files\nSome lessons link to external images, data, or embedded slides. These files are stored in directories named images, data, and slides respectively. For a given lesson, correspondingly named subdirectories will appear in each of these image/data/slides directories, like this (for a lesson s01_r_programming_introduction.qmd):\n&lt;project root&gt;\n  |-- s01_r_programming_introduction.qmd  ### the lesson document\n  |-- s02_github_introduction.qmd         ### etc\n  |\n  |-- data\n  |  |-- r_programming_introduction\n  |     |-- dataset1.csv ### filename as called in lesson qmd\n  |  \n  |-- images\n  |  |-- r_programming_introduction\n  |  |  |-- image1.png ### filename as called in lesson qmd\n  |  |  |-- image2.png ### etc\n  |  |\n  |  |-- github_introduction\n  |     |-- image1.png ### filename as called in lesson qmd\n  |     |-- image2.png ### etc\n  |\n  |-- slides\n  |  |-- r_programming_introduction \n  |  |  |-- slides.qmd        ### filename as embedded in lesson qmd\n  |  |  |-- lesson_style.scss ### filename as noted in the slides qmd\n  |  |\n  |  |-- github_introduction\n  |     |-- github_slides.qmd ### filename as called in lesson qmd\n  |     |-- style.css         ### etc\n ...   ...\nIf a lesson does not have supporting files, e.g., no images, then there may not be a corresponding folder (e.g., the github_introduction.qmd lesson above does not have a data folder!)\n\n\n\n\n\n\nFile structure in created course vs. in coreRlessons package\n\n\n\nThe file structure inside the coreRlessons package is similar except:\n\nthe lesson .qmds and supporting files/folders all live in the inst folder inside the package repository\nthe supporting files folders are all prefaced with lesson_ (e.g., lesson_data) - this is because R packages don’t like a folder called data in the inst folder, since it may interact with the data folder in the root.\n\nto render properly, the links inside the lesson .qmd should point to data, images, or slides without the lesson_ prefix\n\nall content inside the supporting folders is copied over to the new course without modification.\n\n\n\n\n\n\n\n\n\nFile sizes and naming in supporting content\n\n\n\nAs noted above, all content inside the supporting folders is copied over to the new course without modification. Please be considerate when designing and organizing the supporting content! This includes paying attention to:\n\nFile naming - short but descriptive.\nFile size - particularly for images, ensure the file is as small as reasonable. This holds true especially for screen captures - these are typically captured at full screen resolution, but are quite readable shrunk down to a coarser resolution which saves a huge amount of space. Use a photo app to shrink them please!",
+    "crumbs": [
+      "Contributing a lesson",
+      "Course rendering"
+    ]
+  },
+  {
+    "objectID": "5_structure_guide.html#extensions-and-formatting",
+    "href": "5_structure_guide.html#extensions-and-formatting",
+    "title": "Course rendering",
+    "section": "4 Extensions and formatting",
+    "text": "4 Extensions and formatting\n\nscss etc in the _extensions folder? or in root?\nif extension, how to update styling (separate from content)",
+    "crumbs": [
+      "Contributing a lesson",
+      "Course rendering"
+    ]
+  },
+  {
+    "objectID": "3_custom_lessons.html",
+    "href": "3_custom_lessons.html",
+    "title": "Customize lessons",
+    "section": "",
+    "text": "Vignette about customizing a lesson (structure basics, slides, images, data)\n\nrearranging the schedule\n\nuse setup_lessons with new inputs and overwrite = TRUE\nmanually edit the _quarto.yml to rearrange lessons in the desired order\n\nnote, the numbered prefixes are only for file organization and are not functional, so switching the first and second lessons, no need to rename the files, just swap the lines in the _quarto.yml even if they look out of order\n\n\ncustomize an existing lesson\n\nrecommend changing file name - to protect it from update_lessons and to distinguish it from existing versions of lessons\nrecommend changing names on supporting folders to reflect the file name\n\nif you like your changes, and think we should incorporate them, feel free to fork the coreRlessons, update the files accordingly (see the structure guide and content guide), and submit a pull request.\nadding a new lesson\n\ncreate your own qmd, create file structure for supporting files, and edit the _quarto.yml to put the new lesson in the proper place in the schedule.",
+    "crumbs": [
+      "Building a course",
+      "Customize lessons"
+    ]
+  },
+  {
+    "objectID": "1_init_course.html",
+    "href": "1_init_course.html",
+    "title": "Initialize a course",
+    "section": "",
+    "text": "Initialize a coreR course\n\nDescription\n\nThis will set up the basic project structure for a new course: a project repository, plus a file containing metadata about the course. The metadata file will be used to help populate details in later functions.\n\nUsage\ninit_course(\n  course_proj,\n  course_org = \"nceas-learning-hub\",\n  course_title = NULL,\n  course_description = NULL,\n  start_date = NULL,\n  end_date = NULL,\n  loc = \".\"\n)\nArguments\ncourse_proj \nThe name of the project directory (and Github repo) for the course. Recommended format: YYYY-MM-coreR.\n\ncourse_org  \nThe name of the Github organization to which the course will belong.\n\ncourse_title    \nA brief but descriptive title for the course. If NULL (default), the title will be set the same as the project name.\n\ncourse_desc \nA sentence or two describing the course. If NULL (default), will be left empty.\n\nstart_date  \nThe starting date (as character, so any preferred format). If NULL, will default to 1/1/24\n\nend_date    \nThe ending date (use same format as start_date). If NULL, and start_date is NULL, will default to 12/31/24\n\nloc \nThe file location where the course repository will be created. Defaults to the current working directory.\n\nValue\nstuff\n\nExamples\nRun examples\n\n## Not run: \ninit_course(course_proj = \"2024-10-coreR\",\n            course_title = \"CoreR October 2024\",\n            course_description = \"CoreR course offered at NCEAS in Oct 2024\",\n            start_date = \"Oct. 6, 2024\",\n            end_date = \"Oct. 10, 2024\")\n\n## End(Not run)",
+    "crumbs": [
+      "Building a course",
+      "Initialize a course"
+    ]
+  },
+  {
+    "objectID": "2_setup_lessons.html",
+    "href": "2_setup_lessons.html",
+    "title": "Set up lessons",
+    "section": "",
+    "text": "Set up a schedule of course lessons\nDescription\nCreate the structure necessary to implement an ordered set of lessons in the Quarto book format. The user provides a character vector of lesson names (filenames, bare or with .qmd extension); these and associated materials (images, data) are copied from coreRlessons package into the course project (created with init_course()). Sets up the index.qmd, _quarto.yml, and some additional files.\n\nUsage\nsetup_lessons(lessons, modules = NULL, overwrite = FALSE)\nArguments\nlessons \nInformation on the lessons to be included in the course, as a character vector or data.frame. A character vector containing the names (bare or .qmd extension) of the lessons, in order; optionally, a named character vector where the names are course modules (e.g., \"Day 1\", \"Day 2\"). Alternately, a data.frame with columns \"module\" and \"lesson\", similar to the named character vector.\n\nmodules \nAn additional way to provide module information for the lessons: a vector of module names that matches the length of the lessons vector. Caution: if modules is not NULL, and module names are provided directly in lessons, this argument will take precedence.\n\noverwrite   \nIf there is already an existing lessons structure, and overwrite = FALSE, will return an error. If the user wishes to create a new lesson structure, then overwrite = TRUE will remove the existing structure in its entirety and create a new structure based on the lesson names.\n\nExamples\nRun examples\n\n## Not run: \nsetup_lessons(lessons = c(\"activity_reproducibility_lego\",\n                          \"lecture_tidy_data.qmd\",\n                          \"github_collaboration\",\n                          \"r_functions.qmd\"))\n### modules as named vector\nlesson_mods &lt;- available_lessons()$lesson[1:6] |&gt; setNames(c(1, 1, 2, 2, 3, 3))\nsetup_lessons(lessons = lesson_mods)\n\n### modules as argument\nsetup_lessons(lessons = available_lessons()$lesson[1:6],\n              modules = rep(c(\"day 1\", \"day 2\"), each = 3))\n\n### modules and course as dataframe\nexample_course &lt;- coreRlessons::example_course\nhead(example_course, 3)\n#   module                        lesson\n# 1  Day 1    r_programming_introduction\n# 2  Day 1    r_quarto_literate_analysis\n# 3  Day 1 activity_reproducibility_lego\nsetup_lessons(example_course)\n\n## End(Not run)",
+    "crumbs": [
+      "Building a course",
+      "Set up lessons"
+    ]
+  },
+  {
+    "objectID": "4_update_lessons.html",
+    "href": "4_update_lessons.html",
+    "title": "Update lessons",
+    "section": "",
+    "text": "Update lessons in a coreR course\nDescription\nUpdate lessons in a coreR course\n\nUsage\nupdate_lessons(lessons = \"all\", pkg = \"coreRlessons\", version = NULL)\nArguments\nlessons \nA vector of specific lessons to be updated, based on file names (bare or with .qmd extension). If lesson names don't match lessons in the source book, an error will be returned. The default all will update all available lessons, i.e., those whose lesson names match those in the source book. Customized lessons, whose names do not match those in the source book, will not be updated, even with version = 'all'.\n\npkg \nName of the package where lessons are curated, default \"coreRlessons\"\n\nversion \nA version of the coreR package from which the updated lessons should be pulled. version can be given as a commit hash, a tag, a version, or a date.\n\nExamples\nRun examples\n\n# update_lessons(lessons = c(\"git-github-intro\", \"r-creating-packages.qmd\"),\n#                version = \"v0.0.1\")",
+    "crumbs": [
+      "Building a course",
+      "Update lessons"
+    ]
+  },
+  {
+    "objectID": "6_content_guide.html",
+    "href": "6_content_guide.html",
+    "title": "Content guidelines",
+    "section": "",
+    "text": "See https://cambiotraining.github.io/quarto-course-template/materials/02-content_guidelines.html for ideas",
+    "crumbs": [
+      "Contributing a lesson",
+      "Content guidelines"
+    ]
+  },
+  {
+    "objectID": "6_content_guide.html#headers-and-such",
+    "href": "6_content_guide.html#headers-and-such",
+    "title": "Content guidelines",
+    "section": "1 Headers and such",
+    "text": "1 Headers and such",
+    "crumbs": [
+      "Contributing a lesson",
+      "Content guidelines"
+    ]
+  },
+  {
+    "objectID": "6_content_guide.html#code-formatting",
+    "href": "6_content_guide.html#code-formatting",
+    "title": "Content guidelines",
+    "section": "2 Code formatting",
+    "text": "2 Code formatting\n\ncode that needs to be run, identical to what we want to show the reader:\ncode that needs to be run, but is different than we want to show the reader, e.g., reading in a file from a different source than presented in the lesson: #| include: false\ncode that doesn’t need to be run: enclose in code block fence with language name next to it for syntax highlighting (e.g., ```r instead of in curly braces ```{r} used for a functioning code block!).\noptional, use footnotes by including # &lt;1&gt; at the end of a line, then a 1. footnote text here - this works in functional code or non-functional code!\n\n```r\nx &lt;- 3 * 4\n```\n1. This is an example of a footnote!\nwill render like:\n1x &lt;- 3 * 4\n\n1\n\nThis is an example of a footnote!",
+    "crumbs": [
+      "Contributing a lesson",
+      "Content guidelines"
+    ]
+  },
+  {
+    "objectID": "6_content_guide.html#callouts",
+    "href": "6_content_guide.html#callouts",
+    "title": "Content guidelines",
+    "section": "3 Callouts",
+    "text": "3 Callouts\nQuarto offers some built-in callout blocks to set content off against the normal body text. Note that we’ve customized the colors of our callouts to better match our course styling (see the lh_theme extension).\n\n3.1 Standard callouts\nThere are five built-in callouts signalling different levels of urgency:\n\ntip {.callout-tip}\nnote {.callout-note}\ncaution {.callout-caution}\nwarning {.callout-warning}\nimportant {.callout-important}\n\nSee the callout reference for how to create these.\nBased on the color and icons, here are recommendations on when and how to use these, in descending order of urgency:\n\n\n\n\n\n\nImportant\n\n\n\nUse {.callout-important} to highlight things that the reader must pay attention to, or essential ideas and concepts.\n\n\n\n\n\n\n\n\nWarning\n\n\n\nUse {.callout-warning} to highlight common “gotchas” such as common user errors or unexpected behavior.\n\n\n\n\n\n\n\n\nCaution\n\n\n\nUse {.callout-caution} to indicate materials under development; consider using {.callout-warning} for other cases.\n\n\n\n\n\n\n\n\nNote\n\n\n\nUse {.callout-note} to communicate deeper ideas or understandings that are not critical to understanding the lesson at hand. The instructor might skip over these while teaching. If the reader does not read this, they may miss out, but nothing bad will happen.\n\n\n\n\n\n\n\n\nTip\n\n\n\nUse {.callout-tip} to communicate learning objectives, key points, and helpful tips and tricks.\n\n\n\n\n3.2 Custom callouts\nThere are currently four custom callouts for different types of tasks:\n\nexercise {.callout-exercise}\nhint {.callout-hint}\nanswer {.callout-answer}\nexample {.callout-example}\n\nThese custom callouts work thanks to Tavares, H., van Rongen, M., Cardona, A. (2024). Course Development Guidelines. https://cambiotraining.github.io/quarto-course-template/. Unfortunately, the title is not responsive to the title argument in the callout or to the header-style titling that the built-in callouts can use. The collapse option also seems to be unresponsive currently.\n\n\n\n\n\n\nExercise 1\n\n\n\n\n\n\nUse {.callout-exercise} for exercises. The current default numbers exercises within a given page. Click on the hint and answer callouts below to reveal the information in them.\n\n\n\n\n\n\nHint\n\n\n\n\n\n\nUse {.callout-hint} for hints to the exercise - defaults to collapse=true for obvious reasons. Note they can be nested within an exercise, or stand-alone.\n\n\n\n\n\n\n\n\n\n\nAnswer\n\n\n\n\n\n\nUse {.callout-answer} for answers to the exercise - defaults to collapse=true for obvious reasons. Note they can be nested within an exercise, or stand-alone.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExample\n\n\n\n\n\n\nUse {.callout-example} for examples, e.g., example data or example.",
+    "crumbs": [
+      "Contributing a lesson",
+      "Content guidelines"
+    ]
+  }
+]

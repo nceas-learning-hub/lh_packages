@@ -1,0 +1,62 @@
+project:
+  type: website
+  output-dir: docs
+
+filters:
+- nceas-learning-hub/lh_theme
+editor: source
+# bibliography: book.bib
+
+format:
+  html:
+    theme: ### can only point to scss, not css
+       light: _extensions/nceas-learning-hub/lh_theme/lh_light.scss
+       dark: _extensions/nceas-learning-hub/lh_theme/lh_dark.scss
+    css: _extensions/nceas-learning-hub/lh_theme/lh-style.css   ### doesn't render NCEAS logo if put in scss file?
+    toc: true
+    number-sections: true
+    title-block-banner: "#00000044" ### need something here to "turn on" the title-block-banner
+
+website:
+  title: "coreR - NCEAS Learning Hub"
+  reader-mode: false
+  repo-url: https://github.com/nceas-learning-hub/coreR
+  favicon: _extensions/nceas-learning-hub/lh_theme/logo-lh-hex.png
+  bread-crumbs: false
+  navbar:
+    right:
+      - text: "Developers"
+        menu:
+          - text: "Casey O'Hara"
+            href: https://www.oharascience.com/
+      - icon: github
+        href: https://github.com/nceas-learning-hub/coreR
+        aria-label: GitHub
+  sidebar:
+    # title: "Training Materials"
+    style: "floating" # "docked" separates the side bar more, with contrast bg
+    search: true
+    tools:
+      - icon: house-door-fill
+        href: https://www.nceas.ucsb.edu/learning-hub
+      - icon: twitter
+        href: https://twitter.com/ucsb_nceas
+      - icon: github
+        href: https://github.com/nceas-learning-hub/coreR_test
+    contents:
+      - section: "Welcome"
+        contents:
+        - index.qmd
+      - section: "Building a course"
+        contents:
+        - 1_init_course.qmd
+        - 2_setup_lessons.qmd
+        - 3_custom_lessons.qmd
+        - 4_update_lessons.qmd
+      - section: "Contributing a lesson"
+        contents:
+        - 5_structure_guide.qmd
+        - 6_content_guide.qmd
+  page-footer:
+    center: "Copyright \u00a9 2024, NCEAS"
+

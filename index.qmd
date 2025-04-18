@@ -1,0 +1,61 @@
+---
+title: "The `{coreR}` package"
+---
+
+## Course development with `{coreR}` {.unnumbered}
+
+The `{coreR}` package (and its sister package, `{coreRlessons}`) were developed to make it easy to set up a course for the NCEAS Learning Hub, particularly the **`{coreR}`** course offerings.
+
+:::{.callout-note}
+### To install:
+
+You will need to install both `{coreR}` (for functionality) and `{coreRlessons}` (for content):
+```r
+remotes::install_github('nceas-learning-hub/coreR')
+remotes::install_github('nceas-learning-hub/coreRlessons')
+```
+:::
+
+## What does `{coreR}` do?
+
+The `{coreR}` package has a few key functions:
+
+* `init_course()` initializes a course by setting up a new repository and adding some metadata about the course based on user input.
+* `setup_lessons()` copies selected lessons from the `{coreRlessons}` package into the course repository and sets up the structure of the course as a Quarto website.
+* `update_lessons()` will update lessons (or revert to older ones) based on user selection of a version of the `{coreRlessons}` package.
+
+## What does `{coreRlessons}` do?
+
+The `{coreRlessons}` package doesn't have any functions, but instead houses lessons as Quarto documents, along with templates and support files to construct a course.  Why is this separate from `{coreR}`?  
+
+* First, it seemed like a good idea to allow the course lesson _content_ to be version-controlled separately from the package containing the _functions._  
+* Second, this allows for other instructors or organizations to create their own lesson content or structure that can play nicely with the `{coreR}` functionality - for example, if the curriculum for the Delta Stewardship Council diverged from the `{coreR}` curriculum, we could create a `{deltaLessons}` package to contain different content, and even a different style or format.  
+* Third, it allows an instructor to choose different versions of the content and perhaps update an old course, if the materials for the old course are significantly out of date, using GitHub release tags that refer to different versions of the content related to specific points in time.
+
+<!-- Clearly we need a `{coreR}` hex sticker! -->
+
+
+## Why `{coreR}`?
+
+### Where we're at
+
+For years NCEAS has been offering courses through the Learning Hub and the Arctic Data Center, among other efforts.  The course offerings include lessons on collaboration with Git and GitHub, reproducibility with R and RStudio, and fundamental techniques of working with all kinds of data.  As of October 2024, these courses have been built in the [nceas-training](https://github.com/NCEAS/nceas-training) repository of the [NCEAS GitHub organization](https://github.com/NCEAS), with each course built on a separate branch.  These courses are rendered by GitHub actions set up in the [repro-research-course](https://github.com/NCEAS/repro-research-course) repository, where the courses are linked to an NCEAS URL, and archived in the repo.
+
+This system has worked for years, and the lesson offerings have grown organically over time to 116 different `.Rmd`s and `.qmd`s.  But setting up a new course is a little tricky - after establishing a desired curriculum, an instructor needs to manually identify relevant lessons from a long list of files with inconsistent file naming, and then needs to manually set up files to link to these lessons, all within a new branch to avoid affecting other lessons (and to work with the Github actions to publish the course).  The lesson catalog contains duplicates, updated versions, deprecated lessons, etc.  The instructor then frequently has to make edits to the lessons, on that separate branch.  As of this writing, there are 43 separate branches, each likely holding improvements and valuable edits that cannot easily be resolved into the "best" version of each lesson.  This branch method works, but is fragile, difficult to navigate, and uses branches in a different way than typically designed.
+
+### Where we're going
+
+By setting up a new NCEAS Learning Hub organization, and designing the `{coreR}` and `{coreRlessons}` packages, we can accomplish a few things:
+
+1. Make it far easier to set up a typical Learning Hub training by automating and streamlining many of the setup steps.
+2. Curate the course offerings and try to outline some standards for adding additional course offerings, for consistency.
+3. Use distinct repositories to host each course, rather than branches all held within a single repository.
+4. Update course lessons so that old course offerings can be brought into line with current course offerings (or lessons can be reverted to old versions).
+5. Use GitHub Pages to publish courses to the web.
+6. Put into practice many of the workflows we preach :)
+
+## Acknowledgments
+
+Julia Stewart Lowndes, Allison Horst, Jenny Bryan
+
+Tavares, H., van Rongen, M., Cardona, A. (2024). Course Development Guidelines. https://cambiotraining.github.io/quarto-course-template/

@@ -1,0 +1,16 @@
+---
+title: Customize lessons
+---
+
+Vignette about customizing a lesson (structure basics, slides, images, data)
+
+- rearranging the schedule
+    - use setup_lessons with new inputs and overwrite = TRUE
+    - manually edit the _quarto.yml to rearrange lessons in the desired order
+        - note, the numbered prefixes are only for file organization and are not functional, so switching the first and second lessons, no need to rename the files, just swap the lines in the _quarto.yml even if they look out of order
+- customize an existing lesson
+    - recommend changing file name - to protect it from update_lessons and to distinguish it from existing versions of lessons
+    - recommend changing names on supporting folders to reflect the file name
+- if you like your changes, and think we should incorporate them, feel free to fork the coreRlessons, update the files accordingly (see the structure guide and content guide), and submit a pull request.
+- adding a new lesson
+    - create your own qmd, create file structure for supporting files, and edit the _quarto.yml to put the new lesson in the proper place in the schedule.

@@ -1,0 +1,58 @@
+---
+title: Initialize a course
+---
+
+```
+Initialize a coreR course
+
+Description
+
+This will set up the basic project structure for a new course: a project repository, plus a file containing metadata about the course. The metadata file will be used to help populate details in later functions.
+
+Usage
+init_course(
+  course_proj,
+  course_org = "nceas-learning-hub",
+  course_title = NULL,
+  course_description = NULL,
+  start_date = NULL,
+  end_date = NULL,
+  loc = "."
+)
+Arguments
+course_proj	
+The name of the project directory (and Github repo) for the course. Recommended format: YYYY-MM-coreR.
+
+course_org	
+The name of the Github organization to which the course will belong.
+
+course_title	
+A brief but descriptive title for the course. If NULL (default), the title will be set the same as the project name.
+
+course_desc	
+A sentence or two describing the course. If NULL (default), will be left empty.
+
+start_date	
+The starting date (as character, so any preferred format). If NULL, will default to 1/1/24
+
+end_date	
+The ending date (use same format as start_date). If NULL, and start_date is NULL, will default to 12/31/24
+
+loc	
+The file location where the course repository will be created. Defaults to the current working directory.
+
+Value
+stuff
+
+Examples
+Run examples
+
+## Not run: 
+init_course(course_proj = "2024-10-coreR",
+            course_title = "CoreR October 2024",
+            course_description = "CoreR course offered at NCEAS in Oct 2024",
+            start_date = "Oct. 6, 2024",
+            end_date = "Oct. 10, 2024")
+
+## End(Not run)
+```

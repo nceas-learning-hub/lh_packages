@@ -1,0 +1,14 @@
+title: NCEAS Learning Hub Quarto Stylesheet
+author: "Casey O'Hara"
+version: 0.0.1
+quarto-required: ">=1.2.0"
+contributes:
+  formats:
+    html:
+      theme:
+        - lh_light.scss
+        - lh_dark.scss
+  filters:
+    - callout_exercise.lua
+### Keep minimal here - leave things like TOC and number sections in the
+### _quarto.yml for easier user modifications?

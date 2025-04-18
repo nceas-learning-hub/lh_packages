@@ -1,0 +1,82 @@
+---
+title: Course rendering
+---
+
+Tips, suggestions, standards, naming conventions, structure for new lessons
+
+See <https://cambiotraining.github.io/quarto-course-template/materials/01-render_guidelines.html> for an idea of how to organize it
+
+The coreR course structure is a website with a left sidebar to navigate among lessons and a right sidebar to show the contents of the current lesson.
+
+## `_quarto.yml`
+
+In the course repository, the `_quarto.yml` contains all the information on how to render the website.
+
+## Lessons
+
+The lesson `.qmd` files are copied out of the lessons package (`{coreRlessons}` by default) and into the course repository.  To maintain some order, a prefix is appended to the lesson names, e.g., `s01_r_programming_introduction.qmd`.
+
+:::{.callout-warning}
+### .Rmd vs .qmd
+
+For consistency, lesson files must be Quarto documents with a `.qmd` extension and a yaml header containing only the title.  Older lessons in `.Rmd` format should be updated.
+:::
+
+## Lesson supporting files
+
+Some lessons link to external images, data, or embedded slides.  These files are stored in directories named `images`, `data`, and `slides` respectively.  For a given lesson, correspondingly named subdirectories will appear in each of these image/data/slides directories, like this (for a lesson `s01_r_programming_introduction.qmd`):
+
+```
+<project root>
+  |-- s01_r_programming_introduction.qmd  ### the lesson document
+  |-- s02_github_introduction.qmd         ### etc
+  |
+  |-- data
+  |  |-- r_programming_introduction
+  |     |-- dataset1.csv ### filename as called in lesson qmd
+  |  
+  |-- images
+  |  |-- r_programming_introduction
+  |  |  |-- image1.png ### filename as called in lesson qmd
+  |  |  |-- image2.png ### etc
+  |  |
+  |  |-- github_introduction
+  |     |-- image1.png ### filename as called in lesson qmd
+  |     |-- image2.png ### etc
+  |
+  |-- slides
+  |  |-- r_programming_introduction 
+  |  |  |-- slides.qmd        ### filename as embedded in lesson qmd
+  |  |  |-- lesson_style.scss ### filename as noted in the slides qmd
+  |  |
+  |  |-- github_introduction
+  |     |-- github_slides.qmd ### filename as called in lesson qmd
+  |     |-- style.css         ### etc
+ ...   ...
+```
+If a lesson *does not* have supporting files, e.g., no images, then there may not be a corresponding folder (e.g., the `github_introduction.qmd` lesson above does not have a data folder!)
+
+:::{.callout-note}
+### File structure in created course vs. in `coreRlessons` package
+
+The file structure inside the `coreRlessons` package is similar except:
+
+* the lesson `.qmd`s and supporting files/folders all live in the `inst` folder inside the package repository
+* the supporting files folders are all prefaced with `lesson_` (e.g., `lesson_data`) - this is because R packages don't like a folder called `data` in the `inst` folder, since it may interact with the `data` folder in the root.
+    * to render properly, the links inside the lesson .qmd should point to `data`, `images`, or `slides` without the `lesson_` prefix
+* all content inside the supporting folders is copied over to the new course without modification.
+:::
+
+:::{.callout-note}
+### File sizes and naming in supporting content
+
+As noted above, all content inside the supporting folders is copied over to the new course without modification.  Please be considerate when designing and organizing the supporting content!  This includes paying attention to:
+
+* File naming - short but descriptive.
+* File size - particularly for images, ensure the file is as small as reasonable.  This holds true especially for screen captures - these are typically captured at full screen resolution, but are quite readable shrunk down to a coarser resolution which saves a huge amount of space.  Use a photo app to shrink them please!
+:::
+
+## Extensions and formatting
+
+- scss etc in the `_extensions` folder? or in root?
+- if extension, how to update styling (separate from content)

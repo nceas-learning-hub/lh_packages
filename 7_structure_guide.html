@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Course rendering – Learning Hub course dev packages</title>
+<title>Course rendering – Learning Hub Course Development Packages</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -40,8 +40,8 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d166b450ba5a8e9f7a0ab969bf6592c1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-cb1ef3049447f7db4cf1195ab26f18b7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-0b1360af0479f672ace68f00cb592df9.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-e810ca290ad36c8af956a008fdcd8476.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-07468bd472797267334f1d9ca93ea5fc.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -72,14 +72,15 @@ ul.task-list li input[type="checkbox"] {
 <style>
 
       .quarto-title-block .quarto-title-banner {
-        background: blue;
+        background: #44444444;
       }
 </style>
 
 
+<link rel="stylesheet" href="_extensions/nceas-learning-hub/theme/banner/banner.css">
 </head>
 
-<body class="nav-sidebar floating nav-fixed fullcontent">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -87,7 +88,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Learning Hub course dev packages</span>
+    <span class="navbar-title">Learning Hub Course Development Packages</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -257,7 +258,18 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#quarto.yml" id="toc-quarto.yml" class="nav-link active" data-scroll-target="#quarto.yml"><span class="header-section-number">1</span> <code>_quarto.yml</code></a></li>
+  <li><a href="#lessons" id="toc-lessons" class="nav-link" data-scroll-target="#lessons"><span class="header-section-number">2</span> Lessons</a></li>
+  <li><a href="#lesson-supporting-files" id="toc-lesson-supporting-files" class="nav-link" data-scroll-target="#lesson-supporting-files"><span class="header-section-number">3</span> Lesson supporting files</a></li>
+  <li><a href="#extensions-and-formatting" id="toc-extensions-and-formatting" class="nav-link" data-scroll-target="#extensions-and-formatting"><span class="header-section-number">4</span> Extensions and formatting</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
@@ -268,12 +280,12 @@ ul.task-list li input[type="checkbox"] {
 <p>Tips, suggestions, standards, naming conventions, structure for new lessons</p>
 <p>See <a href="https://cambiotraining.github.io/quarto-course-template/materials/01-render_guidelines.html" class="uri">https://cambiotraining.github.io/quarto-course-template/materials/01-render_guidelines.html</a> for an idea of how to organize it</p>
 <p>The coreR course structure is a website with a left sidebar to navigate among lessons and a right sidebar to show the contents of the current lesson.</p>
-<section id="quarto.yml" class="level2">
-<h2 class="anchored" data-anchor-id="quarto.yml"><code>_quarto.yml</code></h2>
+<section id="quarto.yml" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="quarto.yml"><span class="header-section-number">1</span> <code>_quarto.yml</code></h2>
 <p>In the course repository, the <code>_quarto.yml</code> contains all the information on how to render the website.</p>
 </section>
-<section id="lessons" class="level2">
-<h2 class="anchored" data-anchor-id="lessons">Lessons</h2>
+<section id="lessons" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="lessons"><span class="header-section-number">2</span> Lessons</h2>
 <p>The lesson <code>.qmd</code> files are copied out of the lessons package (<code>{coreRlessons}</code> by default) and into the course repository. To maintain some order, a prefix is appended to the lesson names, e.g., <code>s01_r_programming_introduction.qmd</code>.</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -289,8 +301,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </section>
-<section id="lesson-supporting-files" class="level2">
-<h2 class="anchored" data-anchor-id="lesson-supporting-files">Lesson supporting files</h2>
+<section id="lesson-supporting-files" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="lesson-supporting-files"><span class="header-section-number">3</span> Lesson supporting files</h2>
 <p>Some lessons link to external images, data, or embedded slides. These files are stored in directories named <code>images</code>, <code>data</code>, and <code>slides</code> respectively. For a given lesson, correspondingly named subdirectories will appear in each of these image/data/slides directories, like this (for a lesson <code>s01_r_programming_introduction.qmd</code>):</p>
 <pre><code>&lt;project root&gt;
   |-- s01_r_programming_introduction.qmd  ### the lesson document
@@ -358,8 +370,8 @@ File sizes and naming in supporting content
 </div>
 </div>
 </section>
-<section id="extensions-and-formatting" class="level2">
-<h2 class="anchored" data-anchor-id="extensions-and-formatting">Extensions and formatting</h2>
+<section id="extensions-and-formatting" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="extensions-and-formatting"><span class="header-section-number">4</span> Extensions and formatting</h2>
 <ul>
 <li>scss etc in the <code>_extensions</code> folder? or in root?</li>
 <li>if extension, how to update styling (separate from content)</li>
@@ -617,6 +629,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         if (link.dataset.originalHref !== undefined) {
           link.href = link.dataset.originalHref;
         }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
       }
     }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {

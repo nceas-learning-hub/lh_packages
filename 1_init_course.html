@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Set up course infrastructure – Learning Hub course dev packages</title>
+<title>Set up course infrastructure – Learning Hub Course Development Packages</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -40,8 +40,8 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d166b450ba5a8e9f7a0ab969bf6592c1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-cb1ef3049447f7db4cf1195ab26f18b7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-0b1360af0479f672ace68f00cb592df9.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-e810ca290ad36c8af956a008fdcd8476.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-07468bd472797267334f1d9ca93ea5fc.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -72,14 +72,15 @@ ul.task-list li input[type="checkbox"] {
 <style>
 
       .quarto-title-block .quarto-title-banner {
-        background: blue;
+        background: #44444444;
       }
 </style>
 
 
+<link rel="stylesheet" href="_extensions/nceas-learning-hub/theme/banner/banner.css">
 </head>
 
-<body class="nav-sidebar floating nav-fixed fullcontent">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -87,7 +88,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Learning Hub course dev packages</span>
+    <span class="navbar-title">Learning Hub Course Development Packages</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -257,7 +258,20 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#initialize-the-course-with-init_course" id="toc-initialize-the-course-with-init_course" class="nav-link active" data-scroll-target="#initialize-the-course-with-init_course"><span class="header-section-number">1</span> Initialize the course with <code>init_course()</code></a></li>
+  <li><a href="#establish-course-infrastructure-with-setup_course_structure" id="toc-establish-course-infrastructure-with-setup_course_structure" class="nav-link" data-scroll-target="#establish-course-infrastructure-with-setup_course_structure"><span class="header-section-number">2</span> Establish course infrastructure with <code>setup_course_structure()</code></a>
+  <ul class="collapse">
+  <li><a href="#editing-the-index.qmd" id="toc-editing-the-index.qmd" class="nav-link" data-scroll-target="#editing-the-index.qmd"><span class="header-section-number">2.1</span> Editing the <code>index.qmd</code></a></li>
+  <li><a href="#linking-to-git-and-github" id="toc-linking-to-git-and-github" class="nav-link" data-scroll-target="#linking-to-git-and-github"><span class="header-section-number">2.2</span> Linking to Git and GitHub</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
@@ -265,8 +279,8 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="initialize-the-course-with-init_course" class="level2">
-<h2 class="anchored" data-anchor-id="initialize-the-course-with-init_course">Initialize the course with <code>init_course()</code></h2>
+<section id="initialize-the-course-with-init_course" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="initialize-the-course-with-init_course"><span class="header-section-number">1</span> Initialize the course with <code>init_course()</code></h2>
 <p>The <code>init_course()</code> function is the first step to creating a course. This sets up a new R project for the course, and saves some metadata about the course in a .csv for later reference. This function has six arguments, only the first of which is mandatory:</p>
 <ul>
 <li><code>course_proj</code> is the desired name for the course project repository, and will also drive the course’s eventual home on the interwebs. We recommend a format like <code>yyyy-mm-&lt;course type&gt;</code>, such as <code>2024-10-coreR</code> or <code>2024-06-delta</code>.</li>
@@ -313,8 +327,8 @@ Do you wish to open the new project in RStudio? (y/n)</code></pre>
 </div>
 </div>
 </section>
-<section id="establish-course-infrastructure-with-setup_course_structure" class="level2">
-<h2 class="anchored" data-anchor-id="establish-course-infrastructure-with-setup_course_structure">Establish course infrastructure with <code>setup_course_structure()</code></h2>
+<section id="establish-course-infrastructure-with-setup_course_structure" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="establish-course-infrastructure-with-setup_course_structure"><span class="header-section-number">2</span> Establish course infrastructure with <code>setup_course_structure()</code></h2>
 <p>Once the basic location for the course project has been established with <code>init_course()</code>, the <code>setup_course_structure()</code> function copies in the basic files to create a blank course (i.e., no lessons yet). This function also allows the instructor to choose a pre-set theme template (with a theme-dependent top banner and icons, as well as a theme-specific boilerplate index page). Only one optional argument:</p>
 <ul>
 <li><code>template</code> selects one of several pre-defined templates (<code>lh</code> default for Learning Hub; <code>delta</code>, <code>adc</code>, <code>coreR</code> for specific courses).</li>
@@ -345,12 +359,12 @@ Recommended next steps:
   • Edit the index.qmd to ensure it accurately describes the course
   • Use `available_lessons()` to see the lesson catalog from the lesson package
   • Use `setup_lessons(&lt;lessons&gt;)` to install the lessons in the course</code></pre>
-<section id="editing-the-index.qmd" class="level3">
-<h3 class="anchored" data-anchor-id="editing-the-index.qmd">Editing the <code>index.qmd</code></h3>
+<section id="editing-the-index.qmd" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="editing-the-index.qmd"><span class="header-section-number">2.1</span> Editing the <code>index.qmd</code></h3>
 <p>Edit this file to your heart’s content. You can modify the title in the YAML header, but leave the rest of the header in place. The text of the page is specific to this course. Some boilerplate text is already in place, but you may wish to edit specific learning objectives, schedule, and details about the course book to reflect the needs of the course.</p>
 </section>
-<section id="linking-to-git-and-github" class="level3">
-<h3 class="anchored" data-anchor-id="linking-to-git-and-github">Linking to Git and GitHub</h3>
+<section id="linking-to-git-and-github" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="linking-to-git-and-github"><span class="header-section-number">2.2</span> Linking to Git and GitHub</h3>
 <p>Likely after running <code>setup_course_structure()</code>, the instructor will also see steps to connect this course to Git and GitHub, if not done already:</p>
 <pre><code>This project does not seem to be a Git repository.  You might want to:                                                          
   • Use `usethis::use_git()` to set up your project as a Git-tracked project, and then...
@@ -630,6 +644,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         if (link.dataset.originalHref !== undefined) {
           link.href = link.dataset.originalHref;
         }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
       }
     }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {

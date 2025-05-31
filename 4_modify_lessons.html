@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Modify or add lessons – Learning Hub course dev packages</title>
+<title>Modify or add lessons – Learning Hub Course Development Packages</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -40,8 +40,8 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d166b450ba5a8e9f7a0ab969bf6592c1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-cb1ef3049447f7db4cf1195ab26f18b7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-0b1360af0479f672ace68f00cb592df9.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-e810ca290ad36c8af956a008fdcd8476.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-07468bd472797267334f1d9ca93ea5fc.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -72,14 +72,15 @@ ul.task-list li input[type="checkbox"] {
 <style>
 
       .quarto-title-block .quarto-title-banner {
-        background: blue;
+        background: #44444444;
       }
 </style>
 
 
+<link rel="stylesheet" href="_extensions/nceas-learning-hub/theme/banner/banner.css">
 </head>
 
-<body class="nav-sidebar floating nav-fixed fullcontent">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -87,7 +88,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Learning Hub course dev packages</span>
+    <span class="navbar-title">Learning Hub Course Development Packages</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -257,7 +258,27 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#modifying-an-existing-lesson" id="toc-modifying-an-existing-lesson" class="nav-link active" data-scroll-target="#modifying-an-existing-lesson"><span class="header-section-number">1</span> Modifying an existing lesson</a>
+  <ul class="collapse">
+  <li><a href="#edits-to-the-lesson-.qmd-file" id="toc-edits-to-the-lesson-.qmd-file" class="nav-link" data-scroll-target="#edits-to-the-lesson-.qmd-file"><span class="header-section-number">1.1</span> Edits to the lesson <code>.qmd</code> file</a></li>
+  <li><a href="#changing-or-adding-images" id="toc-changing-or-adding-images" class="nav-link" data-scroll-target="#changing-or-adding-images"><span class="header-section-number">1.2</span> Changing or adding images</a></li>
+  <li><a href="#changing-or-adding-slides-or-data" id="toc-changing-or-adding-slides-or-data" class="nav-link" data-scroll-target="#changing-or-adding-slides-or-data"><span class="header-section-number">1.3</span> Changing or adding slides or data</a></li>
+  </ul></li>
+  <li><a href="#rearranging-lessons" id="toc-rearranging-lessons" class="nav-link" data-scroll-target="#rearranging-lessons"><span class="header-section-number">2</span> Rearranging lessons</a></li>
+  <li><a href="#adding-a-new-lesson" id="toc-adding-a-new-lesson" class="nav-link" data-scroll-target="#adding-a-new-lesson"><span class="header-section-number">3</span> Adding a new lesson</a>
+  <ul class="collapse">
+  <li><a href="#createmodify-a-lesson-file-with-content" id="toc-createmodify-a-lesson-file-with-content" class="nav-link" data-scroll-target="#createmodify-a-lesson-file-with-content"><span class="header-section-number">3.1</span> Create/modify a lesson file with content</a></li>
+  <li><a href="#add-new-lesson-to-course-sequence" id="toc-add-new-lesson-to-course-sequence" class="nav-link" data-scroll-target="#add-new-lesson-to-course-sequence"><span class="header-section-number">3.2</span> Add new lesson to course sequence</a></li>
+  </ul></li>
+  <li><a href="#reorganizing-the-whole-lesson-sequence" id="toc-reorganizing-the-whole-lesson-sequence" class="nav-link" data-scroll-target="#reorganizing-the-whole-lesson-sequence"><span class="header-section-number">4</span> Reorganizing the whole lesson sequence</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
@@ -279,10 +300,10 @@ ul.task-list li input[type="checkbox"] {
 <li>Adding new lessons to a course</li>
 </ul>
 <p>All these are easy, but require knowing a bit about how the <code>{lhCore}</code> and <code>{lhLessons}</code> packages work together.</p>
-<section id="modifying-an-existing-lesson" class="level2">
-<h2 class="anchored" data-anchor-id="modifying-an-existing-lesson">Modifying an existing lesson</h2>
-<section id="edits-to-the-lesson-.qmd-file" class="level3">
-<h3 class="anchored" data-anchor-id="edits-to-the-lesson-.qmd-file">Edits to the lesson <code>.qmd</code> file</h3>
+<section id="modifying-an-existing-lesson" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="modifying-an-existing-lesson"><span class="header-section-number">1</span> Modifying an existing lesson</h2>
+<section id="edits-to-the-lesson-.qmd-file" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="edits-to-the-lesson-.qmd-file"><span class="header-section-number">1.1</span> Edits to the lesson <code>.qmd</code> file</h3>
 <p>The lesson Quarto document is easy and safe to edit. The instructor can modify the title in the yaml header, but probably should leave the rest of the yaml header well enough alone unless they know what they’re doing (e.g., changing numbering, adding a bibliography, other rendering options).</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -299,8 +320,8 @@ Tip
 </div>
 <p>Changing the lesson locally does not affect the lesson in the <code>{lhLessons}</code> package… (but see <code>compare_diffs()</code> and <code>checkin_lessons()</code> for more on that!). Any changes remain local, and will be rendered on the course site when those changes are committed and pushed.</p>
 </section>
-<section id="changing-or-adding-images" class="level3">
-<h3 class="anchored" data-anchor-id="changing-or-adding-images">Changing or adding images</h3>
+<section id="changing-or-adding-images" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="changing-or-adding-images"><span class="header-section-number">1.2</span> Changing or adding images</h3>
 <p>For each lesson that already has images, there is a corresponding folder in the <code>images</code> folder. For example, if the course uses the <code>git_setup</code> lesson, there will be a folder <code>images/git_setup/</code> where all the images for that lesson are stored. If you want to change an image (e.g., replace with a better resolution version, or swap for a different image), replace that file in the corresponding folder, and if you change the filename, update the filename inside the Quarto document as well. Easy!</p>
 <p>If you want to add a new image to a lesson, find the appropriate folder and put the image there, then edit the Quarto document to point toward the proper image location. Easy! NOTE: if you’re adding an image to a lesson that doesn’t currently have any images, you may need to create the corresponding image folder. It is important that the folder name match the lesson name <strong>exactly</strong> (minus the prefix <code>sXX_</code> and extension <code>.qmd</code>).</p>
 <p>If you want to <em>remove</em> an image, just edit the Quarto doc and remove the file from the corresponding images folder. If it’s the last image being removed, maybe delete the corresponding image folder? but not critical!</p>
@@ -318,13 +339,13 @@ Note
 </div>
 </div>
 </section>
-<section id="changing-or-adding-slides-or-data" class="level3">
-<h3 class="anchored" data-anchor-id="changing-or-adding-slides-or-data">Changing or adding slides or data</h3>
+<section id="changing-or-adding-slides-or-data" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="changing-or-adding-slides-or-data"><span class="header-section-number">1.3</span> Changing or adding slides or data</h3>
 <p>Similar to changing or adding images - if a lesson is already associated with lesson-specific data or slides, it will have a corresponding folder in the <code>data</code> or <code>slides</code> folder, yay! Follow the same steps as noted for images.</p>
 </section>
 </section>
-<section id="rearranging-lessons" class="level2">
-<h2 class="anchored" data-anchor-id="rearranging-lessons">Rearranging lessons</h2>
+<section id="rearranging-lessons" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="rearranging-lessons"><span class="header-section-number">2</span> Rearranging lessons</h2>
 <p>Oh noes! You created the course but now realize the flow would work better if the lessons were in a different order! No worries, this is pretty easy.</p>
 <p>First, the prefixes on the lesson files, e.g., <code>s01_r_studio_server_setup.qmd</code> do not determine the order of lessons - they just make it easy to see the files in order in a file browser. The only thing that determines lesson order is inside the <code>_quarto.yml</code> document. In the website sidebar, there is a section called <code>contents:</code> with the index.qmd as the first file, then lessons in order, possibly broken into modules. This is bracketed by <code># START SESSIONS</code> and <code># END SESSIONS</code> in the <code>_quarto.yml</code>.</p>
 <p>For example, contents for a very simple course might look like this:</p>
@@ -355,15 +376,15 @@ Note
       # END SESSIONS</code></pre>
 <p>If the mismatched sequence numbers bug you, feel free to edit them in the <code>_quarto.yml</code> doc and rename the corresponding files, but it is not functionally necessary.</p>
 </section>
-<section id="adding-a-new-lesson" class="level2">
-<h2 class="anchored" data-anchor-id="adding-a-new-lesson">Adding a new lesson</h2>
+<section id="adding-a-new-lesson" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="adding-a-new-lesson"><span class="header-section-number">3</span> Adding a new lesson</h2>
 <p>Adding a new lesson is easy too. Two steps:</p>
 <ul>
 <li>Create (or modify a copy of) a lesson file and add content, including optional images/slides/data.</li>
 <li>Add your new lesson into the <code>_quarto.yml</code> lesson sequence in the appropriate location.</li>
 </ul>
-<section id="createmodify-a-lesson-file-with-content" class="level3">
-<h3 class="anchored" data-anchor-id="createmodify-a-lesson-file-with-content">Create/modify a lesson file with content</h3>
+<section id="createmodify-a-lesson-file-with-content" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="createmodify-a-lesson-file-with-content"><span class="header-section-number">3.1</span> Create/modify a lesson file with content</h3>
 <p>Create a new file, or copy an existing one.</p>
 <ul>
 <li>Give the new file a name that follows the general naming scheme, and add a prefix <code>sXX_</code> where <code>XX</code> is a two-digit number (this prefix is important - it’s a flag that other <code>{lhCore}</code> package functions use to identify lesson files). Note, as for resequencing a lesson, the actual numbers aren’t important except for housekeeping - the actual sequencing is done in the <code>_quarto.yml</code> step that follows.<br>
@@ -373,8 +394,8 @@ Note
 <li>If you include local figures, data, or slides, go to the appropriate folder (‘images’, ‘slides’, ‘data’ - create if not already present in the course root directory) and add a subfolder with the bare name of your lesson (remove the <code>sXX_</code> prefix and <code>.qmd</code> extension). Put your auxiliary files in the subfolder, and link to them from your lesson Quarto file.</li>
 </ul>
 </section>
-<section id="add-new-lesson-to-course-sequence" class="level3">
-<h3 class="anchored" data-anchor-id="add-new-lesson-to-course-sequence">Add new lesson to course sequence</h3>
+<section id="add-new-lesson-to-course-sequence" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="add-new-lesson-to-course-sequence"><span class="header-section-number">3.2</span> Add new lesson to course sequence</h3>
 <p>The <code>_quarto.yml</code> needs to be modified to include the new lesson, in the proper position within the course sequence. Simply edit the file and save it. Using the earlier simple course as an example, if you wanted to add a new lesson at the start of day 2 about setting up Git in VS Code, you’d create a file (in the previous step) called <code>s04_git_vscode_setup.qmd</code> and add it into the sequence (remember, the numbers in the file prefix don’t dictate the sequence of the course):</p>
 <pre><code>    contents:
       - index.qmd # preface
@@ -390,8 +411,8 @@ Note
       # END SESSIONS</code></pre>
 </section>
 </section>
-<section id="reorganizing-the-whole-lesson-sequence" class="level2">
-<h2 class="anchored" data-anchor-id="reorganizing-the-whole-lesson-sequence">Reorganizing the whole lesson sequence</h2>
+<section id="reorganizing-the-whole-lesson-sequence" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="reorganizing-the-whole-lesson-sequence"><span class="header-section-number">4</span> Reorganizing the whole lesson sequence</h2>
 <p>If you wish to scrap the existing lesson sequence and restructure with new lessons, a different order, etc. you can use <code>setup_lessons(..., overwrite = TRUE)</code> with a new vector or dataframe defining a new lesson sequence.</p>
 
 
@@ -646,6 +667,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         if (link.dataset.originalHref !== undefined) {
           link.href = link.dataset.originalHref;
         }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
       }
     }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {

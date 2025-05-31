@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Content guidelines – Learning Hub course dev packages</title>
+<title>Content guidelines – Learning Hub Course Development Packages</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -74,8 +74,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d166b450ba5a8e9f7a0ab969bf6592c1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-cb1ef3049447f7db4cf1195ab26f18b7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-0b1360af0479f672ace68f00cb592df9.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-e810ca290ad36c8af956a008fdcd8476.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-07468bd472797267334f1d9ca93ea5fc.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -106,14 +106,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <style>
 
       .quarto-title-block .quarto-title-banner {
-        background: blue;
+        background: #44444444;
       }
 </style>
 
 
+<link rel="stylesheet" href="_extensions/nceas-learning-hub/theme/banner/banner.css">
 </head>
 
-<body class="nav-sidebar floating nav-fixed fullcontent">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -121,7 +122,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Learning Hub course dev packages</span>
+    <span class="navbar-title">Learning Hub Course Development Packages</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -291,7 +292,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#headers-and-such" id="toc-headers-and-such" class="nav-link active" data-scroll-target="#headers-and-such"><span class="header-section-number">1</span> Headers and such</a></li>
+  <li><a href="#code-formatting" id="toc-code-formatting" class="nav-link" data-scroll-target="#code-formatting"><span class="header-section-number">2</span> Code formatting</a></li>
+  <li><a href="#callouts" id="toc-callouts" class="nav-link" data-scroll-target="#callouts"><span class="header-section-number">3</span> Callouts</a>
+  <ul class="collapse">
+  <li><a href="#standard-callouts" id="toc-standard-callouts" class="nav-link" data-scroll-target="#standard-callouts"><span class="header-section-number">3.1</span> Standard callouts</a></li>
+  <li><a href="#custom-callouts" id="toc-custom-callouts" class="nav-link" data-scroll-target="#custom-callouts"><span class="header-section-number">3.2</span> Custom callouts</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
@@ -300,11 +315,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>See <a href="https://cambiotraining.github.io/quarto-course-template/materials/02-content_guidelines.html" class="uri">https://cambiotraining.github.io/quarto-course-template/materials/02-content_guidelines.html</a> for ideas</p>
-<section id="headers-and-such" class="level2">
-<h2 class="anchored" data-anchor-id="headers-and-such">Headers and such</h2>
+<section id="headers-and-such" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="headers-and-such"><span class="header-section-number">1</span> Headers and such</h2>
 </section>
-<section id="code-formatting" class="level2">
-<h2 class="anchored" data-anchor-id="code-formatting">Code formatting</h2>
+<section id="code-formatting" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="code-formatting"><span class="header-section-number">2</span> Code formatting</h2>
 <ul>
 <li><p>code that needs to be run, identical to what we want to show the reader:</p></li>
 <li><p>code that needs to be run, but is different than we want to show the reader, e.g., reading in a file from a different source than presented in the lesson: <code>#| include: false</code></p></li>
@@ -324,11 +339,11 @@ x &lt;- 3 * 4
 </dd>
 </dl>
 </section>
-<section id="callouts" class="level2">
-<h2 class="anchored" data-anchor-id="callouts">Callouts</h2>
+<section id="callouts" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="callouts"><span class="header-section-number">3</span> Callouts</h2>
 <p>Quarto offers some built-in <a href="https://quarto.org/docs/authoring/callouts.html">callout blocks</a> to set content off against the normal body text. Note that we’ve customized the colors of our callouts to better match our course styling (see the <code>lh_theme</code> extension).</p>
-<section id="standard-callouts" class="level3">
-<h3 class="anchored" data-anchor-id="standard-callouts">Standard callouts</h3>
+<section id="standard-callouts" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="standard-callouts"><span class="header-section-number">3.1</span> Standard callouts</h3>
 <p>There are five built-in callouts signalling different levels of urgency:</p>
 <ul>
 <li>tip <code>{.callout-tip}</code></li>
@@ -405,8 +420,8 @@ Tip
 </div>
 </div>
 </section>
-<section id="custom-callouts" class="level3">
-<h3 class="anchored" data-anchor-id="custom-callouts">Custom callouts</h3>
+<section id="custom-callouts" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="custom-callouts"><span class="header-section-number">3.2</span> Custom callouts</h3>
 <p>There are currently four custom callouts for different types of tasks:</p>
 <ul>
 <li>exercise <code>{.callout-exercise}</code></li>
@@ -741,6 +756,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         if (link.dataset.originalHref !== undefined) {
           link.href = link.dataset.originalHref;
         }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
       }
     }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {

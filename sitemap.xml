@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://nceas-learning-hub.github.io/lh_packages/index.html</loc>
-    <lastmod>2025-05-31T19:04:03.935Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nceas-learning-hub.github.io/lh_packages/7_structure_guide.html</loc>
-    <lastmod>2025-05-31T18:51:35.552Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nceas-learning-hub.github.io/lh_packages/5_update_lessons.html</loc>
-    <lastmod>2025-05-31T18:51:35.552Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nceas-learning-hub.github.io/lh_packages/3_publish_course.html</loc>
-    <lastmod>2025-05-31T18:51:35.551Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nceas-learning-hub.github.io/lh_packages/1_init_course.html</loc>
-    <lastmod>2025-05-31T18:51:35.550Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nceas-learning-hub.github.io/lh_packages/2_setup_lessons.html</loc>
-    <lastmod>2025-05-31T18:51:35.551Z</lastmod>
-  </url>
-  <url>
     <loc>https://nceas-learning-hub.github.io/lh_packages/4_modify_lessons.html</loc>
-    <lastmod>2025-05-31T18:51:35.551Z</lastmod>
+    <lastmod>2025-05-31T19:45:26.467Z</lastmod>
   </url>
   <url>
     <loc>https://nceas-learning-hub.github.io/lh_packages/6_compare_changes_and_checkin.html</loc>
-    <lastmod>2025-05-31T18:51:35.552Z</lastmod>
+    <lastmod>2025-05-31T19:45:26.467Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nceas-learning-hub.github.io/lh_packages/index.html</loc>
+    <lastmod>2025-05-31T19:45:26.470Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nceas-learning-hub.github.io/lh_packages/1_init_course.html</loc>
+    <lastmod>2025-05-31T19:45:26.467Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nceas-learning-hub.github.io/lh_packages/5_update_lessons.html</loc>
+    <lastmod>2025-05-31T19:45:26.467Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nceas-learning-hub.github.io/lh_packages/3_publish_course.html</loc>
+    <lastmod>2025-05-31T19:45:26.467Z</lastmod>
   </url>
   <url>
     <loc>https://nceas-learning-hub.github.io/lh_packages/8_content_guide.html</loc>
-    <lastmod>2025-05-31T18:51:35.552Z</lastmod>
+    <lastmod>2025-05-31T19:45:26.468Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nceas-learning-hub.github.io/lh_packages/7_structure_guide.html</loc>
+    <lastmod>2025-05-31T19:45:26.467Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nceas-learning-hub.github.io/lh_packages/2_setup_lessons.html</loc>
+    <lastmod>2025-05-31T19:45:26.467Z</lastmod>
   </url>
 </urlset>

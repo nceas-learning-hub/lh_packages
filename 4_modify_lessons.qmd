@@ -1,0 +1,126 @@
+---
+title: Modify or add lessons
+---
+
+Frequently while setting up or teaching a course, the instructor makes edits and changes to lessons or a course.  Examples:
+
+* Modifying an existing lesson:
+    * Fixing a typo
+    * Updating code to use newer packages or functions
+    * Rearranging a lesson for clarity or flow
+    * Incorporating a new data set
+    * Adding new images
+* Reordering the sequence of lessons in a course
+* Adding new lessons to a course
+
+All these are easy, but require knowing a bit about how the `{lhCore}` and `{lhLessons}` packages work together.
+
+## Modifying an existing lesson
+
+### Edits to the lesson `.qmd` file
+
+The lesson Quarto document is easy and safe to edit.  The instructor can modify the title in the yaml header, but probably should leave the rest of the yaml header well enough alone unless they know what they're doing (e.g., changing numbering, adding a bibliography, other rendering options).  
+
+::: callout-tip
+See the "Content guidelines" tab for suggestions on formatting e.g., callouts, heading levels, etc. to maintain some semblance of consistency among lesson authors!
+:::
+
+Changing the lesson locally does not affect the lesson in the `{lhLessons}` package... (but see `compare_diffs()` and `checkin_lessons()` for more on that!).  Any changes remain local, and will be rendered on the course site when those changes are committed and pushed.
+
+### Changing or adding images
+
+For each lesson that already has images, there is a corresponding folder in the `images` folder.  For example, if the course uses the `git_setup` lesson, there will be a folder `images/git_setup/` where all the images for that lesson are stored.  If you want to change an image (e.g., replace with a better resolution version, or swap for a different image), replace that file in the corresponding folder, and if you change the filename, update the filename inside the Quarto document as well.  Easy!
+
+If you want to add a new image to a lesson, find the appropriate folder and put the image there, then edit the Quarto document to point toward the proper image location.  Easy!  NOTE: if you're adding an image to a lesson that doesn't currently have any images, you may need to create the corresponding image folder.  It is important that the folder name match the lesson name **exactly** (minus the prefix `sXX_` and extension `.qmd`).
+
+If you want to *remove* an image, just edit the Quarto doc and remove the file from the corresponding images folder.  If it's the last image being removed, maybe delete the corresponding image folder?  but not critical!
+
+::: callout-note
+Because each lesson file corresponds to one folder of images, any images that are shared across multiple lessons will end up being duplicated.  Sure, it's a little redundant, but it helps prevent conflicts where an image is changed for one lesson, but the new image is not correct for the other lesson.
+:::
+
+### Changing or adding slides or data
+
+Similar to changing or adding images - if a lesson is already associated with lesson-specific data or slides, it will have a corresponding folder in the `data` or `slides` folder, yay!  Follow the same steps as noted for images.
+
+## Rearranging lessons
+
+Oh noes!  You created the course but now realize the flow would work better if the lessons were in a different order!  No worries, this is pretty easy.
+
+First, the prefixes on the lesson files, e.g., `s01_r_studio_server_setup.qmd` do not determine the order of lessons - they just make it easy to see the files in order in a file browser.  The only thing that determines lesson order is inside the `_quarto.yml` document.  In the website sidebar, there is a section called `contents:` with the index.qmd as the first file, then lessons in order, possibly broken into modules.  This is bracketed by `# START SESSIONS` and `# END SESSIONS` in the `_quarto.yml`.
+
+For example, contents for a very simple course might look  like this:
+
+```
+<... other stuff ...>
+    contents:
+      - index.qmd # preface
+      # START SESSIONS
+      - section: "Day 1"
+        contents:
+        - s01_r_rstudio_server_setup.qmd
+        - s02_git_setup.qmd
+      - section: "Day 2"
+        contents:
+        - s03_github_introduction.qmd
+      # END SESSIONS
+<... other stuff ...>
+```
+
+To reorder, you can just move the corresponding file into its new position in the sequence, without changing its prefix (the filename still needs to match the file!).  If you have defined modules, make sure the lesson sequence falls into the proper modules.  For example, to move the GitHub intro lesson to just before the Git setup lesson, and move the Git setup to day 2:
+
+```
+    contents:
+      - index.qmd # preface
+      # START SESSIONS
+      - section: "Day 1"
+        contents:
+        - s01_r_rstudio_server_setup.qmd
+        - s03_github_introduction.qmd    ### moved up
+      - section: "Day 2"
+        contents:
+        - s02_git_setup.qmd              ### moved down
+      # END SESSIONS
+```
+
+If the mismatched sequence numbers bug you, feel free to edit them in the `_quarto.yml` doc and rename the corresponding files, but it is not functionally necessary.
+
+## Adding a new lesson
+
+Adding a new lesson is easy too.  Two steps:
+
+* Create (or modify a copy of) a lesson file and add content, including optional images/slides/data.
+* Add your new lesson into the `_quarto.yml` lesson sequence in the appropriate location.
+
+### Create/modify a lesson file with content
+
+Create a new file, or copy an existing one.
+
+* Give the new file a name that follows the general naming scheme, and add a prefix `sXX_` where `XX` is a two-digit number (this prefix is important - it's a flag that other `{lhCore}` package functions use to identify lesson files).  Note, as for resequencing a lesson, the actual numbers aren't important except for housekeeping - the actual sequencing is done in the `_quarto.yml` step that follows.  
+* Format-wise, have a yaml header with a title (this gets printed in the lesson sidebar menu and at the top).
+* Follow all the style guidelines for headers, callouts, etc. to keep consistency with existing lessons.
+* If you include local figures, data, or slides, go to the appropriate folder ('images', 'slides', 'data' - create if not already present in the course root directory) and add a subfolder with the bare name of your lesson (remove the `sXX_` prefix and `.qmd` extension).  Put your auxiliary files in the subfolder, and link to them from your lesson Quarto file.
+
+### Add new lesson to course sequence
+
+The `_quarto.yml` needs to be modified to include the new lesson, in the proper position within the course sequence.  Simply edit the file and save it.  Using the earlier simple course as an example, if you wanted to add a new lesson at the start of day 2 about setting up Git in VS Code, you'd create a file (in the previous step) called `s04_git_vscode_setup.qmd` and add it into the sequence (remember, the numbers in the file prefix don't dictate the sequence of the course):
+
+```
+    contents:
+      - index.qmd # preface
+      # START SESSIONS
+      - section: "Day 1"
+        contents:
+        - s01_r_rstudio_server_setup.qmd
+        - s02_git_setup.qmd
+      - section: "Day 2"
+        contents:
+        - s04_git_vscode_setup.qmd     ### New lesson added into sequence
+        - s03_github_introduction.qmd
+      # END SESSIONS
+```
+
+## Reorganizing the whole lesson sequence
+
+If you wish to scrap the existing lesson sequence and restructure with new lessons, a different order, etc. you can use `setup_lessons(..., overwrite = TRUE)` with a new vector or dataframe defining a new lesson sequence.
+

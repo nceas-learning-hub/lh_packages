@@ -12,14 +12,10 @@ execute:
   freeze: auto
 
 format:
-  html:
-    theme:
-       light: _extensions/nceas-learning-hub/theme/theme_light.scss
-       dark: _extensions/nceas-learning-hub/theme/theme_dark.scss
-    title-block-banner: "blue" ### need this here to "turn on" the title-block-banner
+  theme-html
 
 website:
-  title: "lh_packages (... course dates ...)"
+  title: "Learning Hub Course Development Packages"
   reader-mode: false
   repo-url: https://github.com/nceas-learning-hub/lh_packages
 
@@ -50,7 +46,20 @@ website:
     contents:
       - index.qmd # preface
       # START SESSIONS
-      # SESSION_LINKS
+      - section: "Building a course"
+        contents:
+        - 1_init_course.qmd
+        - 2_setup_lessons.qmd
+        - 3_publish_course.qmd
+      - section: "Customizing a course"
+        contents:
+        - 4_modify_lessons.qmd
+        - 5_update_lessons.qmd
+        - 6_compare_changes_and_checkin.qmd
+      - section: "Contributing lessons"
+        contents:
+        - 7_structure_guide.qmd
+        - 8_content_guide.qmd
       # END SESSIONS
 
   page-footer:

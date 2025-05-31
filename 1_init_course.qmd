@@ -1,0 +1,96 @@
+---
+title: Set up course infrastructure
+---
+
+## Initialize the course with `init_course()`
+
+The `init_course()` function is the first step to creating a course.  This sets up a new R project for the course, and saves some metadata about the course in a .csv for later reference.  This function has six arguments, only the first of which is mandatory:
+
+* `course_proj` is the desired name for the course project repository, and will also drive the course's eventual home on the interwebs.  We recommend a format like `yyyy-mm-<course type>`, such as `2024-10-coreR` or `2024-06-delta`.
+* `course_org` is the GitHub organization (or GH user) where the course project will eventually live.  Defaults to `"nceas-learning-hub"`.
+* `course_title` is the title that will show up in the top navbar of the course site.  If left blank, defaults to the same as `course_proj`.
+* `course_desc` is a brief (~ 1 sentence) description of the course content.  This is stored in the course metadata but currently not otherwise used.  If left blank, defaults to the same as `course_title`.
+* `course_dates` is a text field containing the dates of the course, in whatever format.  Course dates show up in the top nav bar of the course site.  If left blank, no dates will be printed.
+* `loc` is the desired location where the new course will be created.  Defaults to the current working directory.  Use caution - if you are currently working in an existing R project, you probably don't want to create the course as a subdirectory of that project (and you'll get a warning)!  If that's the case, some options:
+    * Close the current project; this should leave you in the default location for projects you've set in RStudio.  Then it should be fine to use `loc = '.'` (default).
+    * Keep the current project open, but set `loc = '..'` to create the new course one level up, parallel to your current project.
+    * Define some custom location and set `loc` to that directory.
+    
+After this has been set up, the instructor will see some progress messages and recommended next steps, and then will be prompted to open the new project in a separate RStudio window (y/n).
+
+At this point, there's not much in the project repo.  We'll fix that in the next step!
+    
+::: callout-example
+
+```
+init_course(course_proj = '2024-06-delta', 
+            course_title = 'NCEAS coreR for Delta Science Program', 
+            course_desc = 'As part of a collaboration between NCEAS and the 
+                           Delta Science Program, this course has been adapted 
+                           from NCEAS coreR course, an in-person immersion in R 
+                           programming for environmental data science.',
+                           course_dates = 'June 10 - 13, 2024', loc = '..')
+```
+The instructor will see some messages outlining steps and the resulting metadata:
+
+```
+Recommended next steps: open the new project in RStudio, and then:
+  • Use `setup_course_structure()` to establish the quarto structure and index from a template
+  • and then use `setup_lessons()` to assemble a chosen set of lessons into a course
+Do you wish to open the new project in RStudio? (y/n)
+```
+:::
+
+## Establish course infrastructure with `setup_course_structure()`
+
+Once the basic location for the course project has been established with `init_course()`, the `setup_course_structure()` function copies in the basic files to create a blank course (i.e., no lessons yet).  This function also allows the instructor to choose a pre-set theme template (with a theme-dependent top banner and icons, as well as a theme-specific boilerplate index page).  Only one optional argument:
+
+* `template` selects one of several pre-defined templates (`lh` default for Learning Hub; `delta`, `adc`, `coreR` for specific courses).
+
+::: callout-warning
+The course files will be pulled from the version of `{lhLessons}` package that the instructor currently has installed.  We recommend reinstalling the package (`remotes::install_github('nceas-learning-hub/lhLessons')`) before running this function to make sure you have the latest version!
+:::
+
+
+Here's what gets installed at this step:
+
+* The `_quarto.yml` file that creates the structure of the course site, populated with course info from the `course_metadata.csv` file.
+* An `index.qmd` file with boilerplate text based on the selected template.  This can (and should) be edited to provide specific info on the new course.
+* An `_extensions` folder with CSS information and image files to control the appearance of the site according to the selected template, such as the header bar at the top, font faces, sizes, colors...
+* A `.github` folder with a GitHub Actions workflow to auto-publish the site whenever a new commit is pushed to GitHub (more on this later, see `publish_course()`!)
+
+After this function is run, the instructor will be prompted to make sure they're in the right location, then see some progress text and finally some suggestions on next steps:
+
+```
+To render the course book, restart RStudio to activate the Build tab.
+Recommended next steps: 
+  • Edit the index.qmd to ensure it accurately describes the course
+  • Use `available_lessons()` to see the lesson catalog from the lesson package
+  • Use `setup_lessons(<lessons>)` to install the lessons in the course
+```
+
+### Editing the `index.qmd`
+
+Edit this file to your heart's content.  You can modify the title in the YAML header, but leave the rest of the header in place.  The text of the page is specific to this course.  Some boilerplate text is already in place, but you may wish to edit specific learning objectives, schedule, and details about the course book to reflect the needs of the course.
+
+### Linking to Git and GitHub
+
+Likely after running `setup_course_structure()`, the instructor will also see steps to connect this course to Git and GitHub, if not done already:
+```
+This project does not seem to be a Git repository.  You might want to:                                                          
+  • Use `usethis::use_git()` to set up your project as a Git-tracked project, and then...
+  • Use `usethis::use_github(organisation = 'nceas-learning-hub')` to connect the project with Github!
+```
+
+Follow those directions, answering the prompts after each function call.  Don't overlook the `organisation = 'nceas-learning-hub'` argument (note the British spelling), otherwise it will be linked to your user account.  Additionally, you will need write privileges to the organization for this to work.
+
+::: callout-example
+
+```
+setup_course_structure(template = 'delta')
+```
+The instructor will be prompted to make sure you're installing this in the correct course location:
+```
+Current project = <path>/github/2024-06-delta... Install course structure here? (y/n)
+```
+:::

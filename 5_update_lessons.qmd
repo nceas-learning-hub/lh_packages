@@ -1,0 +1,10 @@
+---
+title: Update lessons
+---
+
+In many cases, an instructor may wish to create a custom course book every time the course is taught, typically with a `yyyy-mm-` date prefix to the course repo.  This allows for course participants to maintain access to the course book exactly as it was taught to them, even years later, even if new versions of the course are entirely different.  Other times, an instructor may wish to create a course book that is used every time the course is taught.  Each philosophy has pros and cons.  But one potential downside in either case is that lessons may become outdated over time.  Perhaps a package version breaks old features, or perhaps a newer package supersedes the functionality of an older package.
+
+The `update_lessons()` function can help with this.  The function scans an existing course (or limits itself to a set of lessons dictated by the instructor), and, depending on the selection of the instructor, can replace older lessons with versions from the most up to date version of the lessons package.  Optionally, the instructor can also revert a lesson to that from an *older* version of the lessons package, by providing an optional version number based on the lessons package history.
+
+Note, only lessons whose bare name (no `sXX_` prefix, no extension) match those in the lessons repository will be updated.  For new lessons, or for lesson files whose name has been modified, no changes or updates will be made.
+

@@ -1,0 +1,12 @@
+---
+title: Compare changes and check in lessons
+---
+
+Once a class has been taught, it is common for many, if not all, of the lessons to have been modified by the instructor.  Many of these changes are simply typo fixes, others may contain more substantial changes to the content of the lesson, still others may implement new ideas about curriculum and pedagogy.  Embedded in all these changes are improvements to the lesson, at least in the instructor's eye.  Being able to compare these changes to other versions of the lesson, discussing the merits and reasoning for changes among the Learning Hub staff, and incorporating the best improvements back into the lessons package will ensure the Learning Hub curriculum continues to improve.
+
+To compare differences between the course version of a lesson and its counterpart in the lessons package, open the course R project and use the `compare_diffs()` function.  This will return (invisibly) a dataframe of all new or changed files (or selected lessons, if supplied as an argument), including the Git rundown of the added/deleted lines.  It also saves in the project root a csv file with these changes (which is ignored by Git).
+
+Ideally, the course instructor would then present these changes to the rest of the Learning Hub staff to decide which changes to keep and which to drop.  If all agree that the changes are worth keeping, the instructor can then continue with the `checkin_lessons()` function.  If there are disagreements, the instructor can modify the lessons (or exclude certain lessons) to address any questions or concerns of other Learning Hub staff.
+
+Once changes have been reviewed, these changes (or a subset, if supplied as an argument) can be pushed back to the lessons repository using the `checkin_lessons()` function.  This will create a new branch in the lessons package repository (not the installed package, but a temp clone of the repo), and copy the changed files (changed lessons, and associated files such as images or Quarto slide folders) over to this branch.  The function then pushes these changes up to GitHub, at which point, the instructor can (assuming code review is complete) merge the changes from the course-specific branch back to the main branch. 
+

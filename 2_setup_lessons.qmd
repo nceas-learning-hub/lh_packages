@@ -1,0 +1,90 @@
+---
+title: Set up lessons
+---
+
+The `{lhCore}` package works with the `{lhLessons}` package to find lessons and copy lesson documentation and auxiliary files (images, slides, datasets) into the course, in an order specified by the instructor, and optionally broken into modules (e.g., by day or by topic).  The function to perform this task is `setup_lessons()`.  Several supporting functions exist to help the instructor: `available_lessons()` and `search_lessons()`.
+
+::: callout-warning
+The course lessons will be pulled from the version of `{lhLessons}` package that the instructor currently has installed.  We recommend reinstalling the package (`remotes::install_github('nceas-learning-hub/lhLessons')`) before running this function to make sure you have the latest version!
+:::
+
+## Finding lessons with `available_lessons()` and `search_lessons()`
+
+To see all available lessons, simply run `available_lessons()`.  It returns a dataframe containing lesson names and the location of the lesson file in the locally-installed instance of the `{lhLessons}` package.  Alternately the instructor can supply a vector of desired lessons to see if they are available (matching full lesson name).
+
+::: callout-example
+```
+x <- available_lessons()
+head(x)
+                                   lesson_file                         lesson
+# 1 <pkg path>/activity_reproducibility_lego.qmd  activity_reproducibility_lego
+# 2                     <pkg path>/git_setup.qmd                      git_setup
+# 3          <pkg path>/github_collaboration.qmd           github_collaboration
+# 4           <pkg path>/github_introduction.qmd            github_introduction
+# 5     <pkg path>/github_project_management.qmd      github_project_management
+# 6             <pkg path>/github_publishing.qmd              github_publishing
+```
+:::
+
+If the instructor wishes to search for lessons related to a topic, the `search_lessons()` functionality allows for partial matching and regex patterns.  The lesson names generally start with a prefix of the overall topic or type of lesson, e.g., `git_`, `github_`, `r_`, `rstudio_` for topics, or `activity_` or `lecture_` for style of lesson.
+
+:::callout-example
+```
+x <- search_lessons('r_')
+head(x)
+                                   lesson_file                       lesson
+# 10 <pkg path>/lecture_github_for_proj_mgmt.qmd lecture_github_for_proj_mgmt
+# 13         <pkg path>/r_data_visualization.qmd         r_data_visualization
+# 14                  <pkg path>/r_functions.qmd                  r_functions
+# 15 <pkg path>/r_geospatial_vector_analysis.qmd r_geospatial_vector_analysis
+# 16          <pkg path>/r_git_install_guide.qmd          r_git_install_guide
+# 17                   <pkg path>/r_packages.qmd                   r_packages
+```
+Note that the first lesson is not about the topic `R` but the search identified a match of `r_` in `lecture_github_fo**r_**proj_mgmt`... regex can be helpful here, e.g., search for `'^r_'` to look for an R prefix specifically!
+:::
+
+## Setting up a sequence of lessons with `setup_lessons`
+
+The instructor can give a sequence of lessons to the `setup_lessons()` function in several ways, depending on complexity or preference:  as a vector of lesson names, as a *named* vector of lesson names (where the names indicate modules), or a data frame containing columns of `module` and `lesson`.  One work flow would be to use Excel or Google Sheets to organize the lessons by module (e.g., day or broad topic) in order, and save that out as a .csv, then read that in.  For a simple course, creating a vector or dataframe (e.g., using `tibble::tribble()`) directly in R may be quicker.
+
+A sample course is available in the `{lhLessons}` package to test the functionality or see the proper format: `lhLessons::default_course`, based on the October 2024 coreR course.
+
+::: callout-example
+```
+x <- lhLessons::default_course
+head(x)
+
+#   module                        lesson
+# 1  Day 1        r_rstudio_server_setup
+# 2  Day 1                     git_setup
+# 3  Day 1    r_programming_introduction
+# 4  Day 1    r_quarto_literate_analysis
+# 5  Day 1 activity_reproducibility_lego
+# 6  Day 2           github_introduction
+```
+:::
+
+Once a lesson dataframe has been created or read in, it can be passed to `setup_lessons()` easily.  A named vector (where element names correspond to module names) works identically to a dataframe (element names can be repeated!). If an unnamed vector is used, lessons will still be sequenced in order, but no modules will be assigned.
+
+When the lesson sequence is put into the `setup_lessons()` function, R will find the file in the `{lhLessons}` package and copy it into the current repo, along with all its auxiliary files, and update the `_quarto.yml` to note the sessions in order.  Note, the lesson names are appended with a prefix to keep them in sequence, e.g., `s01_` - this is notable because other functions will recognize lesson files in the course based on this prefix.  For example, the first lesson in the default course above would show up in a file called `s01_r_rstudio_server_setup.qmd`.
+
+::: callout-example
+```
+### named vector example:
+lesson_vec <- c('Day 1' = 'lesson_vec <- c('Day 1' = 'r_rstudio_server_setup', 'Day 1' = 'git_setup', 
+                'Day 2' = 'github_introduction')', 'Day 1' = 'git_setup', 
+                'Day 2' = 'github_introduction')
+setup_lessons(lesson_vec)
+
+### tribble example:
+lesson_df <- tibble::tribble{
+  ~ module,  ~ lesson,
+   'Day 1', 'r_rstudio_server_setup',
+   'Day 1', 'git_setup',
+   'Day 2', 'github_introduction'
+}
+setup_lessons(lesson_df)
+```
+These will result in an identical two-day course.  After running the function, the instructor will be prompted to make sure they're in the right course.
+:::
+

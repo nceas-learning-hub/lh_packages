@@ -1,0 +1,26 @@
+---
+title: Publish the course
+---
+
+Once a course has been initialized (`init_course()`) and the structure created (`setup_course_structure()`), the course can be published to the web, though the instructor could also do this after setting up the lesson sequence (`setup_lessons()`).
+
+Publishing the course involves four steps:
+
+1. Linking the course repository to GitHub.
+2. Setting up a `gh-pages` branch
+3. Initializing publication using `quarto publish`
+4. Setting up GitHub Actions to auto-publish every time the instructor pushes new material to the `main` branch.
+
+Step 1 may already have been done by the instructor; if not, they will get a warning when trying to use `publish_course()`.  The warning looks like:
+
+```
+This project does not seem to be a Git repository.  You might want to:                                                          
+  • Use `usethis::use_git()` to set up your project as a Git-tracked project, and then...
+  • Use `usethis::use_github(organisation = 'nceas-learning-hub')` to connect the project with Github!
+```
+The instructor should simply follow the given directions, paying attention to the `organisation` (Brit spelling) argument in `use_github()` to make sure they are pointing to the `nceas-learning-hub` GitHub organization (or other desired org) rather than their individual user account.
+
+Steps 2 and 3 are accomplished using the `publish_course()` function.  That function manually creates a `gh-pages` branch if not already present, and connects that to the remote origin.  It then runs the `quarto publish` command in the terminal (with prompting turned off).  Upon execution of this function, R will render the course website in its current state and then push this to GitHub.  The `publish_course()` function only needs to be run one time to make the initial connection.
+
+Step 4 is implemented in the `setup_course_structure()` function, where the GHA workflow is installed in the project directory.  This workflow script directs GitHub to automatically update the `gh-pages` branch whenever changes to course material are pushed back to `main` branch.
+

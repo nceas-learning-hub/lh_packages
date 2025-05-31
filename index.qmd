@@ -1,5 +1,5 @@
 ---
-title: About the course
+title: "The `{lhCore}` package"
 format:
   theme-html:
     toc: false
@@ -10,47 +10,66 @@ format:
 :::
 
 
-## NCEAS Expertise
+## Course development with `{lhCore}` {.unnumbered}
 
-The [National Center for Ecological Analysis and Synthesis (NCEAS)](https://www.nceas.ucsb.edu/), a research affiliate of UCSB, is a leading expert on interdisciplinary data science and works collaboratively to answer the world's largest and most complex questions. The NCEAS approach leverages existing data and employs a team science philosophy to squeeze out all potential insights and solutions efficiently - this is called [synthesis science](https://www.nceas.ucsb.edu/our-approach).
+The `{lhCore}` package (and its sister package, `{lhLessons}`) were developed to make it easy for a course designer/instructor to set up a course using materials from the NCEAS Learning Hub.
 
-NCEAS has over 25 years of success with this model among working groups and environmental professionals. Together with the Delta Science Program and the Delta Stewardship Council we are excited to pass along skills, workflows, mindsets learn throughout the years.
+:::{.callout-note}
+### To install:
 
-
-:::{.callout-tip}
-### Learning Objectives
--   Effectively manage data using `tidy` data practices
--   Implement reproducible scientific workflows throughout all aspects of a project
--   Establish best practices and utilize tools like Git & GitHub to optimize your collaboration
--   Better communicate scientific analyses and results using Markdown, GitHub webpages, and R packages like `ggplot2` and `Shiny`
-- Increase your familiarity and confidence with data science tools
+You will need to install both `{lhCore}` (for functionality) and `{lhLessons}` (for content):
+```r
+remotes::install_github('nceas-learning-hub/lhCore')
+remotes::install_github('nceas-learning-hub/lhLessons')
+```
 :::
 
-### Week's Schedule
+## What does `{lhCore}` do?
 
-:::{.column-body-outset}
-<!-- ![](images/schedule.png) -->
-:::
+The `{lhCore}` package has a few key functions:
 
+* `init_course()` initializes a course by setting up a new repository and adding some metadata about the course based on instructor input.
+* `setup_course_structure()` creates the skeleton of a Quarto website, with options for selecting a specific theme and index template.
+* `setup_lessons()` copies selected lessons from the `{lhLessons}` package into the course repository and sets up the structure of the course as a Quarto website.
+* `publish_course()` initializes the Quarto site to render to the `gh-pages` branch on GitHub.
 
-## Code of Conduct
+Additional functions to help with setting up a course:
 
-By participating in this activity you agree to abide by the [NCEAS Code of Conduct](https://www.nceas.ucsb.edu/sites/default/files/2021-11/NCEAS_Code-of-Conduct_Nov2021_0.pdf).
+* `update_lessons()` will update lessons (or revert to older ones) based on instructor selection of a version of the `{lhLessons}` package.
+* `available_lessons()` and `search_lessons()` will provide available lesson names based on the installed version of the `{lhLessons}` package.
+* `compare_diffs()` identifies differences between the course versions of lessons and the parent lessons in the `lhLessons` repository, e.g., edits made while teaching the course.
+* `checkin_lessons()` allows the instructor to push edited and new lessons back to the [`lhLessons`](https://github.com/nceas-learning-hub/lhLessons) repository, in a branch specific to the instructor's course.  The updates in the branch can then be merged with the `main` branch through a code review process.
 
-## About this book
+## What does `{lhLessons}` do?
 
-These written materials are the result of a continuous and collaborative effort at NCEAS to help researchers make their work more transparent and reproducible. This work began in the early 2000's, and reflects the expertise and diligence of many, many individuals. The primary authors are listed in the citation below, with additional contributors recognized for their role in developing previous iterations of these or similar materials.
+The `{lhLessons}` package doesn't have any functions, but instead houses lessons as Quarto documents, along with templates and support files to construct a course.  Why is this separate from `{lhCore}`?  
 
-This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
-
-**Citation:** Camila Vargas Poulsen & Angel Chen (2024), NCEAS coreR for Delta Science Program, June 2024, NCEAS Learning Hub. URL <https://learning.nceas.ucsb.edu/2024-06-delta>.
-
-**Additional contributors:** Ben Bolker, Amber E. Budden, Julien Brun, Samantha Csik, Halina Do-Linh, Natasha Haycock-Chavez, S. Jeanette Clark, Julie Lowndes, Stephanie Hampton, Matt Jone, Samanta Katz, Erin McLean, Bryce Mecum, Deanna Pennington, Karthik Ram, Jim Regetz, Tracy Teal, Daphne Virlar-Knight, Leah Wasser.
-
-
-
-This is a Quarto book. To learn more about Quarto books visit <https://quarto.org/docs/books>.
-
+* First, it seemed like a good idea to allow the course lesson _content_ to be version-controlled separately from the package containing the _functions._  
+* Second, this allows for other instructors or organizations to create their own lesson content or structure that can play nicely with the `{lhCore}` functionality - for example, if the curriculum for the Delta Stewardship Council diverged from the `{lhCore}` curriculum, we could create a `{deltaLessons}` package to contain different content, and even a different style or format.  
+* Third, it allows an instructor to choose different versions of the content and perhaps update an old course, if the materials for the old course are significantly out of date, using GitHub release tags that refer to different versions of the content related to specific points in time.
 
 
+## Why `{lhCore}`?
 
+### Where we're at
+
+For years NCEAS has been offering courses through the Learning Hub, the Arctic Data Center, the Delta Stewardship Council, and working group workshops, among other efforts.  The course offerings include lessons on collaboration with Git and GitHub, reproducibility with R and RStudio, and fundamental techniques of working with all kinds of data.  As of October 2024, these courses have been built in the [nceas-training](https://github.com/NCEAS/nceas-training) repository of the [NCEAS GitHub organization](https://github.com/NCEAS), with each course built on a separate branch.  These courses are rendered by GitHub actions set up in the [repro-research-course](https://github.com/NCEAS/repro-research-course) repository, where the courses are linked to an NCEAS URL, and archived in the repo.
+
+This system has worked for years, and the lesson offerings have grown organically over time to 116 different `.Rmd`s and `.qmd`s.  But setting up a new course is a little tricky - after establishing a desired curriculum, an instructor needs to manually identify relevant lessons from a long list of files with inconsistent file naming, and then needs to manually set up files to link to these lessons, all within a new branch to avoid affecting other lessons (and to work with the Github actions to publish the course).  The lesson catalog contains duplicates, updated versions, deprecated lessons, etc.  The instructor then frequently has to make edits to the lessons, on that separate branch.  As of this writing, there are 43 separate branches, each likely holding improvements and valuable edits, with no well defined process to thoughtfully incorporate the best of those ideas into the latest and greatest versions of each lesson.
+
+### Where we're going
+
+By setting up a new NCEAS Learning Hub organization, and designing the `{lhCore}` and `{lhLessons}` packages, we can accomplish a few things:
+
+1. Make it far easier to set up a typical Learning Hub training by automating and streamlining many of the setup steps.
+2. Curate the course offerings and try to outline some standards for adding additional course offerings, for consistency.
+3. Use distinct repositories to host each course, rather than branches all held within a single repository.  This seems more in line with how we teach the use of Git and GitHub.
+4. Update course lessons so that old course offerings can be brought into line with current course offerings (or lessons can be reverted to old versions).
+5. Use GitHub Pages to easily and automatically publish courses to the web.
+6. Facilitate post-course review of edits and updates to course materials, to better share wisdom and ideas across the various spokes of the NCEAS Learning Hub.
+
+## Acknowledgments
+
+Julia Stewart Lowndes, Allison Horst, Jenny Bryan...
+
+Tavares, H., van Rongen, M., Cardona, A. (2024). Course Development Guidelines. https://cambiotraining.github.io/quarto-course-template/

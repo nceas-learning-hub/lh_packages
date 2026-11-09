@@ -1,4 +1,4 @@
-local number_exercises = true
+local number_exercises = false
 local hide_answers = false
 local exercises = {}  -- Table to store exercise IDs and titles
 local exercise_counter = 0  -- Global counter for exercises
@@ -27,7 +27,8 @@ function Div(div)
   -- Process callout-exercise divs
   if div.classes:includes("callout-exercise") then
     exercise_counter = exercise_counter + 1
-    local exercise_number = "Exercise " .. exercise_counter  -- Always generate the number
+    -- local exercise_number = "Exercise " .. exercise_counter  -- Always generate the number
+    local exercise_number = "Exercise "  -- Never generate the number
 
     -- Store exercise ID and title if it has an ID starting with "ex-"
     if div.identifier and div.identifier:match("^ex%-") then
@@ -106,6 +107,18 @@ function Div(div)
       collapse = true
     })
   end
+
+  -- Process callout-learning divs
+  if div.classes:includes("callout-learning") then
+    return quarto.Callout({
+      type = "learning",
+      content = { div },
+      title = "Learning Objectives",
+      icon = false,
+      collapse = false
+    })
+  end
+
 end
 
 -- Replace cross-references in Pandoc elements

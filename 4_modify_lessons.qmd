@@ -39,15 +39,15 @@ If you want to *remove* an image, just edit the Quarto doc and remove the file f
 Because each lesson file corresponds to one folder of images, any images that are shared across multiple lessons will end up being duplicated.  Sure, it's a little redundant, but it helps prevent conflicts where an image is changed for one lesson, but the new image is not correct for the other lesson.
 :::
 
-### Changing or adding slides or data
+### Changing or adding slides, data, or resources
 
-Similar to changing or adding images - if a lesson is already associated with lesson-specific data or slides, it will have a corresponding folder in the `data` or `slides` folder, yay!  Follow the same steps as noted for images.
+Similar to changing or adding images - if a lesson is already associated with lesson-specific data or slides, it will have a corresponding folder in the `data`, `slides`, or `resources` folder, yay!  Follow the same steps as noted for images.
 
 ## Rearranging lessons
 
 Oh noes!  You created the course but now realize the flow would work better if the lessons were in a different order!  No worries, this is pretty easy.
 
-First, the prefixes on the lesson files, e.g., `s01_r_studio_server_setup.qmd` do not determine the order of lessons - they just make it easy to see the files in order in a file browser.  The only thing that determines lesson order is inside the `_quarto.yml` document.  In the website sidebar, there is a section called `contents:` with the index.qmd as the first file, then lessons in order, possibly broken into modules.  This is bracketed by `# START SESSIONS` and `# END SESSIONS` in the `_quarto.yml`.
+First, the prefixes on the lesson files, e.g., `s01_r_studio_server_setup.qmd` do not determine the order of lessons - they just make it easy to see the files in order in a file browser.  The only thing that determines lesson order is inside the `_quarto.yml` document.  In the website sidebar, there is a section called `contents:` with the index.qmd as the first file, then lessons in order, possibly broken into modules.  This is bracketed by `# START SESSIONS` and `# END SESSIONS` in the `_quarto.yml`.  (Before lessons are set up, a `# SESSION_LINKS` placeholder between these markers is what `setup_lessons()` replaces with the lesson sequence.)
 
 For example, contents for a very simple course might look  like this:
 
@@ -99,7 +99,7 @@ Create a new file, or copy an existing one.
 * Give the new file a name that follows the general naming scheme, and add a prefix `sXX_` where `XX` is a two-digit number (this prefix is important - it's a flag that other `{lhCore}` package functions use to identify lesson files).  Note, as for resequencing a lesson, the actual numbers aren't important except for housekeeping - the actual sequencing is done in the `_quarto.yml` step that follows.  
 * Format-wise, have a yaml header with a title (this gets printed in the lesson sidebar menu and at the top).
 * Follow all the style guidelines for headers, callouts, etc. to keep consistency with existing lessons.
-* If you include local figures, data, or slides, go to the appropriate folder ('images', 'slides', 'data' - create if not already present in the course root directory) and add a subfolder with the bare name of your lesson (remove the `sXX_` prefix and `.qmd` extension).  Put your auxiliary files in the subfolder, and link to them from your lesson Quarto file.
+* If you include local figures, data, or slides, go to the appropriate folder ('images', 'slides', 'data', 'resources' - create if not already present in the course root directory) and add a subfolder with the bare name of your lesson (remove the `sXX_` prefix and `.qmd` extension).  Put your auxiliary files in the subfolder, and link to them from your lesson Quarto file.
 
 ### Add new lesson to course sequence
 
@@ -124,3 +124,6 @@ The `_quarto.yml` needs to be modified to include the new lesson, in the proper 
 
 If you wish to scrap the existing lesson sequence and restructure with new lessons, a different order, etc. you can use `setup_lessons(..., overwrite = TRUE)` with a new vector or dataframe defining a new lesson sequence.
 
+::: callout-warning
+`overwrite = TRUE` is **destructive**.  After confirmation, it deletes all existing lesson `.qmd` files (`sXX_*.qmd`) and the matching lesson folders in `images`, `data`, `slides`, and `resources`, and then installs the new lessons.  Any local edits or customizations to those lessons, including lessons you added yourself that follow the `sXX_` naming, will be permanently lost.  Commit your work to Git first, and consider running `compare_diffs()` and `checkin_lessons()` (see [Compare changes and check in lessons](6_compare_changes_and_checkin.qmd)) to preserve changes worth keeping.
+:::

@@ -6,5 +6,19 @@ In many cases, an instructor may wish to create a custom course book every time 
 
 The `update_lessons()` function can help with this.  The function scans an existing course (or limits itself to a set of lessons dictated by the instructor), and, depending on the selection of the instructor, can replace older lessons with versions from the most up to date version of the lessons package.  Optionally, the instructor can also revert a lesson to that from an *older* version of the lessons package, by providing an optional version number based on the lessons package history.
 
+::: callout-warning
+`update_lessons()` is **destructive**.  It overwrites the matching lesson `.qmd` files and lesson folders in `images`, `data`, `slides`, and `resources` with the versions from the lessons package, permanently discarding any local edits or customizations to those lessons.  Commit your work to Git first, and run `compare_diffs()` to see how your local lessons differ from the lessons package (and `checkin_lessons()` to save changes worth keeping).
+:::
+
 Note, only lessons whose bare name (no `sXX_` prefix, no extension) match those in the lessons repository will be updated.  For new lessons, or for lesson files whose name has been modified, no changes or updates will be made.
 
+## Arguments
+
+`update_lessons()` takes the following arguments:
+
+* `lessons` - a vector of lesson names (bare or with `.qmd` extension) to update.  Default `"all"` updates all course lessons whose bare names match lessons in the lessons package.  If a requested lesson is not found in both the course and the requested version of the lessons package, an error is returned.
+* `pkg` - the lessons package (default `"lhLessons"`).
+* `version` - the version of the lessons package to pull lessons from, given as a commit hash, tag, version, or date.  Default `NULL` pulls the latest version.
+* `org` - the GitHub organization where the lessons package repo lives (default `"nceas-learning-hub"`).
+
+The function installs the requested version of the lessons package from GitHub into a temporary library, prints a warning about overwriting, lists the lessons that will be updated, and asks the instructor to confirm (y/n) before overwriting the course lesson files and their associated folders.  If the update is canceled, nothing is changed.  Afterwards, the package and version recorded for the updated lessons in `metadata_lessons.csv` are updated (a warning is given if that file is missing).  If any selected lessons are already recorded in `metadata_lessons.csv` at the version being installed, a warning notes this.

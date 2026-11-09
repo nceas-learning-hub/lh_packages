@@ -4,9 +4,43 @@ title: Compare changes and check in lessons
 
 Once a class has been taught, it is common for many, if not all, of the lessons to have been modified by the instructor.  Many of these changes are simply typo fixes, others may contain more substantial changes to the content of the lesson, still others may implement new ideas about curriculum and pedagogy.  Embedded in all these changes are improvements to the lesson, at least in the instructor's eye.  Being able to compare these changes to other versions of the lesson, discussing the merits and reasoning for changes among the Learning Hub staff, and incorporating the best improvements back into the lessons package will ensure the Learning Hub curriculum continues to improve.
 
-To compare differences between the course version of a lesson and its counterpart in the lessons package, open the course R project and use the `compare_diffs()` function.  This will return (invisibly) a dataframe of all new or changed files (or selected lessons, if supplied as an argument), including the Git rundown of the added/deleted lines.  It also saves in the project root a csv file with these changes (which is ignored by Git).
+## Comparing with `compare_diffs()`
+
+To compare differences between the course version of a lesson and its counterpart in the lessons package, open the course R project and use the `compare_diffs()` function.  Its arguments are:
+
+* `pkg` - the lessons package (default `"lhLessons"`).
+* `org` - the GitHub organization (or user) where the package lives (default `"nceas-learning-hub"`).
+* `pkg_version` - optional version to compare against: a tag, commit, or version as accepted by the `ref` argument of `remotes::install_github()`.  If both `pkg_version` and `branch` are given, `pkg_version` is used.
+* `branch` - optional branch to compare against.  If both this and `pkg_version` are `NULL`, the default branch of the lessons repository is looked up on GitHub (it is not assumed to be `main`).
+* `prefix` - the expected prefix letter of lesson files (default `"s"`, as in `s01_`).
+* `file_out` - name of the text file, saved in the project root, where the diff results are written (default `git_diff.txt`).
+
+The function installs the lessons package fresh from GitHub into a temporary library (removed afterwards), so the comparison never depends on which version you happen to have installed.  It compares every `sXX_` lesson file in the course (there is no argument to restrict the comparison to selected lessons) to the lesson of the same bare name in the package, using `git diff`.  It returns (invisibly) a dataframe with columns `file_remote`, `file_local`, `result` (the Git rundown of added/deleted lines), and `status` (`0` = no difference, `1` = changed, `2` = new lesson not found in the package).  Note that `file_remote` points into the temporary library, which no longer exists once the function returns.  Messages list the files with changes and the new files detected, and a warning is issued for lessons that appear to be new.
+
+A few things to be aware of:
+
+* Lessons are matched on bare name (e.g., `s02_git_setup.qmd` is compared to `git_setup.qmd`).  If a lesson file was renamed (beyond the prefix), it is assumed to be a new lesson and is not compared.
+* Changes to auxiliary files (images, slides, data) are **not** compared, though changes to the paths of these files inside the lesson file will show up.
+
+## Checking in with `checkin_lessons()`
 
 Ideally, the course instructor would then present these changes to the rest of the Learning Hub staff to decide which changes to keep and which to drop.  If all agree that the changes are worth keeping, the instructor can then continue with the `checkin_lessons()` function.  If there are disagreements, the instructor can modify the lessons (or exclude certain lessons) to address any questions or concerns of other Learning Hub staff.
 
-Once changes have been reviewed, these changes (or a subset, if supplied as an argument) can be pushed back to the lessons repository using the `checkin_lessons()` function.  This will create a new branch in the lessons package repository (not the installed package, but a temp clone of the repo), and copy the changed files (changed lessons, and associated files such as images or Quarto slide folders) over to this branch.  The function then pushes these changes up to GitHub, at which point, the instructor can (assuming code review is complete) merge the changes from the course-specific branch back to the main branch. 
+Once changes have been reviewed, these changes (or a subset) can be pushed back to the lessons repository using the `checkin_lessons()` function.  Its arguments are:
+
+* `lessons` - which lessons to check in.  This can be `NULL` (default; all `sXX_` lessons in the course), a character vector of lesson names (with or without the prefix and `.qmd` extension), or the dataframe returned by `compare_diffs()`, in which case only lessons with changes or new lessons (`status != 0`) are checked in.
+* `pkg` - the lessons package, i.e., the name of its GitHub repository (default `"lhLessons"`).
+* `org` - the GitHub organization where the repository lives (default `"nceas-learning-hub"`).
+* `branch` - the branch to push to.  The default (`NULL`) uses the course project name (the name of the project root folder).
+
+The function first asks the instructor to confirm they are in the right course project, lists the lessons to be checked in, and asks for confirmation.  It then clones the lessons repository to a temporary location (not the installed package), checks out the branch (creating it if it doesn't exist), and copies over the lesson files plus any associated `slides`, `data`, `images`, and `resources` folders.  The staged changes are listed, and the instructor is asked once more to confirm before the function commits, pulls, and pushes to GitHub.  If there are no differences from the repository, the function stops with an error.
+
+At that point, the instructor can (assuming code review is complete) merge the changes from the course-specific branch back to the main branch.
+
+::: callout-example
+```
+diffs <- compare_diffs()
+checkin_lessons(diffs)
+```
+:::
 

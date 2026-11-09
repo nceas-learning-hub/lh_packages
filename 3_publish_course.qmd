@@ -2,25 +2,33 @@
 title: Publish the course
 ---
 
-Once a course has been initialized (`init_course()`) and the structure created (`setup_course_structure()`), the course can be published to the web, though the instructor could also do this after setting up the lesson sequence (`setup_lessons()`).
+Publishing a course website is set up automatically by `init_course()` (see [Set up course infrastructure](1_init_course.qmd)).  When `init_course(setup_github = TRUE)` (the default) is used, the following steps happen:
 
-Publishing the course involves four steps:
+1. The course project is initialized as a Git repository and linked to a new GitHub repository named `course_proj` in the organization `course_org`.
+2. A `.gitignore` is installed and a GitHub Actions workflow (`.github/workflows/`) is copied into the project.
+3. A `gh-pages` branch is created and pushed to the remote origin.
+4. `quarto publish gh-pages --no-prompt` is run to render the site and push the initial version to the `gh-pages` branch.
 
-1. Linking the course repository to GitHub.
-2. Setting up a `gh-pages` branch
-3. Initializing publication using `quarto publish`
-4. Setting up GitHub Actions to auto-publish every time the instructor pushes new material to the `main` branch.
+After this, the GitHub Actions workflow automatically updates the `gh-pages` branch whenever changes to course material are pushed to the `main` branch.
 
-Step 1 may already have been done by the instructor; if not, they will get a warning when trying to use `publish_course()`.  The warning looks like:
+::: callout-note
+The `quarto` command line tool must be available for step 4.  If `quarto publish` fails, `init_course()` issues a warning; re-run with `quiet = FALSE` to see details.
+:::
 
-```
-This project does not seem to be a Git repository.  You might want to:                                                          
-  • Use `usethis::use_git()` to set up your project as a Git-tracked project, and then...
-  • Use `usethis::use_github(organisation = 'nceas-learning-hub')` to connect the project with Github!
-```
-The instructor should simply follow the given directions, paying attention to the `organisation` (Brit spelling) argument in `use_github()` to make sure they are pointing to the `nceas-learning-hub` GitHub organization (or other desired org) rather than their individual user account.
+If the course was initialized with `setup_github = FALSE`, none of these steps are performed.  In that case the instructor must connect the project to Git and GitHub manually, e.g., using `usethis::use_git()` and `usethis::use_github(organisation = 'nceas-learning-hub')` (note the British spelling of `organisation`), and set up publishing separately.  `init_course()` will print reminders of any outstanding Git/GitHub steps.
 
-Steps 2 and 3 are accomplished using the `publish_course()` function.  That function manually creates a `gh-pages` branch if not already present, and connects that to the remote origin.  It then runs the `quarto publish` command in the terminal (with prompting turned off).  Upon execution of this function, R will render the course website in its current state and then push this to GitHub.  The `publish_course()` function only needs to be run one time to make the initial connection.
+## When the GitHub Action fails: render locally first
 
-Step 4 is implemented in the `setup_course_structure()` function, where the GHA workflow is installed in the project directory.  This workflow script directs GitHub to automatically update the `gh-pages` branch whenever changes to course material are pushed back to `main` branch.
+::: callout-warning
+The most common reason the publishing GitHub Action fails is lessons containing functional code (e.g., `{r}` code chunks) that have not been rendered locally.  The GitHub Action does not run the lesson code itself; it relies on the stored results in the `_freeze` directory.
+:::
 
+The course is set to `freeze: auto` in `_quarto.yml`, so when a lesson is rendered, its code results are stored in the `_freeze` directory, and are only re-computed when the lesson source changes.  If a lesson with functional code is added or modified and pushed to GitHub without a current set of frozen results, the Action has nothing to use and the build fails.
+
+Before pushing new or modified lessons:
+
+1. Render the whole project locally (e.g., click *Render* in the Build tab, or run `quarto render` in the terminal).
+2. Check that the render completes without errors.
+3. Commit and push the changes, **including the updated `_freeze` directory**, along with the lesson files.
+
+The `docs` folder created by the local render does not need to be committed; it is ignored by Git, and the Action publishes the site to the `gh-pages` branch itself.

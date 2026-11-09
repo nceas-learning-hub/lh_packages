@@ -4,10 +4,6 @@ categories: [template]
 description: "Blank template showing structure and style for contributing new lessons."
 ---
 
-<!--
-Prerequisite lessons or suggestions here
--->
-
 :::{.callout-learning}
 After completing this session, you will be able to:
 
@@ -17,8 +13,3 @@ After completing this session, you will be able to:
 ## Overview
 
 Brief overview of lesson
-
-## Use level 2 headers for sections
-
-Visit https://nceas-learning-hub.github.io/lh_packages/ for information on contributing new lessons, content guidelines, and style guide.
-

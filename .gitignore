@@ -10,3 +10,4 @@
 docs/
 # ignore git_diff.txt potentially created by check_diffs() function
 git_diff.txt
+.positai

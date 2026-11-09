@@ -12,7 +12,7 @@ format:
 
 ## Course development with `{lhCore}` {.unnumbered}
 
-The `{lhCore}` package (and its sister package, `{lhLessons}`) were developed to make it easy for a course designer/instructor to set up a course using materials from the NCEAS Learning Hub.
+The `{lhCore}` package and its sister package, `{lhLessons}`, were developed to make it easy for a course designer/instructor to set up a course using materials from the NCEAS Learning Hub.
 
 :::{.callout-note}
 ### To install:
@@ -28,21 +28,23 @@ remotes::install_github('nceas-learning-hub/lhLessons')
 
 The `{lhCore}` package has a few key functions:
 
-* `init_course()` initializes a course by setting up a new repository and adding some metadata about the course based on instructor input.
-* `setup_course_structure()` creates the skeleton of a Quarto website, with options for selecting a specific theme and index template.
+* `init_course()` initializes a course by setting up a new repository, including a style template and Quarto website structure, sets up the repository for Git/GitHub functionality, and sets up automatic publication to GitHub Pages.
 * `setup_lessons()` copies selected lessons from the `{lhLessons}` package into the course repository and sets up the structure of the course as a Quarto website.
-* `publish_course()` initializes the Quarto site to render to the `gh-pages` branch on GitHub.
+
+::: callout-note
+The `{lhCore}` functions that create or change a course (`init_course()`, `setup_lessons()`, `update_lessons()`, `checkin_lessons()`) are designed to be run interactively, from the R console, because they ask for confirmation along the way.  Running them from a script or other non-interactive session produces an error (unless the option `lhCore.allow_noninteractive` is set to `TRUE`).
+:::
 
 Additional functions to help with setting up a course:
 
 * `update_lessons()` will update lessons (or revert to older ones) based on instructor selection of a version of the `{lhLessons}` package.
-* `available_lessons()` and `search_lessons()` will provide available lesson names based on the installed version of the `{lhLessons}` package.
-* `compare_diffs()` identifies differences between the course versions of lessons and the parent lessons in the `lhLessons` repository, e.g., edits made while teaching the course.
+* `search_lessons()` provides available lesson names (searchable by name or by topic tag) based on the installed version of the `{lhLessons}` package.
+* `compare_diffs()` identifies differences between the course versions of lessons and the parent lessons in the `lhLessons` repository, e.g., edits made while teaching the course or new lessons created for the course.
 * `checkin_lessons()` allows the instructor to push edited and new lessons back to the [`lhLessons`](https://github.com/nceas-learning-hub/lhLessons) repository, in a branch specific to the instructor's course.  The updates in the branch can then be merged with the `main` branch through a code review process.
 
 ## What does `{lhLessons}` do?
 
-The `{lhLessons}` package doesn't have any functions, but instead houses lessons as Quarto documents, along with templates and support files to construct a course.  Why is this separate from `{lhCore}`?  
+The `{lhLessons}` package has essentially no user-facing functionality (just a couple of minor helper functions), but instead houses lessons as Quarto documents, along with templates and support files to construct a course.  Why is this separate from `{lhCore}`?  
 
 * First, it seemed like a good idea to allow the course lesson _content_ to be version-controlled separately from the package containing the _functions._  
 * Second, this allows for other instructors or organizations to create their own lesson content or structure that can play nicely with the `{lhCore}` functionality - for example, if the curriculum for the Delta Stewardship Council diverged from the `{lhCore}` curriculum, we could create a `{deltaLessons}` package to contain different content, and even a different style or format.  
@@ -55,7 +57,7 @@ The `{lhLessons}` package doesn't have any functions, but instead houses lessons
 
 For years NCEAS has been offering courses through the Learning Hub, the Arctic Data Center, the Delta Stewardship Council, and working group workshops, among other efforts.  The course offerings include lessons on collaboration with Git and GitHub, reproducibility with R and RStudio, and fundamental techniques of working with all kinds of data.  As of October 2024, these courses have been built in the [nceas-training](https://github.com/NCEAS/nceas-training) repository of the [NCEAS GitHub organization](https://github.com/NCEAS), with each course built on a separate branch.  These courses are rendered by GitHub actions set up in the [repro-research-course](https://github.com/NCEAS/repro-research-course) repository, where the courses are linked to an NCEAS URL, and archived in the repo.
 
-This system has worked for years, and the lesson offerings have grown organically over time to 116 different `.Rmd`s and `.qmd`s.  But setting up a new course is a little tricky - after establishing a desired curriculum, an instructor needs to manually identify relevant lessons from a long list of files with inconsistent file naming, and then needs to manually set up files to link to these lessons, all within a new branch to avoid affecting other lessons (and to work with the Github actions to publish the course).  The lesson catalog contains duplicates, updated versions, deprecated lessons, etc.  The instructor then frequently has to make edits to the lessons, on that separate branch.  As of this writing, there are 43 separate branches, each likely holding improvements and valuable edits, with no well defined process to thoughtfully incorporate the best of those ideas into the latest and greatest versions of each lesson.
+This system has worked for years, and the lesson offerings have grown organically over time to over a hundred different `.Rmd`s and `.qmd`s.  But setting up a new course is tricky - after establishing a desired curriculum, an instructor needs to manually identify relevant lessons from a long list of files with inconsistent file naming, and then needs to manually set up files to link to these lessons, all within a new branch to avoid affecting other lessons (and to work with the Github actions to publish the course).  The lesson catalog contains duplicates, updated versions, deprecated lessons, etc.  The instructor then frequently has to make edits to the lessons, on that separate branch.  As of this writing, there are 43 separate branches, each likely holding improvements and valuable edits, with no well defined process to thoughtfully incorporate the best of those ideas into the latest and greatest versions of each lesson.
 
 ### Where we're going
 
@@ -70,6 +72,20 @@ By setting up a new NCEAS Learning Hub organization, and designing the `{lhCore}
 
 ## Acknowledgments
 
-Julia Stewart Lowndes, Allison Horst, Jenny Bryan...
+Lesson style upgrades: Nick J. Lyon, Casey O'Hara, Jim Regetz
 
-Tavares, H., van Rongen, M., Cardona, A. (2024). Course Development Guidelines. https://cambiotraining.github.io/quarto-course-template/
+Custom callouts and style tips: Tavares, H., van Rongen, M., Cardona, A. (2024). Course Development Guidelines. https://cambiotraining.github.io/quarto-course-template/
+
+::: {.panel-tabset}
+### License
+This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
+
+### Citation
+O'Hara, C. (2026). `lhCore`: Resources and Functions to Build a Learning Hub Course. R package version 0.1.0. [https://github.com/nceas-learning-hub/lhCore](https://github.com/nceas-learning-hub/lhCore){.external target="_blank"}.
+
+NCEAS Learning Hub (2026). `lhLessons`: NCEAS Learning Hub Lessons Package. [https://nceas-learning-hub.github.io/lh_packages](https://nceas-learning-hub.github.io/lh_packages/).
+
+### Content Contributors
+Ben Bolker, Julien Brun, Amber E. Budden, Angel Chen, S. Jeanette Clark, Samantha Csik, Halina Do-Linh, Stephanie Hampton, Natasha Haycock-Chavez, Allison Horst, Matt Jones, Samantha Katz, Julie Lowndes, Nick J. Lyon, Erin McLean, Bryce Mecum, Casey O'Hara, Deanna Pennington, Karthik Ram, Jim Regetz, Tracy Teal, Camila Vargas Poulsen, Daphne Virlar-Knight, Leah Wasser
+
+:::

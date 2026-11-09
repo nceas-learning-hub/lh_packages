@@ -1,0 +1,47 @@
+---
+title: "Learning Hub Lessons Catalog"
+format:
+  theme-html:
+    toc: false
+listing:
+  id: all-lessons
+  contents: lessons
+  type: table
+  categories: true
+  sort: "title"
+  fields: [title, description, categories]
+  field-display-names:
+    categories: "Tags"
+  page-size: 15
+---
+
+{{< include _catalog_version.md >}}
+
+This catalog lists the lessons available in the `{lhLessons}` package, which can be assembled into a course with `{lhCore}` (see [Set up lessons](2_setup_lessons.qmd)).  Click a lesson title to read the lesson, or use the tags to filter the table.  The tags are the same ones used by `search_lessons(tags = ...)`.
+
+:::callout-note
+The [National Center for Ecological Analysis and Synthesis (NCEAS)](https://www.nceas.ucsb.edu/){.external target="_blank"}, a research affiliate of UCSB, is a leading expert on interdisciplinary data science and works collaboratively to answer the world's largest and most complex questions. These written materials are the result of a continuous and collaborative effort at NCEAS to help researchers make their work more transparent and reproducible.  This work began in the early 2000's, and reflects the expertise and diligence of many, many individuals.
+:::
+
+::: {.panel-tabset}
+### License
+This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
+
+### Citation
+NCEAS Learning Hub (2026). `lhLessons`: NCEAS Learning Hub Lessons Package. [https://nceas-learning-hub.github.io/lh_packages](https://nceas-learning-hub.github.io/lh_packages/).
+
+### Content Contributors
+Ben Bolker, Julien Brun, Amber E. Budden, Angel Chen, S. Jeanette Clark, Samantha Csik, Halina Do-Linh, Stephanie Hampton, Natasha Haycock-Chavez, Allison Horst, Matt Jones, Samantha Katz, Julie Lowndes, Nick J. Lyon, Erin McLean, Bryce Mecum, Casey O'Hara, Deanna Pennington, Karthik Ram, Jim Regetz, Tracy Teal, Camila Vargas Poulsen, Daphne Virlar-Knight, Leah Wasser
+
+:::
+
+## Lesson Catalog {.unnumbered}
+
+<style>
+#all-lessons table {
+  font-size: 0.6rem;
+}
+</style>
+
+::: {#all-lessons}
+:::

@@ -1,0 +1,3 @@
+### lessons copied from lhLessons for the catalog listing (see lesson_catalog.qmd); never run lesson code
+execute:
+  enabled: false

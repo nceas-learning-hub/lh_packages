@@ -2,7 +2,9 @@
 title: Content guidelines
 ---
 
-See <https://cambiotraining.github.io/quarto-course-template/materials/02-content_guidelines.html> for ideas
+There are some tricks to getting Quarto to display certain information in a helpful way, especially around code.  This document outlines some of those tricks to control how Quarto displays/executes code (or doesn't, as the lesson requires).
+
+See <https://cambiotraining.github.io/quarto-course-template/materials/02-content_guidelines.html> for ideas.
 
 See also the [style guide](9_style_guide.qmd) for suggestions on text case, learning objectives, code chunks, tabsets, images, links, and callout customization.
 
@@ -61,15 +63,14 @@ By the end of this lesson, you will be able to:
 
 ## Code formatting
 
-- code that needs to be run, identical to what we want to show the reader: 
-- code that needs to be run, but is different than we want to show the reader, e.g., reading in a file from a different source than presented in the lesson: `#| include: false`
-
+- code that needs to be run, identical to what we want to show the reader: just write it in a regular R code chunk, and make sure `echo` is not set to `FALSE`.
+- code that needs to be run, but is different than we want to show the reader, e.g., reading in a file from a different source than presented in the lesson: `#| include: false` - this lets the chunk execute, but conceals the code.  If you want the reader to see different code, use a non-executing code chunk - one of the options below.
 - code that doesn't need to be run: enclose in code block fence with language name next to it for syntax highlighting (e.g., ```` ```r```` instead of in curly braces ```` ```{r}```` used for a functioning code block!).
-- code that shouldn't run but you want to show the code chunk header and footer along with the code, begin with a double-curly-bracket r in the header: ```` ```{{r}}````
-- optional, use footnotes by including `# <1>` at the end of a line, then a `1. footnote text here` - this works in functional code or non-functional code!
+- code that should not execute but you want to show the code chunk header and footer along with the code, begin with a double-curly-bracket r in the header: ```` ```{{{r}}}````.  Use this when you want to show the reader how to write an actual code chunk, possibly including options in the header portion.
+- optional, use footnotes by including `# <1>` at the end of a line, then a `1. footnote text here` immediately after the code chunk (similar for `# <2>` etc.).  This works in functional code or non-functional code!
 
 :::callout-example
-Example of a footnote:
+Example of a footnote in a non-executing code chunk that includes R syntax highlighting:
 
 ````{=html}
 <pre><code>```r
@@ -89,15 +90,15 @@ x <- 3 * 4 # <1>
 :::callout-example
 Example of a code chunk (non-executing) that shows the header/footer backticks and curly-braced r.
 ````{=html}
-<pre><code>```{{r}}
+<pre><code>```{{r code-chunk-name-or-whatever}}
 x &lt;- 3 * 4 
 ```
 </code></pre>
 ````
 
-will render like:
+will render (but NOT execute) like:
 
-```{{r}}
+```{{r code-chunk-name-or-whatever}}
 x <- 3 * 4 
 ```
 :::

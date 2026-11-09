@@ -2,17 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.31">
+<meta name="generator" content="quarto-1.11.9">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Set up course infrastructure – Learning Hub Course Development Packages</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -30,21 +36,22 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./logo_lh_hex.png" rel="icon" type="image/png">
+<link href="site_libs/quarto-contrib/quarto-project/nceas-learning-hub/theme/banner/logo_lh_hex.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8ef56b68f8fa1e9d2ba328e99e439f80.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-447e42e69aaa9833c0ba1b986f430b20.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-38308027afb6441827937186ef97688e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-476a495c86dd3119d710ca77b90d2cc6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-38308027afb6441827937186ef97688e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-3382e452922354a0cf7459d1061fb393.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-c61a769cdeecd6008f10c2f6421ea8ec.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-3382e452922354a0cf7459d1061fb393.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -83,7 +90,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="site_libs/quarto-contrib/quarto-project/nceas-learning-hub/theme/banner/banner.css">
 </head>
 
-<body class="nav-sidebar floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-sidebar floating nav-fixed quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -106,6 +113,7 @@ ul.task-list li input[type="checkbox"] {
       for (let i=0; i < toggles.length; i++) {
         const toggle = toggles[i];
         if (toggle) {
+          toggle.setAttribute("aria-checked", alternate ? "true" : "false");
           if (alternate) {
             toggle.classList.add("alternate");
           } else {
@@ -135,13 +143,19 @@ ul.task-list li input[type="checkbox"] {
       manageTransitions('#quarto-margin-sidebar .nav-link', true);
       // Switch the toggles
       setColorSchemeToggle(alternate)
-      // Hack to workaround the fact that safari doesn't
-      // properly recolor the scrollbar when toggling (#1455)
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455).
+    // Not run on load: stylesheets are set before first paint there, and
+    // scrolling would undo the scroll to a URL fragment (#14973).
+    // The one pixel nudge keeps the reader where they were.
+    const refreshSafariScrollbar = () => {
       if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
         manageTransitions("body", false);
-        window.scrollTo(0, 1);
+        const scrollY = window.scrollY;
+        window.scrollTo(0, scrollY > 0 ? scrollY - 1 : 1);
         setTimeout(() => {
-          window.scrollTo(0, 0);
+          window.scrollTo(0, scrollY);
           manageTransitions("body", true);
         }, 40);
       }
@@ -235,6 +249,7 @@ ul.task-list li input[type="checkbox"] {
       // Read the current dark / light value
       let toAlternate = !hasAlternateSentinel();
       toggleColorMode(toAlternate);
+      refreshSafariScrollbar();
       setStyleSentinel(toAlternate);
       toggleGiscusIfUsed(toAlternate, darkModeDefault);
       window.dispatchEvent(new Event('resize'));
@@ -249,15 +264,14 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark" aria-label="Site">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Learning Hub Course Development Packages</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -274,23 +288,24 @@ ul.task-list li input[type="checkbox"] {
     </ul>
   </li>
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/nceas-learning-hub/lh_packages"> <i class="bi bi-github" role="img" aria-label="GitHub">
+    <a class="nav-link active" href="https://github.com/nceas-learning-hub/lh_packages" aria-current="page"> <i class="bi bi-github" role="img" aria-label="GitHub">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <button type="button" role="switch" aria-checked="false" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode" aria-label="Toggle dark mode"><i class="bi"></i></button>
 </div>
+            <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
+  <nav class="quarto-secondary-nav" aria-label="Toolbar">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <a class="flex-grow-1 no-decor" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1 no-decor" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
           <h1 class="quarto-secondary-nav-title">Set up course infrastructure</h1>
         </a>     
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -318,7 +333,7 @@ ul.task-list li input[type="checkbox"] {
   
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto" aria-label="Section">
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
@@ -327,7 +342,7 @@ ul.task-list li input[type="checkbox"] {
         <div class="sidebar-tools-collapse tools-wide">
     <a href="https://www.nceas.ucsb.edu/learning-hub" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-house-door-fill"></i></a>
     <a href="https://twitter.com/ucsb_nceas" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
-    <a href="./nceas-learning-hub.github.io/lh_packages" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+    <a href="https://github.com/nceas-learning-hub/lh_packages" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
 </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
@@ -339,13 +354,10 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Building a course</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-controls="quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-1-label">Building a course</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" aria-labelledby="quarto-sidebar-section-1-label" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./1_init_course.html" class="sidebar-item-text sidebar-link active">
@@ -368,13 +380,10 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Customizing a course</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-controls="quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-2-label">Customizing a course</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" aria-labelledby="quarto-sidebar-section-2-label" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./4_modify_lessons.html" class="sidebar-item-text sidebar-link">
@@ -397,13 +406,10 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Contributing lessons</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-controls="quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-3-label">Contributing lessons</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" aria-labelledby="quarto-sidebar-section-3-label" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./7_structure_guide.html" class="sidebar-item-text sidebar-link">
@@ -416,20 +422,32 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Content guidelines</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./9_style_guide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Style guide</span></a>
+  </div>
+</li>
       </ul>
   </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lesson_catalog.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Learning Hub Lessons Catalog</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
   <li><a href="#initialize-the-course-with-init_course" id="toc-initialize-the-course-with-init_course" class="nav-link active" data-scroll-target="#initialize-the-course-with-init_course"><span class="header-section-number">1</span> Initialize the course with <code>init_course()</code></a></li>
-  <li><a href="#establish-course-infrastructure-with-setup_course_structure" id="toc-establish-course-infrastructure-with-setup_course_structure" class="nav-link" data-scroll-target="#establish-course-infrastructure-with-setup_course_structure"><span class="header-section-number">2</span> Establish course infrastructure with <code>setup_course_structure()</code></a>
+  <li><a href="#what-init_course-installs" id="toc-what-init_course-installs" class="nav-link" data-scroll-target="#what-init_course-installs"><span class="header-section-number">2</span> What <code>init_course()</code> installs</a>
   <ul class="collapse">
   <li><a href="#editing-the-index.qmd" id="toc-editing-the-index.qmd" class="nav-link" data-scroll-target="#editing-the-index.qmd"><span class="header-section-number">2.1</span> Editing the <code>index.qmd</code></a></li>
   <li><a href="#linking-to-git-and-github" id="toc-linking-to-git-and-github" class="nav-link" data-scroll-target="#linking-to-git-and-github"><span class="header-section-number">2.2</span> Linking to Git and GitHub</a></li>
@@ -438,7 +456,7 @@ ul.task-list li input[type="checkbox"] {
 </nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content" tabindex="-1">
 
 
 
@@ -447,58 +465,26 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="initialize-the-course-with-init_course" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="initialize-the-course-with-init_course"><span class="header-section-number">1</span> Initialize the course with <code>init_course()</code></h2>
-<p>The <code>init_course()</code> function is the first step to creating a course. This sets up a new R project for the course, and saves some metadata about the course in a .csv for later reference. This function has six arguments, only the first of which is mandatory:</p>
+<p>The <code>init_course()</code> function is the first step to creating a course. It creates a new R project for the course, saves some metadata about the course in a .csv (<code>metadata_course.csv</code>) for later reference, installs the Quarto website structure and theme template, and (by default) sets up Git/GitHub and automatic publishing. This function has ten arguments, only the first of which is mandatory:</p>
 <ul>
-<li><code>course_proj</code> is the desired name for the course project repository, and will also drive the course’s eventual home on the interwebs. We recommend a format like <code>yyyy-mm-&lt;course type&gt;</code>, such as <code>2024-10-coreR</code> or <code>2024-06-delta</code>.</li>
-<li><code>course_org</code> is the GitHub organization (or GH user) where the course project will eventually live. Defaults to <code>"nceas-learning-hub"</code>.</li>
-<li><code>course_title</code> is the title that will show up in the top navbar of the course site. If left blank, defaults to the same as <code>course_proj</code>.</li>
+<li><code>course_proj</code> is the desired name for the course project repository, and will also drive the course’s eventual home on the interwebs. We recommend a format like <code>yyyy-mm-&lt;course type&gt;</code>, such as <code>2024-10-coreR</code> or <code>2024-06-delta</code>. Characters other than letters, numbers, <code>_</code> and <code>-</code> are replaced with <code>_</code> (with a warning).</li>
+<li><code>course_org</code> is the GitHub organization (or GH user) where the course project will live. Defaults to <code>"nceas-learning-hub"</code>.</li>
+<li><code>course_title</code> is a brief, descriptive title for the course. If left blank, defaults to the same as <code>course_proj</code>.</li>
 <li><code>course_desc</code> is a brief (~ 1 sentence) description of the course content. This is stored in the course metadata but currently not otherwise used. If left blank, defaults to the same as <code>course_title</code>.</li>
-<li><code>course_dates</code> is a text field containing the dates of the course, in whatever format. Course dates show up in the top nav bar of the course site. If left blank, no dates will be printed.</li>
-<li><code>loc</code> is the desired location where the new course will be created. Defaults to the current working directory. Use caution - if you are currently working in an existing R project, you probably don’t want to create the course as a subdirectory of that project (and you’ll get a warning)! If that’s the case, some options:
+<li><code>course_dates</code> is a text field containing the dates of the course, in whatever format. If left blank, no dates will be recorded.</li>
+<li><code>setup_github</code> (default <code>TRUE</code>) initializes the course as a Git-tracked project, makes an initial commit, creates a GitHub repository named <code>course_proj</code> in the organization <code>course_org</code>, and sets up publishing (see <a href="./3_publish_course.html">Publish the course</a>). Set to <code>FALSE</code> to skip these steps and handle Git/GitHub yourself.</li>
+<li><code>template</code> selects the stylistic template, which defines the default index page, banner colors, hex logo, etc.: <code>"lh"</code> (default) for Learning Hub; <code>"adc"</code> for Arctic Data Center; <code>"delta"</code> for Delta Stewardship Council; <code>"corer"</code> for coreR.</li>
+<li><code>package</code> is the lessons package that supplies the Quarto structure and index page files. Defaults to <code>"lhLessons"</code>; currently a placeholder for potential future custom lesson packages.</li>
+<li><code>loc</code> is the desired location where the new course will be created. Defaults to the current working directory. The location must <strong>not</strong> be inside an existing Git repository - this is checked before anything is created, and if it is, <code>init_course()</code> stops with an error. If you are currently working in an existing Git-tracked R project, some options:
 <ul>
 <li>Close the current project; this should leave you in the default location for projects you’ve set in RStudio. Then it should be fine to use <code>loc = '.'</code> (default).</li>
 <li>Keep the current project open, but set <code>loc = '..'</code> to create the new course one level up, parallel to your current project.</li>
 <li>Define some custom location and set <code>loc</code> to that directory.</li>
 </ul></li>
+<li><code>quiet</code> (default <code>TRUE</code>) controls whether progress and diagnostic messages are shown. Set <code>quiet = FALSE</code> to see details.</li>
 </ul>
-<p>After this has been set up, the instructor will see some progress messages and recommended next steps, and then will be prompted to open the new project in a separate RStudio window (y/n).</p>
-<p>At this point, there’s not much in the project repo. We’ll fix that in the next step!</p>
-<div class="callout callout-style-default callout-example no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Example
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
-<div class="callout-example">
-<pre><code>init_course(course_proj = '2024-06-delta', 
-            course_title = 'NCEAS coreR for Delta Science Program', 
-            course_desc = 'As part of a collaboration between NCEAS and the 
-                           Delta Science Program, this course has been adapted 
-                           from NCEAS coreR course, an in-person immersion in R 
-                           programming for environmental data science.',
-                           course_dates = 'June 10 - 13, 2024', loc = '..')</code></pre>
-<p>The instructor will see some messages outlining steps and the resulting metadata:</p>
-<pre><code>Recommended next steps: open the new project in RStudio, and then:
-  • Use `setup_course_structure()` to establish the quarto structure and index from a template
-  • and then use `setup_lessons()` to assemble a chosen set of lessons into a course
-Do you wish to open the new project in RStudio? (y/n)</code></pre>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="establish-course-infrastructure-with-setup_course_structure" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="establish-course-infrastructure-with-setup_course_structure"><span class="header-section-number">2</span> Establish course infrastructure with <code>setup_course_structure()</code></h2>
-<p>Once the basic location for the course project has been established with <code>init_course()</code>, the <code>setup_course_structure()</code> function copies in the basic files to create a blank course (i.e., no lessons yet). This function also allows the instructor to choose a pre-set theme template (with a theme-dependent top banner and icons, as well as a theme-specific boilerplate index page). Only one optional argument:</p>
-<ul>
-<li><code>template</code> selects one of several pre-defined templates (<code>lh</code> default for Learning Hub; <code>delta</code>, <code>adc</code>, <code>coreR</code> for specific courses).</li>
-</ul>
+<p>The function invisibly returns the full path to the new course project. With the default <code>quiet = TRUE</code>, the new project is activated automatically; with <code>quiet = FALSE</code> the instructor is instead prompted (y/n) whether to open the new project. Either way, the instructor is advised to close the current project and open or activate the new course project directly.</p>
+<p>After this step, the course has structure but no lessons. We’ll fix that in the next step!</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -512,50 +498,62 @@ Warning
 <p>The course files will be pulled from the version of <code>{lhLessons}</code> package that the instructor currently has installed. We recommend reinstalling the package (<code>remotes::install_github('nceas-learning-hub/lhLessons')</code>) before running this function to make sure you have the latest version!</p>
 </div>
 </div>
-<p>Here’s what gets installed at this step:</p>
-<ul>
-<li>The <code>_quarto.yml</code> file that creates the structure of the course site, populated with course info from the <code>course_metadata.csv</code> file.</li>
-<li>An <code>index.qmd</code> file with boilerplate text based on the selected template. This can (and should) be edited to provide specific info on the new course.</li>
-<li>An <code>_extensions</code> folder with CSS information and image files to control the appearance of the site according to the selected template, such as the header bar at the top, font faces, sizes, colors…</li>
-<li>A <code>.github</code> folder with a GitHub Actions workflow to auto-publish the site whenever a new commit is pushed to GitHub (more on this later, see <code>publish_course()</code>!)</li>
-</ul>
-<p>After this function is run, the instructor will be prompted to make sure they’re in the right location, then see some progress text and finally some suggestions on next steps:</p>
+<div class="callout callout-style-default callout-example no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Example</span>Example
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div class="callout-example">
+<pre><code>init_course(course_proj = '2024-06-delta', 
+            course_title = 'NCEAS coreR for Delta Science Program', 
+            course_desc = 'As part of a collaboration between NCEAS and the 
+                           Delta Science Program, this course has been adapted 
+                           from NCEAS coreR course, an in-person immersion in R 
+                           programming for environmental data science.',
+            course_dates = 'June 10 - 13, 2024', 
+            template = 'delta',
+            loc = '..')</code></pre>
+<p>With <code>quiet = FALSE</code>, the instructor will see messages outlining the steps and the resulting metadata, and recommended next steps such as:</p>
 <pre><code>To render the course book, restart RStudio to activate the Build tab.
 Recommended next steps: 
   • Edit the index.qmd to ensure it accurately describes the course
-  • Use `available_lessons()` to see the lesson catalog from the lesson package
+  • Use `search_lessons()` to see the lesson catalog from the lesson package
   • Use `setup_lessons(&lt;lessons&gt;)` to install the lessons in the course</code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="what-init_course-installs" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="what-init_course-installs"><span class="header-section-number">2</span> What <code>init_course()</code> installs</h2>
+<p>Course structure is set up internally by <code>init_course()</code> (the helper <code>setup_course_structure()</code> is not exported, so it is not called directly by the instructor). Here’s what gets installed:</p>
+<ul>
+<li><code>metadata_course.csv</code>, holding the course project name, organization, title, description, and dates.</li>
+<li>A <code>_quarto.yml</code> file that creates the structure of the course site, populated with course info from the metadata. It contains placeholders (<code># START SESSIONS</code>, <code># SESSION_LINKS</code>, <code># END SESSIONS</code>) where <code>setup_lessons()</code> will later insert the lesson sequence.</li>
+<li>An <code>index.qmd</code> file with boilerplate text based on the selected template. This can (and should) be edited to provide specific info on the new course.</li>
+<li>An <code>_extensions</code> folder with CSS information and image files to control the appearance of the site according to the selected template, such as the header bar at the top, font faces, sizes, colors…</li>
+<li>Other miscellaneous course files from the lessons package (e.g., a <code>404.qmd</code>).</li>
+<li>If <code>setup_github = TRUE</code>: a <code>.gitignore</code> and a <code>.github</code> folder with a GitHub Actions workflow to auto-publish the site whenever a new commit is pushed to GitHub (see <a href="./3_publish_course.html">Publish the course</a>).</li>
+</ul>
 <section id="editing-the-index.qmd" class="level3" data-number="2.1">
 <h3 data-number="2.1" class="anchored" data-anchor-id="editing-the-index.qmd"><span class="header-section-number">2.1</span> Editing the <code>index.qmd</code></h3>
 <p>Edit this file to your heart’s content. You can modify the title in the YAML header, but leave the rest of the header in place. The text of the page is specific to this course. Some boilerplate text is already in place, but you may wish to edit specific learning objectives, schedule, and details about the course book to reflect the needs of the course.</p>
 </section>
 <section id="linking-to-git-and-github" class="level3" data-number="2.2">
 <h3 data-number="2.2" class="anchored" data-anchor-id="linking-to-git-and-github"><span class="header-section-number">2.2</span> Linking to Git and GitHub</h3>
-<p>Likely after running <code>setup_course_structure()</code>, the instructor will also see steps to connect this course to Git and GitHub, if not done already:</p>
-<pre><code>This project does not seem to be a Git repository.  You might want to:                                                          
+<p>With the default <code>setup_github = TRUE</code>, <code>init_course()</code> handles the Git and GitHub setup. This requires that your Git <code>user.name</code> and <code>user.email</code> are already configured (the function stops with an error otherwise), and that you have write privileges to the GitHub organization.</p>
+<p>If Git/GitHub are not (fully) set up - e.g., <code>setup_github = FALSE</code> - the function checks and prints reminders such as:</p>
+<pre><code>This project does not seem to be a Git repository.  You might want to:
   • Use `usethis::use_git()` to set up your project as a Git-tracked project, and then...
   • Use `usethis::use_github(organisation = 'nceas-learning-hub')` to connect the project with Github!</code></pre>
-<p>Follow those directions, answering the prompts after each function call. Don’t overlook the <code>organisation = 'nceas-learning-hub'</code> argument (note the British spelling), otherwise it will be linked to your user account. Additionally, you will need write privileges to the organization for this to work.</p>
-<div class="callout callout-style-default callout-example no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Example
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
-<div class="callout-example">
-<pre><code>setup_course_structure(template = 'delta')</code></pre>
-<p>The instructor will be prompted to make sure you’re installing this in the correct course location:</p>
-<pre><code>Current project = &lt;path&gt;/github/2024-06-delta... Install course structure here? (y/n)</code></pre>
-</div>
-</div>
-</div>
-</div>
+<p>Follow those directions, answering the prompts after each function call. Don’t overlook the <code>organisation = 'nceas-learning-hub'</code> argument (note the British spelling), otherwise it will be linked to your user account.</p>
 
 
 </section>
@@ -566,15 +564,50 @@ Example
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
     if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-      const a = window.document.createElement('a');
-      a.classList.add('top-right');
-      a.classList.add('quarto-color-scheme-toggle');
-      a.href = "";
-      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const toggle = window.document.createElement('button');
+      toggle.type = "button";
+      toggle.setAttribute("role", "switch");
+      toggle.setAttribute("aria-checked", "false");
+      toggle.classList.add('top-right');
+      toggle.classList.add('quarto-color-scheme-toggle');
+      toggle.setAttribute("aria-label", "Toggle dark mode");
+      toggle.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
       const i = window.document.createElement("i");
       i.classList.add('bi');
-      a.appendChild(i);
-      window.document.body.appendChild(a);
+      toggle.appendChild(i);
+      // Put the toggle in a landmark of its own, so that landmark navigation
+      // can reach it.
+      //
+      // The container is always a fresh direct child of body, and the toggle is
+      // never moved into page furniture that the theme or the author controls.
+      // The toggle is positioned against the page, so any ancestor that
+      // establishes a containing block captures it: a positioned element or a
+      // grid for position: absolute, and transform, filter, will-change or
+      // contain for position: fixed. A direct child of body has none of these
+      // to inherit, and the shift when one appears is silent and visual.
+      //
+      // ARIA says a document should have at most one banner, and axe reports a
+      // duplicate whether or not the banners carry distinct labels. So use a
+      // header when the page has no banner yet, and a named region otherwise.
+      //
+      // A header is a banner wherever it sits, unless it is inside sectioning
+      // content, so this cannot just look at the children of body: a custom
+      // page layout wraps the title block header in a plain div. An explicit
+      // role="banner" always counts.
+      const sectioning = 'article, aside, main, nav, section, [role="article"], [role="complementary"], [role="main"], [role="navigation"], [role="region"]';
+      const hasBanner = Array.from(
+        window.document.querySelectorAll('header:not([role]), [role="banner"]')
+      ).some(function(el) {
+        return el.hasAttribute("role") || el.closest(sectioning) === null;
+      });
+      const container = window.document.createElement(hasBanner ? "div" : "header");
+      if (hasBanner) {
+        container.setAttribute("role", "region");
+        container.setAttribute("aria-label", "Toggle dark mode");
+      }
+      container.classList.add('quarto-color-scheme-toggle-container');
+      container.appendChild(toggle);
+      window.document.body.appendChild(container);
     }
     setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
@@ -626,13 +659,14 @@ Example
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -648,11 +682,30 @@ Example
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
         var filterRegex = new RegExp("https:\/\/nceas-learning-hub\.github\.io\/lh_packages\/");
+      const newWindowLabel = "(opens in a new tab)";
+      const newWindowNoteId = "quarto-ext-newwindow-label";
+      // Links reference one hidden label through aria-describedby, so the
+      // announcement never changes their accessible name.
+      var describeNewWindow = (link) => {
+        if (!window.document.getElementById(newWindowNoteId)) {
+          var newWindowNote = window.document.createElement("span");
+          newWindowNote.id = newWindowNoteId;
+          newWindowNote.hidden = true;
+          newWindowNote.textContent = newWindowLabel;
+          window.document.body.appendChild(newWindowNote);
+        }
+        var describedBy = (link.getAttribute("aria-describedby") || "").split(/\s+/).filter(Boolean);
+        if (!describedBy.includes(newWindowNoteId)) {
+          describedBy.push(newWindowNoteId);
+          link.setAttribute("aria-describedby", describedBy.join(" "));
+        }
+      }
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
       // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      window.quartoDecorateExternalLinks = function (root) {
+     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
       for (var i=0; i<links.length; i++) {
         const link = links[i];
         if (!isInternal(link.href)) {
@@ -666,8 +719,72 @@ Example
             if (link.getAttribute("rel") === null) {
               link.setAttribute("rel", "noopener");
             }
+            describeNewWindow(link);
+          if (!link.classList.contains('no-external-icon')) {
+            // default icon
+            link.classList.add("external");
+          }
         }
       }
+      };
+      window.quartoDecorateExternalLinks(window.document);
+    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+    const hideOnEscAndFocusOut = {
+      name: 'hideOnEscAndFocusOut',
+      defaultValue: true,
+      fn(instance) {
+        const dismiss = () => {
+          // A show scheduled by the trigger delay would otherwise reopen it
+          instance.clearDelayTimeouts();
+          instance.hide();
+        };
+        const onKeyDown = (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+          // except an open reveal.js slide menu, which Esc should close too.
+          // The menu handles keys only when its keyboard option is on.
+          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+            window.Reveal.getConfig().menu?.keyboard !== false;
+          if (!menuHandlesEsc) {
+            event.stopPropagation();
+          }
+          if (instance.popper.contains(window.document.activeElement)) {
+            // Disabled while refocusing so the focus trigger does not reopen it
+            instance.disable();
+            instance.reference.focus();
+            instance.enable();
+          }
+          dismiss();
+        };
+        const onFocusOut = (event) => {
+          const target = event.relatedTarget;
+          if (target && !instance.reference.contains(target) &&
+              !instance.popper.contains(target)) {
+            dismiss();
+          }
+        };
+        // On the trigger too: a click trigger (code-annotations: select) has no
+        // blur handling. Attached for the instance's lifetime so leaving the
+        // trigger also cancels a show still pending on the trigger delay.
+        instance.reference.addEventListener('focusout', onFocusOut);
+        return {
+          onShow() {
+            window.document.addEventListener('keydown', onKeyDown, true);
+            instance.popper.addEventListener('focusout', onFocusOut);
+          },
+          onHide() {
+            window.document.removeEventListener('keydown', onKeyDown, true);
+            instance.popper.removeEventListener('focusout', onFocusOut);
+          },
+          onDestroy() {
+            instance.reference.removeEventListener('focusout', onFocusOut);
+          },
+        };
+      },
+    };
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
       const config = {
         allowHTML: true,
@@ -681,6 +798,7 @@ Example
         interactiveBorder: 10,
         theme: 'quarto',
         placement: 'bottom-start',
+        plugins: [hideOnEscAndFocusOut],
       };
       if (contentFn) {
         config.content = contentFn;
@@ -843,44 +961,54 @@ Example
           const lineIds = lines.map((line) => {
             return targetCell + "-" + line;
           })
-          let top = null;
-          let height = null;
-          let parent = null;
+          // Each band is positioned against its own containing block, which is
+          // not the offsetParent of the lines, so place it from client rects.
+          const placeBand = (band, firstEl, lastEl, codeBlock) => {
+            const container = band.offsetParent;
+            if (container === null) {
+              return;
+            }
+            const containerRect = container.getBoundingClientRect();
+            // Reveal.js scales slides with a transform, so convert client
+            // pixels back to the CSS pixels of the container.
+            const scale = containerRect.height / container.offsetHeight || 1;
+            const firstRect = firstEl.getBoundingClientRect();
+            const lastRect = lastEl.getBoundingClientRect();
+            const top = (firstRect.top - containerRect.top) / scale - container.clientTop + container.scrollTop;
+            const height = (lastRect.bottom - firstRect.top) / scale;
+            band.style.top = top - 2 + "px";
+            band.style.height = height + 4 + "px";
+            if (codeBlock) {
+              // Without the copy button wrapper, the containing block is wider
+              // than the code block, so span the code block explicitly.
+              const blockRect = codeBlock.getBoundingClientRect();
+              band.style.left = (blockRect.left - containerRect.left) / scale - container.clientLeft + container.scrollLeft + "px";
+              band.style.width = blockRect.width / scale + "px";
+            }
+          };
           if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
+            const el = window.document.getElementById(lineIds[0]);
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const parent = el.parentElement.parentElement;
+            // cook up a div (if necessary) and position it
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
             }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
+            placeBand(div, el, lastEl, parent.closest("div.sourceCode") || parent);
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
             }
+            placeBand(gutterDiv, el, lastEl);
             selectedAnnoteEl = annoteEl;
           }
         };
@@ -920,25 +1048,65 @@ Example
           }
         };
       }
-        // Attach click handler to the DT
-        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-        for (const annoteDlNode of annoteDls) {
-          annoteDlNode.addEventListener('click', (event) => {
-            const clickedEl = event.target;
-            if (clickedEl !== selectedAnnoteEl) {
-              unselectCodeLines();
-              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-              if (activeEl) {
-                activeEl.classList.remove('code-annotation-active');
-              }
-              selectCodeLines(clickedEl);
-              clickedEl.classList.add('code-annotation-active');
-            } else {
-              // Unselect the line
-              unselectCodeLines();
-              clickedEl.classList.remove('code-annotation-active');
+        const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
+        for (let i=0; i<annoteTargets.length; i++) {
+          const annoteTarget = annoteTargets[i];
+          const targetCell = annoteTarget.getAttribute("data-target-cell");
+          const targetAnnotation = annoteTarget.getAttribute("data-target-annotation");
+          const contentFn = () => {
+            const content = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+            if (content) {
+              const tipContent = content.cloneNode(true);
+              tipContent.classList.add("code-annotation-tip-content");
+              return tipContent.outerHTML;
             }
-          });
+          }
+          const config = {
+            allowHTML: true,
+            content: contentFn,
+            onShow: (instance) => {
+              selectCodeLines(instance.reference);
+              instance.reference.classList.add('code-annotation-active');
+              window.tippy.hideAll();
+            },
+            onHide: (instance) => {
+              unselectCodeLines();
+              instance.reference.classList.remove('code-annotation-active');
+            },
+            maxWidth: 300,
+            delay: [50, 0],
+            duration: [200, 0],
+            offset: [5, 10],
+            arrow: true,
+            appendTo: function(el) {
+              return el.parentElement.parentElement.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'quarto',
+            placement: 'right',
+            plugins: [hideOnEscAndFocusOut],
+            popperOptions: {
+              modifiers: [
+              {
+                name: 'flip',
+                options: {
+                  flipVariations: false, // true by default
+                  allowedAutoPlacements: ['right'],
+                  fallbackPlacements: ['right', 'top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end', 'left'],
+                },
+              },
+              {
+                name: 'preventOverflow',
+                options: {
+                  mainAxis: false,
+                  altAxis: false
+                }
+              }
+              ]        
+            }      
+          };
+          window.tippy(annoteTarget, config); 
         }
     const findCites = (el) => {
       const parentEl = el.parentElement;
@@ -979,6 +1147,9 @@ Example
     }
   });
   </script>
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollable code","output":"Scrollable output"};
+  </script>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -986,7 +1157,7 @@ Example
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p>Copyright © 2025, NCEAS</p>
+<p>Copyright © 2026, NCEAS</p>
 </div>
     <div class="nav-footer-right">
       &nbsp;

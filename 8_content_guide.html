@@ -2,17 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.31">
+<meta name="generator" content="quarto-1.11.9">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Content guidelines – Learning Hub Course Development Packages</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -65,21 +71,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./logo_lh_hex.png" rel="icon" type="image/png">
+<link href="site_libs/quarto-contrib/quarto-project/nceas-learning-hub/theme/banner/logo_lh_hex.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8ef56b68f8fa1e9d2ba328e99e439f80.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-447e42e69aaa9833c0ba1b986f430b20.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-38308027afb6441827937186ef97688e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-476a495c86dd3119d710ca77b90d2cc6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-38308027afb6441827937186ef97688e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-3382e452922354a0cf7459d1061fb393.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-c61a769cdeecd6008f10c2f6421ea8ec.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-3382e452922354a0cf7459d1061fb393.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -118,7 +125,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="site_libs/quarto-contrib/quarto-project/nceas-learning-hub/theme/banner/banner.css">
 </head>
 
-<body class="nav-sidebar floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-sidebar floating nav-fixed quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -141,6 +148,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       for (let i=0; i < toggles.length; i++) {
         const toggle = toggles[i];
         if (toggle) {
+          toggle.setAttribute("aria-checked", alternate ? "true" : "false");
           if (alternate) {
             toggle.classList.add("alternate");
           } else {
@@ -170,13 +178,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       manageTransitions('#quarto-margin-sidebar .nav-link', true);
       // Switch the toggles
       setColorSchemeToggle(alternate)
-      // Hack to workaround the fact that safari doesn't
-      // properly recolor the scrollbar when toggling (#1455)
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455).
+    // Not run on load: stylesheets are set before first paint there, and
+    // scrolling would undo the scroll to a URL fragment (#14973).
+    // The one pixel nudge keeps the reader where they were.
+    const refreshSafariScrollbar = () => {
       if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
         manageTransitions("body", false);
-        window.scrollTo(0, 1);
+        const scrollY = window.scrollY;
+        window.scrollTo(0, scrollY > 0 ? scrollY - 1 : 1);
         setTimeout(() => {
-          window.scrollTo(0, 0);
+          window.scrollTo(0, scrollY);
           manageTransitions("body", true);
         }, 40);
       }
@@ -270,6 +284,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       // Read the current dark / light value
       let toAlternate = !hasAlternateSentinel();
       toggleColorMode(toAlternate);
+      refreshSafariScrollbar();
       setStyleSentinel(toAlternate);
       toggleGiscusIfUsed(toAlternate, darkModeDefault);
       window.dispatchEvent(new Event('resize'));
@@ -284,15 +299,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark" aria-label="Site">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Learning Hub Course Development Packages</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -309,23 +323,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
   </li>
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/nceas-learning-hub/lh_packages"> <i class="bi bi-github" role="img" aria-label="GitHub">
+    <a class="nav-link active" href="https://github.com/nceas-learning-hub/lh_packages" aria-current="page"> <i class="bi bi-github" role="img" aria-label="GitHub">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <button type="button" role="switch" aria-checked="false" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode" aria-label="Toggle dark mode"><i class="bi"></i></button>
 </div>
+            <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
+  <nav class="quarto-secondary-nav" aria-label="Toolbar">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <a class="flex-grow-1 no-decor" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1 no-decor" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
           <h1 class="quarto-secondary-nav-title">Content guidelines</h1>
         </a>     
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -353,7 +368,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto" aria-label="Section">
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
@@ -362,7 +377,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <div class="sidebar-tools-collapse tools-wide">
     <a href="https://www.nceas.ucsb.edu/learning-hub" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-house-door-fill"></i></a>
     <a href="https://twitter.com/ucsb_nceas" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
-    <a href="./nceas-learning-hub.github.io/lh_packages" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+    <a href="https://github.com/nceas-learning-hub/lh_packages" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
 </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
@@ -374,13 +389,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Building a course</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-controls="quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-1-label">Building a course</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" aria-labelledby="quarto-sidebar-section-1-label" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./1_init_course.html" class="sidebar-item-text sidebar-link">
@@ -403,13 +415,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Customizing a course</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-controls="quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-2-label">Customizing a course</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" aria-labelledby="quarto-sidebar-section-2-label" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./4_modify_lessons.html" class="sidebar-item-text sidebar-link">
@@ -432,13 +441,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Contributing lessons</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-controls="quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-3-label">Contributing lessons</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" aria-labelledby="quarto-sidebar-section-3-label" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./7_structure_guide.html" class="sidebar-item-text sidebar-link">
@@ -451,19 +457,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Content guidelines</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./9_style_guide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Style guide</span></a>
+  </div>
+</li>
       </ul>
   </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lesson_catalog.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Learning Hub Lessons Catalog</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#headers-and-such" id="toc-headers-and-such" class="nav-link active" data-scroll-target="#headers-and-such"><span class="header-section-number">1</span> Headers and such</a></li>
+  <li><a href="#headers-and-such" id="toc-headers-and-such" class="nav-link active" data-scroll-target="#headers-and-such"><span class="header-section-number">1</span> Headers and such</a>
+  <ul class="collapse">
+  <li><a href="#yaml-header" id="toc-yaml-header" class="nav-link" data-scroll-target="#yaml-header"><span class="header-section-number">1.1</span> YAML header</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives"><span class="header-section-number">1.2</span> Learning objectives</a></li>
+  </ul></li>
   <li><a href="#code-formatting" id="toc-code-formatting" class="nav-link" data-scroll-target="#code-formatting"><span class="header-section-number">2</span> Code formatting</a></li>
   <li><a href="#callouts" id="toc-callouts" class="nav-link" data-scroll-target="#callouts"><span class="header-section-number">3</span> Callouts</a>
   <ul class="collapse">
@@ -474,41 +496,146 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content" tabindex="-1">
 
 
 
 
 
 
-<p>See <a href="https://cambiotraining.github.io/quarto-course-template/materials/02-content_guidelines.html" class="uri">https://cambiotraining.github.io/quarto-course-template/materials/02-content_guidelines.html</a> for ideas</p>
+<p>There are some tricks to getting Quarto to display certain information in a helpful way, especially around code. This document outlines some of those tricks to control how Quarto displays/executes code (or doesn’t, as the lesson requires).</p>
+<p>See <a href="https://cambiotraining.github.io/quarto-course-template/materials/02-content_guidelines.html" class="uri">https://cambiotraining.github.io/quarto-course-template/materials/02-content_guidelines.html</a> for ideas.</p>
+<p>See also the <a href="./9_style_guide.html">style guide</a> for suggestions on text case, learning objectives, code chunks, tabsets, images, links, and callout customization.</p>
 <section id="headers-and-such" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="headers-and-such"><span class="header-section-number">1</span> Headers and such</h2>
+<p>The lesson’s <code>title</code> in the YAML header is rendered as the page title (the top-level heading), and the site numbers sections automatically, so in the body of the lesson:</p>
+<ul>
+<li>Do not use a single-<code>#</code> heading; start with <code>##</code> for the main sections of the lesson. (The existing lessons overwhelmingly follow this pattern.)</li>
+<li>Use <code>###</code> and <code>####</code> for subsections and sub-subsections. Try not to go deeper than four levels.</li>
+<li>Don’t type numbers into headings; they are added automatically.</li>
+<li>Keep headings short and descriptive, since they populate the table of contents in the right sidebar.</li>
+<li>Don’t skip levels (e.g., a <code>####</code> directly under a <code>##</code>).</li>
+</ul>
+<section id="yaml-header" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="yaml-header"><span class="header-section-number">1.1</span> YAML header</h3>
+<p>Each lesson needs a <code>title</code>, which is shown in the sidebar menu and at the top of the page. Lessons in the lessons package also commonly include:</p>
+<ul>
+<li><code>categories</code>: a list of topic tags, e.g., <code>categories: [r-basics, lecture, beginner]</code>. These are what the <code>tags</code> argument of <code>search_lessons()</code> matches against, so reuse existing tags where possible.</li>
+<li><code>description</code>: a one-sentence summary of the lesson.</li>
+</ul>
+<pre><code>---
+title: Working in R &amp; RStudio
+categories: [r-basics, lecture, beginner]
+description: "RStudio basics, running code in the Console and scripts, ..."
+---</code></pre>
+</section>
+<section id="learning-objectives" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="learning-objectives"><span class="header-section-number">1.2</span> Learning objectives</h3>
+<p>Open each lesson with a block listing learning objectives, using a <code>{.callout-learning}</code> div (“By the end of this lesson, you will be able to: …”). The theme gives this callout a green style, a brain icon, and the title “Learning Objectives”.</p>
+<p>Write it like this, placed right after the YAML header:</p>
+<pre><code>:::{.callout-learning}
+
+By the end of this lesson, you will be able to:
+
+-   Navigate the basics of the RStudio interface
+-   Run code and basic arithmetic in the Console
+-   Use the Help pages to look up function documentation
+:::</code></pre>
+<p>which will render like:</p>
+<div class="callout callout-style-default callout-learning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Learning</span>Learning Objectives
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div class="callout-learning">
+<p>By the end of this lesson, you will be able to:</p>
+<ul>
+<li>Navigate the basics of the RStudio interface</li>
+<li>Run code and basic arithmetic in the Console</li>
+<li>Use the Help pages to look up function documentation</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
 </section>
 <section id="code-formatting" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="code-formatting"><span class="header-section-number">2</span> Code formatting</h2>
 <ul>
-<li><p>code that needs to be run, identical to what we want to show the reader:</p></li>
-<li><p>code that needs to be run, but is different than we want to show the reader, e.g., reading in a file from a different source than presented in the lesson: <code>#| include: false</code></p></li>
-<li><p>code that doesn’t need to be run: enclose in code block fence with language name next to it for syntax highlighting (e.g., <code>```r</code> instead of in curly braces <code>```{r}</code> used for a functioning code block!).</p></li>
-<li><p>optional, use footnotes by including <code># &lt;1&gt;</code> at the end of a line, then a <code>1. footnote text here</code> - this works in functional code or non-functional code!</p></li>
+<li>code that needs to be run, identical to what we want to show the reader: just write it in a regular R code chunk, and make sure <code>echo</code> is not set to <code>FALSE</code>.</li>
+<li>code that needs to be run, but is different than we want to show the reader, e.g., reading in a file from a different source than presented in the lesson: <code>#| include: false</code> - this lets the chunk execute, but conceals the code. If you want the reader to see different code, use a non-executing code chunk - one of the options below.</li>
+<li>code that doesn’t need to be run: enclose in code block fence with language name next to it for syntax highlighting (e.g., <code>```r</code> instead of in curly braces <code>```{r}</code> used for a functioning code block!).</li>
+<li>code that should not execute but you want to show the code chunk header and footer along with the code, begin with a double-curly-bracket r in the header: <code>```{{r}}</code>. Use this when you want to show the reader how to write an actual code chunk, possibly including options in the header portion.</li>
+<li>optional, use footnotes by including <code># &lt;1&gt;</code> at the end of a line, then a <code>1. footnote text here</code> immediately after the code chunk (similar for <code># &lt;2&gt;</code> etc.). This works in functional code or non-functional code!</li>
 </ul>
-<pre id="annotated-cell-1" class="code-annotation-code"><code>```r
-x &lt;- 3 * 4
+<div class="callout callout-style-default callout-example no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Example</span>Example
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div class="callout-example">
+<p>Example of a footnote in a non-executing code chunk that includes R syntax highlighting:</p>
+<pre><code>```r
+x &lt;- 3 * 4 # &lt;1&gt;
 ```
 1. This is an example of a footnote!</code></pre>
 <p>will render like:</p>
-<div class="sourceCode" id="annotated-cell-2"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-2-1" class="code-annotation-target"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">3</span> <span class="sc">*</span> <span class="dv">4</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-2" data-target-annotation="1">1</dt>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-3"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><button class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="1">1</button><span id="annotated-cell-3-1" class="code-annotation-target"><a href="#annotated-cell-3-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">3</span> <span class="sc">*</span> <span class="dv">4</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<dl class="code-annotation-container-hidden code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-3" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-2" data-code-lines="1" data-code-annotation="1">This is an example of a footnote!</span>
+<span data-code-cell="annotated-cell-3" data-code-lines="1" data-code-annotation="1">This is an example of a footnote!</span>
 </dd>
 </dl>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-example no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Example</span>Example
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div class="callout-example">
+<p>Example of a code chunk (non-executing) that shows the header/footer backticks and curly-braced r.</p>
+<pre><code>```{{r code-chunk-name-or-whatever}}
+x &lt;- 3 * 4 
+```
+</code></pre>
+<p>will render (but NOT execute) like:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r code-chunk-name-or-whatever}</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">3</span> <span class="sc">*</span> <span class="dv">4</span> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="callouts" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="callouts"><span class="header-section-number">3</span> Callouts</h2>
-<p>Quarto offers some built-in <a href="https://quarto.org/docs/authoring/callouts.html">callout blocks</a> to set content off against the normal body text. Note that we’ve customized the colors of our callouts to better match our course styling (see the <code>lh_theme</code> extension).</p>
+<p>Quarto offers some built-in <a href="https://quarto.org/docs/authoring/callouts.html">callout blocks</a> to set content off against the normal body text. Note that we’ve customized the colors of our callouts to better match our course styling (see the <code>nceas-learning-hub/theme</code> extension in <code>_extensions</code>).</p>
 <section id="standard-callouts" class="level3" data-number="3.1">
 <h3 data-number="3.1" class="anchored" data-anchor-id="standard-callouts"><span class="header-section-number">3.1</span> Standard callouts</h3>
 <p>There are five built-in callouts signalling different levels of urgency:</p>
@@ -583,45 +710,46 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Use <code>{.callout-tip}</code> to communicate learning objectives, key points, and helpful tips and tricks.</p>
+<p>Use <code>{.callout-tip}</code> to communicate key points and helpful tips and tricks. (Learning objectives have their own callout; see above.)</p>
 </div>
 </div>
 </section>
 <section id="custom-callouts" class="level3" data-number="3.2">
 <h3 data-number="3.2" class="anchored" data-anchor-id="custom-callouts"><span class="header-section-number">3.2</span> Custom callouts</h3>
-<p>There are currently four custom callouts for different types of tasks:</p>
+<p>There are currently five custom callouts for different types of content:</p>
 <ul>
 <li>exercise <code>{.callout-exercise}</code></li>
 <li>hint <code>{.callout-hint}</code></li>
 <li>answer <code>{.callout-answer}</code></li>
 <li>example <code>{.callout-example}</code></li>
+<li>learning objectives <code>{.callout-learning}</code> (see above)</li>
 </ul>
 <p>These custom callouts work thanks to <a href="https://cambiotraining.github.io/quarto-course-template/materials/02-content_guidelines.html">Tavares, H., van Rongen, M., Cardona, A. (2024). Course Development Guidelines. https://cambiotraining.github.io/quarto-course-template/</a>. Unfortunately, the title is not responsive to the <code>title</code> argument in the callout or to the header-style titling that the built-in callouts can use. The collapse option also seems to be unresponsive currently.</p>
 <div class="callout callout-style-default callout-exercise no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Exercise 1
+<span class="screen-reader-only">Exercise</span>Exercise
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse show">
+<div id="callout-11" class="callout-11-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div class="callout-exercise">
 <p>Use <code>{.callout-exercise}</code> for exercises. The current default numbers exercises within a given page. Click on the <em>hint</em> and <em>answer</em> callouts below to reveal the information in them.</p>
 <div class="callout callout-style-default callout-hint no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Hint
+<span class="screen-reader-only">Hint</span>Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="callout-hint">
 <p>Use <code>{.callout-hint}</code> for hints to the exercise - defaults to <code>collapse=true</code> for obvious reasons. Note they can be nested within an exercise, or stand-alone.</p>
@@ -630,16 +758,16 @@ Hint
 </div>
 </div>
 <div class="callout callout-style-default callout-answer no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Answer
+<span class="screen-reader-only">Answer</span>Answer
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="callout-answer">
 <p>Use <code>{.callout-answer}</code> for answers to the exercise - defaults to <code>collapse=true</code> for obvious reasons. Note they can be nested within an exercise, or stand-alone.</p>
@@ -652,16 +780,16 @@ Answer
 </div>
 </div>
 <div class="callout callout-style-default callout-example no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Example
+<span class="screen-reader-only">Example</span>Example
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse show">
+<div id="callout-12" class="callout-12-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div class="callout-example">
 <p>Use <code>{.callout-example}</code> for examples, e.g., example data or example.</p>
@@ -679,15 +807,50 @@ Example
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
     if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-      const a = window.document.createElement('a');
-      a.classList.add('top-right');
-      a.classList.add('quarto-color-scheme-toggle');
-      a.href = "";
-      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const toggle = window.document.createElement('button');
+      toggle.type = "button";
+      toggle.setAttribute("role", "switch");
+      toggle.setAttribute("aria-checked", "false");
+      toggle.classList.add('top-right');
+      toggle.classList.add('quarto-color-scheme-toggle');
+      toggle.setAttribute("aria-label", "Toggle dark mode");
+      toggle.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
       const i = window.document.createElement("i");
       i.classList.add('bi');
-      a.appendChild(i);
-      window.document.body.appendChild(a);
+      toggle.appendChild(i);
+      // Put the toggle in a landmark of its own, so that landmark navigation
+      // can reach it.
+      //
+      // The container is always a fresh direct child of body, and the toggle is
+      // never moved into page furniture that the theme or the author controls.
+      // The toggle is positioned against the page, so any ancestor that
+      // establishes a containing block captures it: a positioned element or a
+      // grid for position: absolute, and transform, filter, will-change or
+      // contain for position: fixed. A direct child of body has none of these
+      // to inherit, and the shift when one appears is silent and visual.
+      //
+      // ARIA says a document should have at most one banner, and axe reports a
+      // duplicate whether or not the banners carry distinct labels. So use a
+      // header when the page has no banner yet, and a named region otherwise.
+      //
+      // A header is a banner wherever it sits, unless it is inside sectioning
+      // content, so this cannot just look at the children of body: a custom
+      // page layout wraps the title block header in a plain div. An explicit
+      // role="banner" always counts.
+      const sectioning = 'article, aside, main, nav, section, [role="article"], [role="complementary"], [role="main"], [role="navigation"], [role="region"]';
+      const hasBanner = Array.from(
+        window.document.querySelectorAll('header:not([role]), [role="banner"]')
+      ).some(function(el) {
+        return el.hasAttribute("role") || el.closest(sectioning) === null;
+      });
+      const container = window.document.createElement(hasBanner ? "div" : "header");
+      if (hasBanner) {
+        container.setAttribute("role", "region");
+        container.setAttribute("aria-label", "Toggle dark mode");
+      }
+      container.classList.add('quarto-color-scheme-toggle-container');
+      container.appendChild(toggle);
+      window.document.body.appendChild(container);
     }
     setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
@@ -739,13 +902,14 @@ Example
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -761,11 +925,30 @@ Example
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
         var filterRegex = new RegExp("https:\/\/nceas-learning-hub\.github\.io\/lh_packages\/");
+      const newWindowLabel = "(opens in a new tab)";
+      const newWindowNoteId = "quarto-ext-newwindow-label";
+      // Links reference one hidden label through aria-describedby, so the
+      // announcement never changes their accessible name.
+      var describeNewWindow = (link) => {
+        if (!window.document.getElementById(newWindowNoteId)) {
+          var newWindowNote = window.document.createElement("span");
+          newWindowNote.id = newWindowNoteId;
+          newWindowNote.hidden = true;
+          newWindowNote.textContent = newWindowLabel;
+          window.document.body.appendChild(newWindowNote);
+        }
+        var describedBy = (link.getAttribute("aria-describedby") || "").split(/\s+/).filter(Boolean);
+        if (!describedBy.includes(newWindowNoteId)) {
+          describedBy.push(newWindowNoteId);
+          link.setAttribute("aria-describedby", describedBy.join(" "));
+        }
+      }
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
       // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      window.quartoDecorateExternalLinks = function (root) {
+     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
       for (var i=0; i<links.length; i++) {
         const link = links[i];
         if (!isInternal(link.href)) {
@@ -779,8 +962,72 @@ Example
             if (link.getAttribute("rel") === null) {
               link.setAttribute("rel", "noopener");
             }
+            describeNewWindow(link);
+          if (!link.classList.contains('no-external-icon')) {
+            // default icon
+            link.classList.add("external");
+          }
         }
       }
+      };
+      window.quartoDecorateExternalLinks(window.document);
+    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+    const hideOnEscAndFocusOut = {
+      name: 'hideOnEscAndFocusOut',
+      defaultValue: true,
+      fn(instance) {
+        const dismiss = () => {
+          // A show scheduled by the trigger delay would otherwise reopen it
+          instance.clearDelayTimeouts();
+          instance.hide();
+        };
+        const onKeyDown = (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+          // except an open reveal.js slide menu, which Esc should close too.
+          // The menu handles keys only when its keyboard option is on.
+          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+            window.Reveal.getConfig().menu?.keyboard !== false;
+          if (!menuHandlesEsc) {
+            event.stopPropagation();
+          }
+          if (instance.popper.contains(window.document.activeElement)) {
+            // Disabled while refocusing so the focus trigger does not reopen it
+            instance.disable();
+            instance.reference.focus();
+            instance.enable();
+          }
+          dismiss();
+        };
+        const onFocusOut = (event) => {
+          const target = event.relatedTarget;
+          if (target && !instance.reference.contains(target) &&
+              !instance.popper.contains(target)) {
+            dismiss();
+          }
+        };
+        // On the trigger too: a click trigger (code-annotations: select) has no
+        // blur handling. Attached for the instance's lifetime so leaving the
+        // trigger also cancels a show still pending on the trigger delay.
+        instance.reference.addEventListener('focusout', onFocusOut);
+        return {
+          onShow() {
+            window.document.addEventListener('keydown', onKeyDown, true);
+            instance.popper.addEventListener('focusout', onFocusOut);
+          },
+          onHide() {
+            window.document.removeEventListener('keydown', onKeyDown, true);
+            instance.popper.removeEventListener('focusout', onFocusOut);
+          },
+          onDestroy() {
+            instance.reference.removeEventListener('focusout', onFocusOut);
+          },
+        };
+      },
+    };
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
       const config = {
         allowHTML: true,
@@ -794,6 +1041,7 @@ Example
         interactiveBorder: 10,
         theme: 'quarto',
         placement: 'bottom-start',
+        plugins: [hideOnEscAndFocusOut],
       };
       if (contentFn) {
         config.content = contentFn;
@@ -956,44 +1204,54 @@ Example
           const lineIds = lines.map((line) => {
             return targetCell + "-" + line;
           })
-          let top = null;
-          let height = null;
-          let parent = null;
+          // Each band is positioned against its own containing block, which is
+          // not the offsetParent of the lines, so place it from client rects.
+          const placeBand = (band, firstEl, lastEl, codeBlock) => {
+            const container = band.offsetParent;
+            if (container === null) {
+              return;
+            }
+            const containerRect = container.getBoundingClientRect();
+            // Reveal.js scales slides with a transform, so convert client
+            // pixels back to the CSS pixels of the container.
+            const scale = containerRect.height / container.offsetHeight || 1;
+            const firstRect = firstEl.getBoundingClientRect();
+            const lastRect = lastEl.getBoundingClientRect();
+            const top = (firstRect.top - containerRect.top) / scale - container.clientTop + container.scrollTop;
+            const height = (lastRect.bottom - firstRect.top) / scale;
+            band.style.top = top - 2 + "px";
+            band.style.height = height + 4 + "px";
+            if (codeBlock) {
+              // Without the copy button wrapper, the containing block is wider
+              // than the code block, so span the code block explicitly.
+              const blockRect = codeBlock.getBoundingClientRect();
+              band.style.left = (blockRect.left - containerRect.left) / scale - container.clientLeft + container.scrollLeft + "px";
+              band.style.width = blockRect.width / scale + "px";
+            }
+          };
           if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
+            const el = window.document.getElementById(lineIds[0]);
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const parent = el.parentElement.parentElement;
+            // cook up a div (if necessary) and position it
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
             }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
+            placeBand(div, el, lastEl, parent.closest("div.sourceCode") || parent);
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
             }
+            placeBand(gutterDiv, el, lastEl);
             selectedAnnoteEl = annoteEl;
           }
         };
@@ -1033,25 +1291,65 @@ Example
           }
         };
       }
-        // Attach click handler to the DT
-        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-        for (const annoteDlNode of annoteDls) {
-          annoteDlNode.addEventListener('click', (event) => {
-            const clickedEl = event.target;
-            if (clickedEl !== selectedAnnoteEl) {
-              unselectCodeLines();
-              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-              if (activeEl) {
-                activeEl.classList.remove('code-annotation-active');
-              }
-              selectCodeLines(clickedEl);
-              clickedEl.classList.add('code-annotation-active');
-            } else {
-              // Unselect the line
-              unselectCodeLines();
-              clickedEl.classList.remove('code-annotation-active');
+        const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
+        for (let i=0; i<annoteTargets.length; i++) {
+          const annoteTarget = annoteTargets[i];
+          const targetCell = annoteTarget.getAttribute("data-target-cell");
+          const targetAnnotation = annoteTarget.getAttribute("data-target-annotation");
+          const contentFn = () => {
+            const content = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+            if (content) {
+              const tipContent = content.cloneNode(true);
+              tipContent.classList.add("code-annotation-tip-content");
+              return tipContent.outerHTML;
             }
-          });
+          }
+          const config = {
+            allowHTML: true,
+            content: contentFn,
+            onShow: (instance) => {
+              selectCodeLines(instance.reference);
+              instance.reference.classList.add('code-annotation-active');
+              window.tippy.hideAll();
+            },
+            onHide: (instance) => {
+              unselectCodeLines();
+              instance.reference.classList.remove('code-annotation-active');
+            },
+            maxWidth: 300,
+            delay: [50, 0],
+            duration: [200, 0],
+            offset: [5, 10],
+            arrow: true,
+            appendTo: function(el) {
+              return el.parentElement.parentElement.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'quarto',
+            placement: 'right',
+            plugins: [hideOnEscAndFocusOut],
+            popperOptions: {
+              modifiers: [
+              {
+                name: 'flip',
+                options: {
+                  flipVariations: false, // true by default
+                  allowedAutoPlacements: ['right'],
+                  fallbackPlacements: ['right', 'top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end', 'left'],
+                },
+              },
+              {
+                name: 'preventOverflow',
+                options: {
+                  mainAxis: false,
+                  altAxis: false
+                }
+              }
+              ]        
+            }      
+          };
+          window.tippy(annoteTarget, config); 
         }
     const findCites = (el) => {
       const parentEl = el.parentElement;
@@ -1092,6 +1390,9 @@ Example
     }
   });
   </script>
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollable code","output":"Scrollable output"};
+  </script>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -1099,7 +1400,7 @@ Example
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p>Copyright © 2025, NCEAS</p>
+<p>Copyright © 2026, NCEAS</p>
 </div>
     <div class="nav-footer-right">
       &nbsp;

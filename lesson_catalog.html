@@ -1,0 +1,1801 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.11.9">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Learning Hub Lessons Catalog – Learning Hub Course Development Packages</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="site_libs/quarto-contrib/quarto-project/nceas-learning-hub/theme/banner/logo_lh_hex.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-447e42e69aaa9833c0ba1b986f430b20.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-3382e452922354a0cf7459d1061fb393.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-c61a769cdeecd6008f10c2f6421ea8ec.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-3382e452922354a0cf7459d1061fb393.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-all-lessons .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      page: 15,
+    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
+      searchColumns: ["listing-title","listing-author"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-all-lessons'] = new List('listing-all-lessons', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+  </script>
+<style>
+
+      .quarto-title-block .quarto-title-banner {
+        background: #44444444;
+      }
+</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="site_libs/quarto-contrib/quarto-project/nceas-learning-hub/theme/banner/banner.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          toggle.setAttribute("aria-checked", alternate ? "true" : "false");
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455).
+    // Not run on load: stylesheets are set before first paint there, and
+    // scrolling would undo the scroll to a URL fragment (#14973).
+    // The one pixel nudge keeps the reader where they were.
+    const refreshSafariScrollbar = () => {
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        const scrollY = window.scrollY;
+        window.scrollTo(0, scrollY > 0 ? scrollY - 1 : 1);
+        setTimeout(() => {
+          window.scrollTo(0, scrollY);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      refreshSafariScrollbar();
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark" aria-label="Site">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Learning Hub Course Development Packages</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-instructors" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Instructors</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-instructors">    
+        <li>
+    <a class="dropdown-item" href="https://www.oharascience.com/">
+ <span class="dropdown-text">Casey O’Hara</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item compact">
+    <a class="nav-link active" href="https://github.com/nceas-learning-hub/lh_packages" aria-current="page"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <button type="button" role="switch" aria-checked="false" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode" aria-label="Toggle dark mode"><i class="bi"></i></button>
+</div>
+            <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" aria-label="Toolbar">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <a class="flex-grow-1 no-decor" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+          <h1 class="quarto-secondary-nav-title">Learning Hub Lessons Catalog</h1>
+        </a>     
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title d-none d-lg-block">Learning Hub Lessons Catalog</h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto" aria-label="Section">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+        <div class="sidebar-tools-collapse tools-wide">
+    <a href="https://www.nceas.ucsb.edu/learning-hub" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-house-door-fill"></i></a>
+    <a href="https://twitter.com/ucsb_nceas" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
+    <a href="https://github.com/nceas-learning-hub/lh_packages" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+</div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The <code>{lhCore}</code> package</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-controls="quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-1-label">Building a course</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-1" aria-labelledby="quarto-sidebar-section-1-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./1_init_course.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Set up course infrastructure</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./2_setup_lessons.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Set up lessons</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./3_publish_course.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Publish the course</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-controls="quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-2-label">Customizing a course</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-2" aria-labelledby="quarto-sidebar-section-2-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./4_modify_lessons.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Modify or add lessons</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./5_update_lessons.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Update lessons</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./6_compare_changes_and_checkin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Compare changes and check in lessons</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-controls="quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-3-label">Contributing lessons</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-3" aria-labelledby="quarto-sidebar-section-3-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./7_structure_guide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Course rendering</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./8_content_guide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Content guidelines</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./9_style_guide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Style guide</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lesson_catalog.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Learning Hub Lessons Catalog</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(46)</span></div><div class="category" data-category="YWN0aXZpdHk=">activity <span class="quarto-category-count">(5)</span></div><div class="category" data-category="YWR2YW5jZWQ=">advanced <span class="quarto-category-count">(5)</span></div><div class="category" data-category="YXBpcw==">apis <span class="quarto-category-count">(2)</span></div><div class="category" data-category="YmVnaW5uZXI=">beginner <span class="quarto-category-count">(18)</span></div><div class="category" data-category="Y29sbGFib3JhdGlvbg==">collaboration <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Y29tbXVuaWNhdGlvbg==">communication <span class="quarto-category-count">(5)</span></div><div class="category" data-category="Y29tcHV0aW5nLXNldHVw">computing-setup <span class="quarto-category-count">(3)</span></div><div class="category" data-category="ZGFzaGJvYXJkcw==">dashboards <span class="quarto-category-count">(2)</span></div><div class="category" data-category="ZGF0YS1tYW5hZ2VtZW50">data-management <span class="quarto-category-count">(5)</span></div><div class="category" data-category="ZGF0YS12aXN1YWxpemF0aW9u">data-visualization <span class="quarto-category-count">(6)</span></div><div class="category" data-category="ZGF0YS13cmFuZ2xpbmc=">data-wrangling <span class="quarto-category-count">(5)</span></div><div class="category" data-category="ZmFjaWxpdGF0aW9u">facilitation <span class="quarto-category-count">(4)</span></div><div class="category" data-category="ZnVuY3Rpb25z">functions <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Z2l0">git <span class="quarto-category-count">(6)</span></div><div class="category" data-category="Z2l0aHVi">github <span class="quarto-category-count">(9)</span></div><div class="category" data-category="aW50ZXJtZWRpYXRl">intermediate <span class="quarto-category-count">(22)</span></div><div class="category" data-category="bGVjdHVyZQ==">lecture <span class="quarto-category-count">(36)</span></div><div class="category" data-category="bWFjaGluZS1sZWFybmluZw==">machine-learning <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cGFja2FnZXM=">packages <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cGFyYWxsZWwtY29tcHV0aW5n">parallel-computing <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cHJhY3RpY2U=">practice <span class="quarto-category-count">(3)</span></div><div class="category" data-category="cHJvamVjdC1tYW5hZ2VtZW50">project-management <span class="quarto-category-count">(5)</span></div><div class="category" data-category="cHJvdmVuYW5jZQ==">provenance <span class="quarto-category-count">(2)</span></div><div class="category" data-category="cXVhcnRv">quarto <span class="quarto-category-count">(4)</span></div><div class="category" data-category="ci1iYXNpY3M=">r-basics <span class="quarto-category-count">(2)</span></div><div class="category" data-category="cmVwcm9kdWNpYmlsaXR5">reproducibility <span class="quarto-category-count">(9)</span></div><div class="category" data-category="c2V0dXA=">setup <span class="quarto-category-count">(4)</span></div><div class="category" data-category="c2hpbnk=">shiny <span class="quarto-category-count">(2)</span></div><div class="category" data-category="c3BhdGlhbC1kYXRh">spatial-data <span class="quarto-category-count">(2)</span></div><div class="category" data-category="c3ludGhlc2lzLXNjaWVuY2U=">synthesis-science <span class="quarto-category-count">(5)</span></div><div class="category" data-category="dGVhbS1zY2llbmNl">team-science <span class="quarto-category-count">(5)</span></div><div class="category" data-category="dGVtcGxhdGU=">template <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dGlkeS1kYXRh">tidy-data <span class="quarto-category-count">(2)</span></div><div class="category" data-category="dGlkeW1vZGVscw==">tidymodels <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dGlkeXZlcnNl">tidyverse <span class="quarto-category-count">(5)</span></div><div class="category" data-category="d2Vic2l0ZXM=">websites <span class="quarto-category-count">(2)</span></div></div></div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content" tabindex="-1">
+
+
+
+
+
+
+<p><strong>Catalog version:</strong> <code>{lhLessons}</code> version 2026.11.8 (catalog updated 2026-11-08)</p>
+<p>This catalog lists the lessons available in the <code>{lhLessons}</code> package, which can be assembled into a course with <code>{lhCore}</code> (see <a href="./2_setup_lessons.html">Set up lessons</a>). Click a lesson title to read the lesson, or use the tags to filter the table. The tags are the same ones used by <code>search_lessons(tags = ...)</code>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <a href="https://www.nceas.ucsb.edu/" class="external" target="_blank">National Center for Ecological Analysis and Synthesis (NCEAS)</a>, a research affiliate of UCSB, is a leading expert on interdisciplinary data science and works collaboratively to answer the world’s largest and most complex questions. These written materials are the result of a continuous and collaborative effort at NCEAS to help researchers make their work more transparent and reproducible. This work began in the early 2000’s, and reflects the expertise and diligence of many, many individuals.</p>
+</div>
+</div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">License</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Citation</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Content Contributors</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>NCEAS Learning Hub (2026). <code>lhLessons</code>: NCEAS Learning Hub Lessons Package. <a href="https://nceas-learning-hub.github.io/lh_packages/">https://nceas-learning-hub.github.io/lh_packages</a>.</p>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p>Ben Bolker, Julien Brun, Amber E. Budden, Angel Chen, S. Jeanette Clark, Samantha Csik, Halina Do-Linh, Stephanie Hampton, Natasha Haycock-Chavez, Allison Horst, Matt Jones, Samantha Katz, Julie Lowndes, Nick J. Lyon, Erin McLean, Bryce Mecum, Casey O’Hara, Deanna Pennington, Karthik Ram, Jim Regetz, Tracy Teal, Camila Vargas Poulsen, Daphne Virlar-Knight, Leah Wasser</p>
+</div>
+</div>
+</div>
+<section id="lesson-catalog" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="lesson-catalog">Lesson Catalog</h2>
+<style>
+#all-lessons table {
+  font-size: 0.6rem;
+}
+</style>
+<div id="listing-all-lessons" class="quarto-listing quarto-listing-container-table">
+<div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+    <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+    <select id="listing-all-lessons-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-all-lessons'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+      <option value="" disabled="" selected="" hidden="">Order By</option>
+      <option value="index" data-direction="asc">Default</option>
+      <option value="listing-title-sort" data-direction="asc">
+        Title
+      </option>
+    </select>
+  </div>
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filter">
+    </div>
+</div>
+<table class="quarto-listing-table table">
+<thead>
+<tr>
+
+<th>
+<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
+</th>
+
+<th>
+Description
+</th>
+
+<th>
+Tags
+</th>
+
+</tr>
+</thead>
+<tbody class="list">
+
+<tr data-index="0" data-categories="Z2l0JTJDZ2l0aHViJTJDY29sbGFib3JhdGlvbiUyQ2xlY3R1cmUlMkNhZHZhbmNlZA==" data-listing-file-modified-sort="1794202941023" data-listing-reading-time-sort="1" data-listing-word-count-sort="166" data-listing-title-sort="Advanced Git and GitHub" data-listing-filename-sort="git_advanced_git_github.qmd">
+<td>
+<a href="./lessons/git_advanced_git_github.html" class="title listing-title">Advanced Git and GitHub</a>
+</td>
+<td>
+<span class="listing-description">Advanced Git and GitHub operations, including branches, forks, pull requests, reset, revert.</span>
+</td>
+<td>
+<span class="listing-categories">git, github, collaboration, lecture, advanced</span>
+</td>
+
+</tr>
+
+<tr data-index="1" data-categories="dGVtcGxhdGU=" data-listing-file-modified-sort="1794202941023" data-listing-reading-time-sort="1" data-listing-word-count-sort="21" data-listing-title-sort="Blank placeholder" data-listing-filename-sort="blank_placeholder.qmd">
+<td>
+<a href="./lessons/blank_placeholder.html" class="title listing-title">Blank placeholder</a>
+</td>
+<td>
+<span class="listing-description">Blank template showing structure and style for contributing new lessons.</span>
+</td>
+<td>
+<span class="listing-categories">template</span>
+</td>
+
+</tr>
+
+<tr data-index="2" data-categories="cXVhcnRvJTJDd2Vic2l0ZXMlMkNnaXRodWIlMkNsZWN0dXJlJTJDaW50ZXJtZWRpYXRl" data-listing-file-modified-sort="1794202941024" data-listing-reading-time-sort="1" data-listing-word-count-sort="175" data-listing-title-sort="Building a Website with Quarto" data-listing-filename-sort="quarto_websites.qmd">
+<td>
+<a href="./lessons/quarto_websites.html" class="title listing-title">Building a Website with Quarto</a>
+</td>
+<td>
+<span class="listing-description">Creating, deploying, and customizing a Quarto website hosted on GitHub Pages using GitHub Actions and SCSS stylesheets.</span>
+</td>
+<td>
+<span class="listing-categories">quarto, websites, github, lecture, intermediate</span>
+</td>
+
+</tr>
+
+<tr data-index="3" data-categories="dGlkeXZlcnNlJTJDZGF0YS13cmFuZ2xpbmclMkNsZWN0dXJlJTJDaW50ZXJtZWRpYXRl" data-listing-file-modified-sort="1794202941025" data-listing-reading-time-sort="1" data-listing-word-count-sort="100" data-listing-title-sort="Cleaning &amp; Wrangling Data" data-listing-filename-sort="r_tidyverse_clean_wrangle.qmd">
+<td>
+<a href="./lessons/r_tidyverse_clean_wrangle.html" class="title listing-title">Cleaning &amp; Wrangling Data</a>
+</td>
+<td>
+<span class="listing-description">tidyverse functions for cleaning, reshaping, and summarizing data, including pipes, mutate, pivoting, and the split-apply-combine strategy.</span>
+</td>
+<td>
+<span class="listing-categories">tidyverse, data-wrangling, lecture, intermediate</span>
+</td>
+
+</tr>
+
+<tr data-index="4" data-categories="Z2l0JTJDZ2l0aHViJTJDY29sbGFib3JhdGlvbiUyQ2xlY3R1cmUlMkNpbnRlcm1lZGlhdGU=" data-listing-file-modified-sort="1794202941023" data-listing-reading-time-sort="1" data-listing-word-count-sort="39" data-listing-title-sort="Collaborating with Git and GitHub" data-listing-filename-sort="github_collaboration.qmd">
+<td>
+<a href="./lessons/github_collaboration.html" class="title listing-title">Collaborating with Git and GitHub</a>
+</td>
+<td>
+<span class="listing-description">Collaborative Git/GitHub workflows, including adding collaborators, syncing changes, and resolving merge conflicts.</span>
+</td>
+<td>
+<span class="listing-categories">git, github, collaboration, lecture, intermediate</span>
+</td>
+
+</tr>
+
+<tr data-index="5" data-categories="Y29tbXVuaWNhdGlvbiUyQ2xlY3R1cmUlMkNiZWdpbm5lcg==" data-listing-file-modified-sort="1794202941023" data-listing-reading-time-sort="1" data-listing-word-count-sort="83" data-listing-title-sort="Communicating Your Results" data-listing-filename-sort="lecture_communication_results.qmd">
+<td>
+<a href="./lessons/lecture_communication_results.html" class="title listing-title">Communicating Your Results</a>
+</td>
+<td>
+<span class="listing-description">Pathways for promoting published research, including social media, press releases, and stakeholder communication.</span>
+</td>
+<td>
+<span class="listing-categories">communication, lecture, beginner</span>
+</td>
+
+</tr>
+
+<tr data-index="6" data-categories="c3ludGhlc2lzLXNjaWVuY2UlMkN0ZWFtLXNjaWVuY2UlMkNmYWNpbGl0YXRpb24lMkNsZWN0dXJlJTJDaW50ZXJtZWRpYXRl" data-listing-file-modified-sort="1794202941025" data-listing-reading-time-sort="1" data-listing-word-count-sort="81" data-listing-title-sort="Crafting Synthesis Project Ideas" data-listing-filename-sort="synthesis_crafting_project_ideas.qmd">
+<td>
+<a href="./lessons/synthesis_crafting_project_ideas.html" class="title listing-title">Crafting Synthesis Project Ideas</a>
+</td>
+<td>
+<span class="listing-description">Participatory decision making, navigating the ‘groan zone,’ and tools for supporting divergent, emergent, and convergent team thinking.</span>
+</td>
+<td>
+<span class="listing-categories">synthesis-science, team-science, facilitation, lecture, intermediate</span>
+</td>
+
+</tr>
+
+<tr data-index="7" data-categories="cGFja2FnZXMlMkNmdW5jdGlvbnMlMkNsZWN0dXJlJTJDaW50ZXJtZWRpYXRl" data-listing-file-modified-sort="1794202941025" data-listing-reading-time-sort="2" data-listing-word-count-sort="280" data-listing-title-sort="Creating R Packages" data-listing-filename-sort="r_packages.qmd">
+<td>
+<a href="./lessons/r_packages.html" class="title listing-title">Creating R Packages</a>
+</td>
+<td>
+<span class="listing-description">Creating, documenting, testing, and sharing an R package using usethis, devtools, and roxygen2.</span>
+</td>
+<td>
+<span class="listing-categories">packages, functions, lecture, intermediate</span>
+</td>
+
+</tr>
+
+<tr data-index="8" data-categories="ZGF0YS1tYW5hZ2VtZW50JTJDcmVwcm9kdWNpYmlsaXR5JTJDYXBpcyUyQ2xlY3R1cmUlMkNpbnRlcm1lZGlhdGU=" data-listing-file-modified-sort="1794202941023" data-listing-reading-time-sort="1" data-listing-word-count-sort="53" data-listing-title-sort="Data Management &amp; Data Discovery" data-listing-filename-sort="lecture_data_mgmt_discovery.qmd">
+<td>
+<a href="./lessons/lecture_data_mgmt_discovery.html" class="title listing-title">Data Management &amp; Data Discovery</a>
+</td>
+<td>
+<span class="listing-description">The Data Life Cycle, strategies for finding and inventorying data, data management planning, metadata best practices.</span>
+</td>
+<td>
+<span class="listing-categories">data-management, reproducibility, apis, lecture, intermediate</span>
+</td>
+
+</tr>
+
+<tr data-index="9" data-categories="ZGF0YS1tYW5hZ2VtZW50JTJDcmVwcm9kdWNpYmlsaXR5JTJDc3ludGhlc2lzLXNjaWVuY2UlMkNsZWN0dXJlJTJDaW50ZXJtZWRpYXRl" data-listing-file-modified-sort="1794202941023" data-listing-reading-time-sort="1" data-listing-word-count-sort="138" data-listing-title-sort="Data Management Essentials" data-listing-filename-sort="lecture_data_management.qmd">
+<td>
+<a href="./lessons/lecture_data_management.html" class="title listing-title">Data Management Essentials</a>
+</td>
+<td>
+<span class="listing-description">The Data Life Cycle, data management plans, metadata best practices, and FAIR and CARE principles for managing synthesis data.</span>
+</td>
+<td>
+<span class="listing-categories">data-management, reproducibility, synthesis-science, lecture, intermediate</span>
+</td>
+
+</tr>
+
+<tr data-index="10" data-categories="ZGF0YS1tYW5hZ2VtZW50JTJDcmVwcm9kdWNpYmlsaXR5JTJDbGVjdHVyZSUyQ2JlZ2lubmVy" data-listing-file-modified-sort="1794202941024" data-listing-reading-time-sort="1" data-listing-word-count-sort="181" data-listing-title-sort="Data Management and Reproducibility" data-listing-filename-sort="lecture_data_mgmt_reproducibility.qmd">
+<td>
+<a href="./lessons/lecture_data_mgmt_reproducibility.html" class="title listing-title">Data Management and Reproducibility</a>
+</td>
+<td>
+<span class="listing-description">Data management planning and tools/systems that support reproducible, collaborative analytical workflows.</span>
+</td>
+<td>
+<span class="listing-categories">data-management, reproducibility, lecture, beginner</span>
+</td>
+
+</tr>
+
+<tr data-index="11" data-categories="ZGF0YS12aXN1YWxpemF0aW9uJTJDdGlkeXZlcnNlJTJDbGVjdHVyZSUyQ2ludGVybWVkaWF0ZQ==" data-listing-file-modified-sort="1794202941024" data-listing-reading-time-sort="1" data-listing-word-count-sort="144" data-listing-title-sort="Data Visualization" data-listing-filename-sort="r_data_visualization.qmd">
+<td>
+<a href="./lessons/r_data_visualization.html" class="title listing-title">Data Visualization</a>
+</td>
+<td>
+<span class="listing-description">Plotting with ggplot2, including customizing themes and aesthetics, and creating interactive maps and tables with leaflet and DT.</span>
+</td>
+<td>
+<span class="listing-categories">data-visualization, tidyverse, lecture, intermediate</span>
+</td>
+
+</tr>
+
+<tr data-index="12" data-categories="Y29tbXVuaWNhdGlvbiUyQ2xlY3R1cmUlMkNiZWdpbm5lcg==" data-listing-file-modified-sort="1794202941023" data-listing-reading-time-sort="1" data-listing-word-count-sort="98" data-listing-title-sort="Developing a Strategic Communications Plan" data-listing-filename-sort="lecture_communication_plan.qmd">
+<td>
+<a href="./lessons/lecture_communication_plan.html" class="title listing-title">Developing a Strategic Communications Plan</a>
+</td>
+<td>
+<span class="listing-description">Developing a science communications plan and brand identity, including slogan, audience, and personality.</span>
+</td>
+<td>
+<span class="listing-categories">communication, lecture, beginner</span>
+</td>
+
+</tr>
+
+<tr data-index="13" data-categories="dGVhbS1zY2llbmNlJTJDZmFjaWxpdGF0aW9uJTJDbGVjdHVyZSUyQ2JlZ2lubmVy" data-listing-file-modified-sort="1794202941024" data-listing-reading-time-sort="1" data-listing-word-count-sort="143" data-listing-title-sort="Facilitating a successful working group" data-listing-filename-sort="lecture_facilitating_working_group.qmd">
+<td>
+<a href="./lessons/lecture_facilitating_working_group.html" class="title listing-title">Facilitating a successful working group</a>
+</td>
+<td>
+<span class="listing-description">Best practices for managing a working group before, during, and after meetings, with tips on team communication and facilitation.</span>
+</td>
+<td>
+<span class="listing-categories">team-science, facilitation, lecture, beginner</span>
+</td>
+
+</tr>
+
+<tr data-index="14" data-categories="c3BhdGlhbC1kYXRhJTJDZGF0YS12aXN1YWxpemF0aW9uJTJDdGlkeXZlcnNlJTJDbGVjdHVyZSUyQ2FkdmFuY2Vk" data-listing-file-modified-sort="1794202941024" data-listing-reading-time-sort="1" data-listing-word-count-sort="116" data-listing-title-sort="Geospatial Raster Analysis in R" data-listing-filename-sort="r_geospatial_raster_analysis.qmd">
+<td>
+<a href="./lessons/r_geospatial_raster_analysis.html" class="title listing-title">Geospatial Raster Analysis in R</a>
+</td>
+<td>
+<span class="listing-description">Raster spatial data analysis in R using the terra package, covering raster creation, raster math, modifying spatial parameters, and extracting values.</span>
+</td>
+<td>
+<span class="listing-categories">spatial-data, data-visualization, tidyverse, lecture, advanced</span>
+</td>
+
+</tr>
+
+<tr data-index="15" data-categories="Z2l0JTJDZ2l0aHViJTJDbGVjdHVyZSUyQ2JlZ2lubmVy" data-listing-file-modified-sort="1794202941023" data-listing-reading-time-sort="1" data-listing-word-count-sort="48" data-listing-title-sort="Git and GitHub Introduction" data-listing-filename-sort="github_introduction.qmd">
+<td>
+<a href="./lessons/github_introduction.html" class="title listing-title">Git and GitHub Introduction</a>
+</td>
+<td>
+<span class="listing-description">Version control concepts and the core Git/GitHub workflow, including creating repositories, cloning, committing, and pushing/pulling changes.</span>
+</td>
+<td>
+<span class="listing-categories">git, github, lecture, beginner</span>
+</td>
+
+</tr>
+
+<tr data-index="16" data-categories="Z2l0JTJDZ2l0aHViJTJDc2V0dXAlMkNiZWdpbm5lcg==" data-listing-file-modified-sort="1794202941023" data-listing-reading-time-sort="1" data-listing-word-count-sort="50" data-listing-title-sort="Git and GitHub Setup" data-listing-filename-sort="git_setup.qmd">
+<td>
+<a href="./lessons/git_setup.html" class="title listing-title">Git and GitHub Setup</a>
+</td>
+<td>
+<span class="listing-description">Git configuration settings and GitHub authentication via a Personal Access Token.</span>
+</td>
+<td>
+<span class="listing-categories">git, github, setup, beginner</span>
+</td>
+
+</tr>
+
+<tr data-index="17" data-categories="Z2l0aHViJTJDcHJvamVjdC1tYW5hZ2VtZW50JTJDbGVjdHVyZSUyQ2ludGVybWVkaWF0ZQ==" data-listing-file-modified-sort="1794202941023" data-listing-reading-time-sort="1" data-listing-word-count-sort="68" data-listing-title-sort="GitHub for Project Management" data-listing-filename-sort="github_project_management.qmd">
+<td>
+<a href="./lessons/github_project_management.html" class="title listing-title">GitHub for Project Management</a>
+</td>
+<td>
+<span class="listing-description">GitHub Issues, sub-issues, and GitHub Projects to track tasks, dependencies, and progress on collaborative projects.</span>
+</td>
+<td>
+<span class="listing-categories">github, project-management, lecture, intermediate</span>
+</td>
+
+</tr>
+
+<tr data-index="18" data-categories="Z2l0aHViJTJDcHJvamVjdC1tYW5hZ2VtZW50JTJDbGVjdHVyZSUyQ2JlZ2lubmVy" data-listing-file-modified-sort="1794202941024" data-listing-reading-time-sort="1" data-listing-word-count-sort="102" data-listing-title-sort="GitHub for Project Management" data-listing-filename-sort="lecture_github_for_proj_mgmt.qmd">
+<td>
+<a href="./lessons/lecture_github_for_proj_mgmt.html" class="title listing-title">GitHub for Project Management</a>
+</td>
+<td>
+<span class="listing-description">How to structure a GitHub repository and use GitHub Issues and Projects to support project management and communication.</span>
+</td>
+<td>
+<span class="listing-categories">github, project-management, lecture, beginner</span>
+</td>
+
+</tr>
+
+<tr data-index="19" data-categories="Y29tcHV0aW5nLXNldHVwJTJDZ2l0JTJDc2V0dXAlMkNiZWdpbm5lcg==" data-listing-file-modified-sort="1794202941024" data-listing-reading-time-sort="1" data-listing-word-count-sort="92" data-listing-title-sort="Installing R and Git on Your Computer" data-listing-filename-sort="r_git_install_guide.qmd">
+<td>
+<a href="./lessons/r_git_install_guide.html" class="title listing-title">Installing R and Git on Your Computer</a>
+</td>
+<td>
+<span class="listing-description">Step-by-step installation instructions for R, RStudio, Quarto, Git, and related R packages on macOS and Windows.</span>
+</td>
+<td>
+<span class="listing-categories">computing-setup, git, setup, beginner</span>
+</td>
+
+</tr>
+
+<tr data-index="20" data-categories="dGVhbS1zY2llbmNlJTJDc3ludGhlc2lzLXNjaWVuY2UlMkNjb21tdW5pY2F0aW9uJTJDbGVjdHVyZSUyQ2ludGVybWVkaWF0ZQ==" data-listing-file-modified-sort="1794202941024" data-listing-reading-time-sort="1" data-listing-word-count-sort="74" data-listing-title-sort="Intellectual Credit" data-listing-filename-sort="lecture_intellectual_credit.qmd">
+<td>
+<a href="./lessons/lecture_intellectual_credit.html" class="title listing-title">Intellectual Credit</a>
+</td>
+<td>
+<span class="listing-description">Frameworks for equitable intellectual credit and authorship, including opt-in versus opt-out approaches, the CRediT taxonomy, and emerging issues like Indigenous data governance and genAI.</span>
+</td>
+<td>
+<span class="listing-categories">team-science, synthesis-science, communication, lecture, intermediate</span>
+</td>
+
+</tr>
+
+<tr data-index="21" data-categories="cXVhcnRvJTJDZGFzaGJvYXJkcyUyQ2RhdGEtdmlzdWFsaXphdGlvbiUyQ3NoaW55JTJDbGVjdHVyZSUyQ2ludGVybWVkaWF0ZQ==" data-listing-file-modified-sort="1794202941024" data-listing-reading-time-sort="1" data-listing-word-count-sort="146" data-listing-title-sort="Interactive Dashboards with Quarto" data-listing-filename-sort="quarto_dashboards_reports.qmd">
+<td>
+<a href="./lessons/quarto_dashboards_reports.html" class="title listing-title">Interactive Dashboards with Quarto</a>
+</td>
+<td>
+<span class="listing-description">Interactive Quarto Dashboards with value boxes, Plotly charts, and DT tables, plus optional Shiny reactivity and deployment options.</span>
+</td>
+<td>
+<span class="listing-categories">quarto, dashboards, data-visualization, shiny, lecture, intermediate</span>
+</td>
+
+</tr>
+
+<tr data-index="22" data-categories="c2hpbnklMkNkYXNoYm9hcmRzJTJDZGF0YS12aXN1YWxpemF0aW9uJTJDbGVjdHVyZSUyQ2ludGVybWVkaWF0ZQ==" data-listing-file-modified-sort="1794202941025" data-listing-reading-time-sort="1" data-listing-word-count-sort="182" data-listing-title-sort="Interactivity with Shiny Apps" data-listing-filename-sort="shiny_introduction.qmd">
+<td>
+<a href="./lessons/shiny_introduction.html" class="title listing-title">Interactivity with Shiny Apps</a>
+</td>
+<td>
+<span class="listing-description">Interactive Shiny web applications in R, covering UI/server structure, reactivity, single- versus two-file app organization, and options for sharing apps.</span>
+</td>
+<td>
+<span class="listing-categories">shiny, dashboards, data-visualization, lecture, intermediate</span>
+</td>
+
+</tr>
+
+<tr data-index="23" data-categories="cXVhcnRvJTJDcmVwcm9kdWNpYmlsaXR5JTJDbGVjdHVyZSUyQ2JlZ2lubmVy" data-listing-file-modified-sort="1794202941025" data-listing-reading-time-sort="1" data-listing-word-count-sort="69" data-listing-title-sort="Literate Analysis with Quarto" data-listing-filename-sort="r_quarto_literate_analysis.qmd">
+<td>
+<a href="./lessons/r_quarto_literate_analysis.html" class="title listing-title">Literate Analysis with Quarto</a>
+</td>
+<td>
+<span class="listing-description">Literate analysis with Quarto, covering document structure, Markdown syntax, code chunks, and building a complete reproducible analysis.</span>
+</td>
+<td>
+<span class="listing-categories">quarto, reproducibility, lecture, beginner</span>
+</td>
+
+</tr>
+
+<tr data-index="24" data-categories="c3ludGhlc2lzLXNjaWVuY2UlMkNwcm9qZWN0LW1hbmFnZW1lbnQlMkNsZWN0dXJlJTJDaW50ZXJtZWRpYXRl" data-listing-file-modified-sort="1794202941025" data-listing-reading-time-sort="1" data-listing-word-count-sort="57" data-listing-title-sort="Logic Models and Synthesis Development" data-listing-filename-sort="synthesis_logic_models.qmd">
+<td>
+<a href="./lessons/synthesis_logic_models.html" class="title listing-title">Logic Models and Synthesis Development</a>
+</td>
+<td>
+<span class="listing-description">Logic models (inputs, outputs, outcomes) as a planning tool and applies them to developing and refining synthesis research questions.</span>
+</td>
+<td>
+<span class="listing-categories">synthesis-science, project-management, lecture, intermediate</span>
+</td>
+
+</tr>
+
+<tr data-index="25" data-categories="bWFjaGluZS1sZWFybmluZyUyQ3RpZHltb2RlbHMlMkNsZWN0dXJlJTJDYWR2YW5jZWQ=" data-listing-file-modified-sort="1794202941025" data-listing-reading-time-sort="2" data-listing-word-count-sort="214" data-listing-title-sort="Machine Learning with `tidymodels`" data-listing-filename-sort="r_machine_learning_tidymodels.qmd">
+<td>
+<a href="./lessons/r_machine_learning_tidymodels.html" class="title listing-title">Machine Learning with <code>tidymodels</code></a>
+</td>
+<td>
+<span class="listing-description">Machine learning workflow in R using tidymodels, covering data partitioning, model fitting, cross-validation, model comparison, and hyperparameter tuning.</span>
+</td>
+<td>
+<span class="listing-categories">machine-learning, tidymodels, lecture, advanced</span>
+</td>
+
+</tr>
+
+<tr data-index="26" data-categories="Y29tbXVuaWNhdGlvbiUyQ2xlY3R1cmUlMkNiZWdpbm5lcg==" data-listing-file-modified-sort="1794202941024" data-listing-reading-time-sort="1" data-listing-word-count-sort="107" data-listing-title-sort="One Pagers with Google Documents" data-listing-filename-sort="lecture_one_pagers.qmd">
+<td>
+<a href="./lessons/lecture_one_pagers.html" class="title listing-title">One Pagers with Google Documents</a>
+</td>
+<td>
+<span class="listing-description">Designing graphical one-pagers in Google Docs to communicate complex scientific information and working group outputs to a general audience.</span>
+</td>
+<td>
+<span class="listing-categories">communication, lecture, beginner</span>
+</td>
+
+</tr>
+
+<tr data-index="27" data-categories="cGFyYWxsZWwtY29tcHV0aW5nJTJDbGVjdHVyZSUyQ2FkdmFuY2Vk" data-listing-file-modified-sort="1794202941025" data-listing-reading-time-sort="1" data-listing-word-count-sort="135" data-listing-title-sort="Parallel Computing in R" data-listing-filename-sort="r_parallel_computing.qmd">
+<td>
+<a href="./lessons/r_parallel_computing.html" class="title listing-title">Parallel Computing in R</a>
+</td>
+<td>
+<span class="listing-description">Parallel computing in R, comparing approaches like mclapply, foreach/doParallel, and futures with furrr.</span>
+</td>
+<td>
+<span class="listing-categories">parallel-computing, lecture, advanced</span>
+</td>
+
+</tr>
+
+<tr data-index="28" data-categories="Y29tcHV0aW5nLXNldHVwJTJDc2V0dXAlMkNiZWdpbm5lcg==" data-listing-file-modified-sort="1794202941024" data-listing-reading-time-sort="1" data-listing-word-count-sort="42" data-listing-title-sort="Positron Setup" data-listing-filename-sort="positron_setup.qmd">
+<td>
+<a href="./lessons/positron_setup.html" class="title listing-title">Positron Setup</a>
+</td>
+<td>
+<span class="listing-description">Positron basics, organizing project directories, and understanding absolute versus relative file paths.</span>
+</td>
+<td>
+<span class="listing-categories">computing-setup, setup, beginner</span>
+</td>
+
+</tr>
+
+<tr data-index="29" data-categories="ZGF0YS13cmFuZ2xpbmclMkNkYXRhLXZpc3VhbGl6YXRpb24lMkN0aWR5dmVyc2UlMkNnaXQlMkNnaXRodWIlMkNjb2xsYWJvcmF0aW9uJTJDYWN0aXZpdHklMkNpbnRlcm1lZGlhdGUlMkNwcmFjdGljZQ==" data-listing-file-modified-sort="1794202941025" data-listing-reading-time-sort="1" data-listing-word-count-sort="62" data-listing-title-sort="Practice Session: Collaborative Report" data-listing-filename-sort="r_practice_clean_wrangle_visualize.qmd">
+<td>
+<a href="./lessons/r_practice_clean_wrangle_visualize.html" class="title listing-title">Practice Session: Collaborative Report</a>
+</td>
+<td>
+<span class="listing-description">Paired practice session cleaning, wrangling, and visualizing lobster data collaboratively, then publishing a joint report to GitHub Pages.</span>
+</td>
+<td>
+<span class="listing-categories">data-wrangling, data-visualization, tidyverse, git, github, collaboration, activity, intermediate, practice</span>
+</td>
+
+</tr>
+
+<tr data-index="30" data-categories="ZnVuY3Rpb25zJTJDYWN0aXZpdHklMkNiZWdpbm5lciUyQ3ByYWN0aWNl" data-listing-file-modified-sort="1794202941025" data-listing-reading-time-sort="1" data-listing-word-count-sort="92" data-listing-title-sort="Practice Session: Functions" data-listing-filename-sort="r_practice_functions.qmd">
+<td>
+<a href="./lessons/r_practice_functions.html" class="title listing-title">Practice Session: Functions</a>
+</td>
+<td>
+<span class="listing-description">Practice exercises for writing, testing, and adding error/warning messages to custom R functions.</span>
+</td>
+<td>
+<span class="listing-categories">functions, activity, beginner, practice</span>
+</td>
+
+</tr>
+
+<tr data-index="31" data-categories="dGlkeS1kYXRhJTJDZGF0YS13cmFuZ2xpbmclMkNhY3Rpdml0eSUyQ2ludGVybWVkaWF0ZSUyQ3ByYWN0aWNl" data-listing-file-modified-sort="1794202941025" data-listing-reading-time-sort="1" data-listing-word-count-sort="90" data-listing-title-sort="Practice Session: Joins" data-listing-filename-sort="r_practice_tidy_data_joins.qmd">
+<td>
+<a href="./lessons/r_practice_tidy_data_joins.html" class="title listing-title">Practice Session: Joins</a>
+</td>
+<td>
+<span class="listing-description">Practice exercises joining bird survey data tables together and identifying primary and foreign keys.</span>
+</td>
+<td>
+<span class="listing-categories">tidy-data, data-wrangling, activity, intermediate, practice</span>
+</td>
+
+</tr>
+
+<tr data-index="32" data-categories="YXBpcyUyQ3JlcHJvZHVjaWJpbGl0eSUyQ2RhdGEtd3JhbmdsaW5nJTJDbGVjdHVyZSUyQ2ludGVybWVkaWF0ZQ==" data-listing-file-modified-sort="1794202941025" data-listing-reading-time-sort="1" data-listing-word-count-sort="192" data-listing-title-sort="Programmatic Data Access in R" data-listing-filename-sort="r_programmatic_data_access.qmd">
+<td>
+<a href="./lessons/r_programmatic_data_access.html" class="title listing-title">Programmatic Data Access in R</a>
+</td>
+<td>
+<span class="listing-description">Reproducible programmatic data access in R, including caching downloaded files, dataRetrieval package, and building custom API requests with httr2.</span>
+</td>
+<td>
+<span class="listing-categories">apis, reproducibility, data-wrangling, lecture, intermediate</span>
+</td>
+
+</tr>
+
+<tr data-index="33" data-categories="cmVwcm9kdWNpYmlsaXR5JTJDZGF0YS1tYW5hZ2VtZW50JTJDcHJvamVjdC1tYW5hZ2VtZW50JTJDbGVjdHVyZSUyQ2JlZ2lubmVy" data-listing-file-modified-sort="1794202941024" data-listing-reading-time-sort="1" data-listing-word-count-sort="41" data-listing-title-sort="Project Documentation &amp; Organization" data-listing-filename-sort="lecture_project_doc_organization.qmd">
+<td>
+<a href="./lessons/lecture_project_doc_organization.html" class="title listing-title">Project Documentation &amp; Organization</a>
+</td>
+<td>
+<span class="listing-description">Project documentation and file organization best practices for reproducibility, plus an introduction to genAI use-cases, modalities, and drawbacks in research workflows.</span>
+</td>
+<td>
+<span class="listing-categories">reproducibility, data-management, project-management, lecture, beginner</span>
+</td>
+
+</tr>
+
+<tr data-index="34" data-categories="cHJvamVjdC1tYW5hZ2VtZW50JTJDdGVhbS1zY2llbmNlJTJDZmFjaWxpdGF0aW9uJTJDbGVjdHVyZSUyQ2ludGVybWVkaWF0ZQ==" data-listing-file-modified-sort="1794202941024" data-listing-reading-time-sort="1" data-listing-word-count-sort="40" data-listing-title-sort="Project Management &amp; Team Facilitation" data-listing-filename-sort="lecture_proj_mgmt_team_science.qmd">
+<td>
+<a href="./lessons/lecture_proj_mgmt_team_science.html" class="title listing-title">Project Management &amp; Team Facilitation</a>
+</td>
+<td>
+<span class="listing-description">Project management principles adapted for scientific teams, including defining project scope, outlining analyses, and planning work with Gantt charts or GitHub.</span>
+</td>
+<td>
+<span class="listing-categories">project-management, team-science, facilitation, lecture, intermediate</span>
+</td>
+
+</tr>
+
+<tr data-index="35" data-categories="cHJvdmVuYW5jZSUyQ3JlcHJvZHVjaWJpbGl0eSUyQ2xlY3R1cmUlMkNpbnRlcm1lZGlhdGU=" data-listing-file-modified-sort="1794202941025" data-listing-reading-time-sort="1" data-listing-word-count-sort="30" data-listing-title-sort="Provenance and Reproducibility" data-listing-filename-sort="r_provenance_reproducibility.qmd">
+<td>
+<a href="./lessons/r_provenance_reproducibility.html" class="title listing-title">Provenance and Reproducibility</a>
+</td>
+<td>
+<span class="listing-description">Computational provenance and reproducibility concepts, and building a reproducible research compendium with rrtools and rticles.</span>
+</td>
+<td>
+<span class="listing-categories">provenance, reproducibility, lecture, intermediate</span>
+</td>
+
+</tr>
+
+<tr data-index="36" data-categories="ZGF0YS1tYW5hZ2VtZW50JTJDcmVwcm9kdWNpYmlsaXR5JTJDcHJvdmVuYW5jZSUyQ3N5bnRoZXNpcy1zY2llbmNlJTJDbGVjdHVyZSUyQ2ludGVybWVkaWF0ZQ==" data-listing-file-modified-sort="1794202941024" data-listing-reading-time-sort="2" data-listing-word-count-sort="253" data-listing-title-sort="Publishing Synthesis Data" data-listing-filename-sort="lecture_publishing_data.qmd">
+<td>
+<a href="./lessons/lecture_publishing_data.html" class="title listing-title">Publishing Synthesis Data</a>
+</td>
+<td>
+<span class="listing-description">Data preservation and discovery in the open science lifecycle, choosing a data repository, writing complete metadata, and applying FAIR and CARE principles.</span>
+</td>
+<td>
+<span class="listing-categories">data-management, reproducibility, provenance, synthesis-science, lecture, intermediate</span>
+</td>
+
+</tr>
+
+<tr data-index="37" data-categories="Z2l0aHViJTJDcXVhcnRvJTJDd2Vic2l0ZXMlMkNsZWN0dXJlJTJDaW50ZXJtZWRpYXRl" data-listing-file-modified-sort="1794202941023" data-listing-reading-time-sort="1" data-listing-word-count-sort="63" data-listing-title-sort="Publishing to the Web" data-listing-filename-sort="github_publishing.qmd">
+<td>
+<a href="./lessons/github_publishing.html" class="title listing-title">Publishing to the Web</a>
+</td>
+<td>
+<span class="listing-description">Applying Git, GitHub Pages, and Quarto to publish a rendered analysis as a website.</span>
+</td>
+<td>
+<span class="listing-categories">github, quarto, websites, lecture, intermediate</span>
+</td>
+
+</tr>
+
+<tr data-index="38" data-categories="Y29tcHV0aW5nLXNldHVwJTJDc2V0dXAlMkNiZWdpbm5lcg==" data-listing-file-modified-sort="1794202941025" data-listing-reading-time-sort="1" data-listing-word-count-sort="75" data-listing-title-sort="RStudio Server Setup" data-listing-filename-sort="r_rstudio_server_setup.qmd">
+<td>
+<a href="./lessons/r_rstudio_server_setup.html" class="title listing-title">RStudio Server Setup</a>
+</td>
+<td>
+<span class="listing-description">RStudio Server basics, creating and organizing an R Project, and understanding absolute versus relative file paths.</span>
+</td>
+<td>
+<span class="listing-categories">computing-setup, setup, beginner</span>
+</td>
+
+</tr>
+
+<tr data-index="39" data-categories="cmVwcm9kdWNpYmlsaXR5JTJDYWN0aXZpdHklMkNiZWdpbm5lcg==" data-listing-file-modified-sort="1794202941023" data-listing-reading-time-sort="1" data-listing-word-count-sort="31" data-listing-title-sort="Reproducibility: a LEGO Activity" data-listing-filename-sort="activity_reproducibility_lego.qmd">
+<td>
+<a href="./lessons/activity_reproducibility_lego.html" class="title listing-title">Reproducibility: a LEGO Activity</a>
+</td>
+<td>
+<span class="listing-description">Hands-on activity using LEGO builds to explore documentation practices and challenges related to reproducibility.</span>
+</td>
+<td>
+<span class="listing-categories">reproducibility, activity, beginner</span>
+</td>
+
+</tr>
+
+<tr data-index="40" data-categories="Y29tbXVuaWNhdGlvbiUyQ2xlY3R1cmUlMkNiZWdpbm5lcg==" data-listing-file-modified-sort="1794202941024" data-listing-reading-time-sort="1" data-listing-word-count-sort="116" data-listing-title-sort="Science Communication Fundamentals" data-listing-filename-sort="lecture_science_communication.qmd">
+<td>
+<a href="./lessons/lecture_science_communication.html" class="title listing-title">Science Communication Fundamentals</a>
+</td>
+<td>
+<span class="listing-description">Science communication strategies, including the Message Box, the And-But-Therefore storytelling framework, managing jargon, and adapting messages to different audiences.</span>
+</td>
+<td>
+<span class="listing-categories">communication, lecture, beginner</span>
+</td>
+
+</tr>
+
+<tr data-index="41" data-categories="dGVhbS1zY2llbmNlJTJDZmFjaWxpdGF0aW9uJTJDYWN0aXZpdHklMkNiZWdpbm5lcg==" data-listing-file-modified-sort="1794202941023" data-listing-reading-time-sort="1" data-listing-word-count-sort="37" data-listing-title-sort="Thinking Preferences &amp; Meeting Design" data-listing-filename-sort="activity_thinking_preferences.qmd">
+<td>
+<a href="./lessons/activity_thinking_preferences.html" class="title listing-title">Thinking Preferences &amp; Meeting Design</a>
+</td>
+<td>
+<span class="listing-description">Thinking-style frameworks and meeting design techniques for fostering equitable participation and inclusive facilitation in team settings.</span>
+</td>
+<td>
+<span class="listing-categories">team-science, facilitation, activity, beginner</span>
+</td>
+
+</tr>
+
+<tr data-index="42" data-categories="dGlkeS1kYXRhJTJDZGF0YS13cmFuZ2xpbmclMkNsZWN0dXJlJTJDaW50ZXJtZWRpYXRl" data-listing-file-modified-sort="1794202941024" data-listing-reading-time-sort="1" data-listing-word-count-sort="77" data-listing-title-sort="Tidy Data" data-listing-filename-sort="lecture_tidy_data.qmd">
+<td>
+<a href="./lessons/lecture_tidy_data.html" class="title listing-title">Tidy Data</a>
+</td>
+<td>
+<span class="listing-description">Tidy data principles, data normalization, relational data models, primary/foreign keys, and table joins.</span>
+</td>
+<td>
+<span class="listing-categories">tidy-data, data-wrangling, lecture, intermediate</span>
+</td>
+
+</tr>
+
+<tr data-index="43" data-categories="ci1iYXNpY3MlMkNsZWN0dXJlJTJDYmVnaW5uZXI=" data-listing-file-modified-sort="1794202941025" data-listing-reading-time-sort="1" data-listing-word-count-sort="65" data-listing-title-sort="Working in R &amp; RStudio" data-listing-filename-sort="r_programming_introduction.qmd">
+<td>
+<a href="./lessons/r_programming_introduction.html" class="title listing-title">Working in R &amp; RStudio</a>
+</td>
+<td>
+<span class="listing-description">RStudio basics, running code in the Console and scripts, R objects and data structures, functions, and basic data frame operations.</span>
+</td>
+<td>
+<span class="listing-categories">r-basics, lecture, beginner</span>
+</td>
+
+</tr>
+
+<tr data-index="44" data-categories="c3BhdGlhbC1kYXRhJTJDZGF0YS12aXN1YWxpemF0aW9uJTJDdGlkeXZlcnNlJTJDbGVjdHVyZSUyQ2FkdmFuY2Vk" data-listing-file-modified-sort="1794202941024" data-listing-reading-time-sort="1" data-listing-word-count-sort="44" data-listing-title-sort="Working with Vector Spatial Data" data-listing-filename-sort="r_geospatial_vector_analysis.qmd">
+<td>
+<a href="./lessons/r_geospatial_vector_analysis.html" class="title listing-title">Working with Vector Spatial Data</a>
+</td>
+<td>
+<span class="listing-description">Vector spatial data using sf, spatial joins, and creating static and interactive maps with ggplot2 and leaflet.</span>
+</td>
+<td>
+<span class="listing-categories">spatial-data, data-visualization, tidyverse, lecture, advanced</span>
+</td>
+
+</tr>
+
+<tr data-index="45" data-categories="ZnVuY3Rpb25zJTJDci1iYXNpY3MlMkNsZWN0dXJlJTJDaW50ZXJtZWRpYXRl" data-listing-file-modified-sort="1794202941024" data-listing-reading-time-sort="1" data-listing-word-count-sort="37" data-listing-title-sort="Writing Functions" data-listing-filename-sort="r_functions.qmd">
+<td>
+<a href="./lessons/r_functions.html" class="title listing-title">Writing Functions</a>
+</td>
+<td>
+<span class="listing-description">Why and how to write custom R functions, including documenting functions with roxygen2 comments.</span>
+</td>
+<td>
+<span class="listing-categories">functions, r-basics, lecture, intermediate</span>
+</td>
+
+</tr>
+
+</tbody>
+</table>
+<div class="listing-no-matching d-none">No matching items</div>
+<nav id="all-lessons-pagination" class="listing-pagination" aria-label="Page Navigation">
+  <ul class="pagination"></ul>
+</nav>
+</div>
+
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const toggle = window.document.createElement('button');
+      toggle.type = "button";
+      toggle.setAttribute("role", "switch");
+      toggle.setAttribute("aria-checked", "false");
+      toggle.classList.add('top-right');
+      toggle.classList.add('quarto-color-scheme-toggle');
+      toggle.setAttribute("aria-label", "Toggle dark mode");
+      toggle.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      toggle.appendChild(i);
+      // Put the toggle in a landmark of its own, so that landmark navigation
+      // can reach it.
+      //
+      // The container is always a fresh direct child of body, and the toggle is
+      // never moved into page furniture that the theme or the author controls.
+      // The toggle is positioned against the page, so any ancestor that
+      // establishes a containing block captures it: a positioned element or a
+      // grid for position: absolute, and transform, filter, will-change or
+      // contain for position: fixed. A direct child of body has none of these
+      // to inherit, and the shift when one appears is silent and visual.
+      //
+      // ARIA says a document should have at most one banner, and axe reports a
+      // duplicate whether or not the banners carry distinct labels. So use a
+      // header when the page has no banner yet, and a named region otherwise.
+      //
+      // A header is a banner wherever it sits, unless it is inside sectioning
+      // content, so this cannot just look at the children of body: a custom
+      // page layout wraps the title block header in a plain div. An explicit
+      // role="banner" always counts.
+      const sectioning = 'article, aside, main, nav, section, [role="article"], [role="complementary"], [role="main"], [role="navigation"], [role="region"]';
+      const hasBanner = Array.from(
+        window.document.querySelectorAll('header:not([role]), [role="banner"]')
+      ).some(function(el) {
+        return el.hasAttribute("role") || el.closest(sectioning) === null;
+      });
+      const container = window.document.createElement(hasBanner ? "div" : "header");
+      if (hasBanner) {
+        container.setAttribute("role", "region");
+        container.setAttribute("aria-label", "Toggle dark mode");
+      }
+      container.classList.add('quarto-color-scheme-toggle-container');
+      container.appendChild(toggle);
+      window.document.body.appendChild(container);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/nceas-learning-hub\.github\.io\/lh_packages\/");
+      const newWindowLabel = "(opens in a new tab)";
+      const newWindowNoteId = "quarto-ext-newwindow-label";
+      // Links reference one hidden label through aria-describedby, so the
+      // announcement never changes their accessible name.
+      var describeNewWindow = (link) => {
+        if (!window.document.getElementById(newWindowNoteId)) {
+          var newWindowNote = window.document.createElement("span");
+          newWindowNote.id = newWindowNoteId;
+          newWindowNote.hidden = true;
+          newWindowNote.textContent = newWindowLabel;
+          window.document.body.appendChild(newWindowNote);
+        }
+        var describedBy = (link.getAttribute("aria-describedby") || "").split(/\s+/).filter(Boolean);
+        if (!describedBy.includes(newWindowNoteId)) {
+          describedBy.push(newWindowNoteId);
+          link.setAttribute("aria-describedby", describedBy.join(" "));
+        }
+      }
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+      window.quartoDecorateExternalLinks = function (root) {
+     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+            describeNewWindow(link);
+          if (!link.classList.contains('no-external-icon')) {
+            // default icon
+            link.classList.add("external");
+          }
+        }
+      }
+      };
+      window.quartoDecorateExternalLinks(window.document);
+    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+    const hideOnEscAndFocusOut = {
+      name: 'hideOnEscAndFocusOut',
+      defaultValue: true,
+      fn(instance) {
+        const dismiss = () => {
+          // A show scheduled by the trigger delay would otherwise reopen it
+          instance.clearDelayTimeouts();
+          instance.hide();
+        };
+        const onKeyDown = (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+          // except an open reveal.js slide menu, which Esc should close too.
+          // The menu handles keys only when its keyboard option is on.
+          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+            window.Reveal.getConfig().menu?.keyboard !== false;
+          if (!menuHandlesEsc) {
+            event.stopPropagation();
+          }
+          if (instance.popper.contains(window.document.activeElement)) {
+            // Disabled while refocusing so the focus trigger does not reopen it
+            instance.disable();
+            instance.reference.focus();
+            instance.enable();
+          }
+          dismiss();
+        };
+        const onFocusOut = (event) => {
+          const target = event.relatedTarget;
+          if (target && !instance.reference.contains(target) &&
+              !instance.popper.contains(target)) {
+            dismiss();
+          }
+        };
+        // On the trigger too: a click trigger (code-annotations: select) has no
+        // blur handling. Attached for the instance's lifetime so leaving the
+        // trigger also cancels a show still pending on the trigger delay.
+        instance.reference.addEventListener('focusout', onFocusOut);
+        return {
+          onShow() {
+            window.document.addEventListener('keydown', onKeyDown, true);
+            instance.popper.addEventListener('focusout', onFocusOut);
+          },
+          onHide() {
+            window.document.removeEventListener('keydown', onKeyDown, true);
+            instance.popper.removeEventListener('focusout', onFocusOut);
+          },
+          onDestroy() {
+            instance.reference.removeEventListener('focusout', onFocusOut);
+          },
+        };
+      },
+    };
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+        plugins: [hideOnEscAndFocusOut],
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          // Each band is positioned against its own containing block, which is
+          // not the offsetParent of the lines, so place it from client rects.
+          const placeBand = (band, firstEl, lastEl, codeBlock) => {
+            const container = band.offsetParent;
+            if (container === null) {
+              return;
+            }
+            const containerRect = container.getBoundingClientRect();
+            // Reveal.js scales slides with a transform, so convert client
+            // pixels back to the CSS pixels of the container.
+            const scale = containerRect.height / container.offsetHeight || 1;
+            const firstRect = firstEl.getBoundingClientRect();
+            const lastRect = lastEl.getBoundingClientRect();
+            const top = (firstRect.top - containerRect.top) / scale - container.clientTop + container.scrollTop;
+            const height = (lastRect.bottom - firstRect.top) / scale;
+            band.style.top = top - 2 + "px";
+            band.style.height = height + 4 + "px";
+            if (codeBlock) {
+              // Without the copy button wrapper, the containing block is wider
+              // than the code block, so span the code block explicitly.
+              const blockRect = codeBlock.getBoundingClientRect();
+              band.style.left = (blockRect.left - containerRect.left) / scale - container.clientLeft + container.scrollLeft + "px";
+              band.style.width = blockRect.width / scale + "px";
+            }
+          };
+          if (lineIds.length > 0) {
+            const el = window.document.getElementById(lineIds[0]);
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const parent = el.parentElement.parentElement;
+            // cook up a div (if necessary) and position it
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            placeBand(div, el, lastEl, parent.closest("div.sourceCode") || parent);
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            placeBand(gutterDiv, el, lastEl);
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
+        for (let i=0; i<annoteTargets.length; i++) {
+          const annoteTarget = annoteTargets[i];
+          const targetCell = annoteTarget.getAttribute("data-target-cell");
+          const targetAnnotation = annoteTarget.getAttribute("data-target-annotation");
+          const contentFn = () => {
+            const content = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+            if (content) {
+              const tipContent = content.cloneNode(true);
+              tipContent.classList.add("code-annotation-tip-content");
+              return tipContent.outerHTML;
+            }
+          }
+          const config = {
+            allowHTML: true,
+            content: contentFn,
+            onShow: (instance) => {
+              selectCodeLines(instance.reference);
+              instance.reference.classList.add('code-annotation-active');
+              window.tippy.hideAll();
+            },
+            onHide: (instance) => {
+              unselectCodeLines();
+              instance.reference.classList.remove('code-annotation-active');
+            },
+            maxWidth: 300,
+            delay: [50, 0],
+            duration: [200, 0],
+            offset: [5, 10],
+            arrow: true,
+            appendTo: function(el) {
+              return el.parentElement.parentElement.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'quarto',
+            placement: 'right',
+            plugins: [hideOnEscAndFocusOut],
+            popperOptions: {
+              modifiers: [
+              {
+                name: 'flip',
+                options: {
+                  flipVariations: false, // true by default
+                  allowedAutoPlacements: ['right'],
+                  fallbackPlacements: ['right', 'top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end', 'left'],
+                },
+              },
+              {
+                name: 'preventOverflow',
+                options: {
+                  mainAxis: false,
+                  altAxis: false
+                }
+              }
+              ]        
+            }      
+          };
+          window.tippy(annoteTarget, config); 
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollable code","output":"Scrollable output"};
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Copyright © 2026, NCEAS</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

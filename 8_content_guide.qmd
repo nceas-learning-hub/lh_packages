@@ -4,7 +4,60 @@ title: Content guidelines
 
 See <https://cambiotraining.github.io/quarto-course-template/materials/02-content_guidelines.html> for ideas
 
+See also the [style guide](9_style_guide.qmd) for suggestions on text case, learning objectives, code chunks, tabsets, images, links, and callout customization.
+
 ## Headers and such
+
+The lesson's `title` in the YAML header is rendered as the page title (the top-level heading), and the site numbers sections automatically, so in the body of the lesson:
+
+* Do not use a single-`#` heading; start with `##` for the main sections of the lesson.  (The existing lessons overwhelmingly follow this pattern.)
+* Use `###` and `####` for subsections and sub-subsections.  Try not to go deeper than four levels.
+* Don't type numbers into headings; they are added automatically.
+* Keep headings short and descriptive, since they populate the table of contents in the right sidebar.
+* Don't skip levels (e.g., a `####` directly under a `##`).
+
+### YAML header
+
+Each lesson needs a `title`, which is shown in the sidebar menu and at the top of the page.  Lessons in the lessons package also commonly include:
+
+* `categories`: a list of topic tags, e.g., `categories: [r-basics, lecture, beginner]`.  These are what the `tags` argument of `search_lessons()` matches against, so reuse existing tags where possible.
+* `description`: a one-sentence summary of the lesson.
+
+```
+---
+title: Working in R & RStudio
+categories: [r-basics, lecture, beginner]
+description: "RStudio basics, running code in the Console and scripts, ..."
+---
+```
+
+### Learning objectives
+
+Open each lesson with a block listing learning objectives, using a `{.callout-learning}` div ("By the end of this lesson, you will be able to: ...").  The theme gives this callout a green style, a brain icon, and the title "Learning Objectives".
+
+Write it like this, placed right after the YAML header:
+
+````
+:::{.callout-learning}
+
+By the end of this lesson, you will be able to:
+
+-   Navigate the basics of the RStudio interface
+-   Run code and basic arithmetic in the Console
+-   Use the Help pages to look up function documentation
+:::
+````
+
+which will render like:
+
+:::{.callout-learning}
+
+By the end of this lesson, you will be able to:
+
+-   Navigate the basics of the RStudio interface
+-   Run code and basic arithmetic in the Console
+-   Use the Help pages to look up function documentation
+:::
 
 ## Code formatting
 
@@ -12,13 +65,17 @@ See <https://cambiotraining.github.io/quarto-course-template/materials/02-conten
 - code that needs to be run, but is different than we want to show the reader, e.g., reading in a file from a different source than presented in the lesson: `#| include: false`
 
 - code that doesn't need to be run: enclose in code block fence with language name next to it for syntax highlighting (e.g., ```` ```r```` instead of in curly braces ```` ```{r}```` used for a functioning code block!).
+- code that shouldn't run but you want to show the code chunk header and footer along with the code, begin with a double-curly-bracket r in the header: ```` ```{{r}}````
 - optional, use footnotes by including `# <1>` at the end of a line, then a `1. footnote text here` - this works in functional code or non-functional code!
 
-````
-```r
-x <- 3 * 4 # <1>
+:::callout-example
+Example of a footnote:
+
+````{=html}
+<pre><code>```r
+x &lt;- 3 * 4 # &lt;1&gt;
 ```
-1. This is an example of a footnote!
+1. This is an example of a footnote!</code></pre>
 ````
 
 will render like:
@@ -27,11 +84,27 @@ will render like:
 x <- 3 * 4 # <1>
 ```
 1. This is an example of a footnote!
+:::
 
+:::callout-example
+Example of a code chunk (non-executing) that shows the header/footer backticks and curly-braced r.
+````{=html}
+<pre><code>```{{r}}
+x &lt;- 3 * 4 
+```
+</code></pre>
+````
+
+will render like:
+
+```{{r}}
+x <- 3 * 4 
+```
+:::
 
 ## Callouts
 
-Quarto offers some built-in [callout blocks](https://quarto.org/docs/authoring/callouts.html) to set content off against the normal body text.  Note that we've customized the colors of our callouts to better match our course styling (see the `lh_theme` extension).  
+Quarto offers some built-in [callout blocks](https://quarto.org/docs/authoring/callouts.html) to set content off against the normal body text.  Note that we've customized the colors of our callouts to better match our course styling (see the `nceas-learning-hub/theme` extension in `_extensions`).  
 
 ### Standard callouts
 
@@ -64,18 +137,19 @@ Use `{.callout-note}` to communicate deeper ideas or understandings that are not
 :::
 
 ::: {.callout-tip}
-Use `{.callout-tip}` to communicate learning objectives, key points, and helpful tips and tricks.
+Use `{.callout-tip}` to communicate key points and helpful tips and tricks.  (Learning objectives have their own callout; see above.)
 :::
 
 
 ### Custom callouts
 
-There are currently four custom callouts for different types of tasks:
+There are currently five custom callouts for different types of content:
 
 * exercise `{.callout-exercise}`
 * hint `{.callout-hint}`
 * answer `{.callout-answer}`
 * example `{.callout-example}`
+* learning objectives `{.callout-learning}` (see above)
 
 
 These custom callouts work thanks to [Tavares, H., van Rongen, M., Cardona, A. (2024). Course Development Guidelines. https://cambiotraining.github.io/quarto-course-template/](https://cambiotraining.github.io/quarto-course-template/materials/02-content_guidelines.html).  Unfortunately, the title is not responsive to the `title` argument in the callout or to the header-style titling that the built-in callouts can use.  The collapse option also seems to be unresponsive currently.

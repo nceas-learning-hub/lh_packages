@@ -14,56 +14,56 @@ In the course repository, the `_quarto.yml` contains all the information on how 
 
 ## Lessons
 
-The lesson `.qmd` files are copied out of the lessons package (`{coreRlessons}` by default) and into the course repository.  To maintain some order, a prefix is appended to the lesson names, e.g., `s01_r_programming_introduction.qmd`.
+The lesson `.qmd` files are copied out of the lessons package (`{lhLessons}` by default) and into the course repository.  To maintain some order, a prefix is appended to the lesson names, e.g., `s01_r_programming_introduction.qmd`.
 
 :::{.callout-warning}
 ### .Rmd vs .qmd
 
-For consistency, lesson files must be Quarto documents with a `.qmd` extension and a yaml header containing only the title.  Older lessons in `.Rmd` format should be updated.
+For consistency, lesson files must be Quarto documents with a `.qmd` extension and a yaml header containing a title (lessons in the package may also carry `categories` tags, which `search_lessons()` can filter on).  Older lessons in `.Rmd` format should be updated.
 :::
 
 ## Lesson supporting files
 
-Some lessons link to external images, data, or embedded slides.  These files are stored in directories named `images`, `data`, and `slides` respectively.  For a given lesson, correspondingly named subdirectories will appear in each of these image/data/slides directories, like this (for a lesson `s01_r_programming_introduction.qmd`):
+Some lessons link to external images, data, or embedded slides.  These files are stored in directories named `images`, `data`, `slides`, and `resources` respectively.  For a given lesson, correspondingly named subdirectories will appear in each of these directories, like this (for a lesson `s01_r_programming_introduction.qmd`):
 
-```
-<project root>
-  |-- s01_r_programming_introduction.qmd  ### the lesson document
-  |-- s02_github_introduction.qmd         ### etc
-  |
-  |-- data
-  |  |-- r_programming_introduction
-  |     |-- dataset1.csv ### filename as called in lesson qmd
-  |  
-  |-- images
-  |  |-- r_programming_introduction
-  |  |  |-- image1.png ### filename as called in lesson qmd
-  |  |  |-- image2.png ### etc
-  |  |
-  |  |-- github_introduction
-  |     |-- image1.png ### filename as called in lesson qmd
-  |     |-- image2.png ### etc
-  |
-  |-- slides
-  |  |-- r_programming_introduction 
-  |  |  |-- slides.qmd        ### filename as embedded in lesson qmd
-  |  |  |-- lesson_style.scss ### filename as noted in the slides qmd
-  |  |
-  |  |-- github_introduction
-  |     |-- github_slides.qmd ### filename as called in lesson qmd
-  |     |-- style.css         ### etc
- ...   ...
-```
+<div style="font-family: monospace;">
+{{< fa folder >}} **&lt;project root&gt;**  
+├── {{< fa file-code >}} s01_r_programming_introduction.qmd <span style="color:#6c757d">### the lesson document</span>  
+├── {{< fa file-code >}} s02_github_introduction.qmd <span style="color:#6c757d">### etc</span>  
+├── <span style="color:#209ACA">{{< fa folder >}} **data**</span>  
+|&nbsp;&nbsp;&nbsp;└── <span style="color:#209ACA">{{< fa folder >}} **r_programming_introduction**</span>  
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── {{< fa file-csv >}} dataset1.csv <span style="color:#6c757d">### filename as called in lesson qmd</span>  
+├── <span style="color:#209ACA">{{< fa folder >}} **images**</span>  
+|&nbsp;&nbsp;&nbsp;├──&nbsp; <span style="color:#209ACA">{{< fa folder >}} **r_programming_introduction**</span>  
+|&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;├── {{< fa file-image >}} image1.png <span style="color:#6c757d">### filename as called in lesson qmd</span>  
+|&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;└── {{< fa file-image >}} image2.png <span style="color:#6c757d">### etc</span>  
+|&nbsp;&nbsp;&nbsp;└── <span style="color:#209ACA">{{< fa folder >}} **github_introduction**</span>  
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── {{< fa file-image >}} image1.png <span style="color:#6c757d">### filename as called in lesson qmd</span>  
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── {{< fa file-image >}} image2.png <span style="color:#6c757d">### etc</span>  
+├── <span style="color:#209ACA">{{< fa folder >}} **slides**</span>  
+|&nbsp;&nbsp;&nbsp;├──&nbsp; <span style="color:#209ACA">{{< fa folder >}} **r_programming_introduction**</span>  
+|&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;├── {{< fa file-code >}} slides.qmd <span style="color:#6c757d">### filename as embedded in lesson qmd</span>  
+|&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;└── {{< fa file-code >}} lesson_style.scss <span style="color:#6c757d">### filename as noted in the slides qmd</span>  
+|&nbsp;&nbsp;&nbsp;└── <span style="color:#209ACA">{{< fa folder >}} **github_introduction**</span>  
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── {{< fa file-code >}} github_slides.qmd <span style="color:#6c757d">### filename as called in lesson qmd</span>  
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── {{< fa file-code >}} style.css <span style="color:#6c757d">### etc</span>  
+├── <span style="color:#209ACA">{{< fa folder >}} **resources**</span>  
+|&nbsp;&nbsp;&nbsp;└── <span style="color:#209ACA">{{< fa folder >}} **r_programming_introduction**</span>  
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── {{< fa file-code >}} references.bib <span style="color:#6c757d">### filename as called in lesson qmd</span>  
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── {{< fa file-pdf >}} document.pdf <span style="color:#6c757d">### etc</span>  
+└── ...  
+</div>
+
 If a lesson *does not* have supporting files, e.g., no images, then there may not be a corresponding folder (e.g., the `github_introduction.qmd` lesson above does not have a data folder!)
 
 :::{.callout-note}
-### File structure in created course vs. in `coreRlessons` package
+### File structure in created course vs. in `lhLessons` package
 
-The file structure inside the `coreRlessons` package is similar except:
+The file structure inside the `lhLessons` package is similar except:
 
 * the lesson `.qmd`s and supporting files/folders all live in the `inst` folder inside the package repository
-* the supporting files folders are all prefaced with `lesson_` (e.g., `lesson_data`) - this is because R packages don't like a folder called `data` in the `inst` folder, since it may interact with the `data` folder in the root.
-    * to render properly, the links inside the lesson .qmd should point to `data`, `images`, or `slides` without the `lesson_` prefix
+* the supporting files folders are all prefaced with `lesson_` (e.g., `lesson_data`, `lesson_images`, `lesson_slides`, `lesson_resources`) - this is because R packages don't like a folder called `data` in the `inst` folder, since it may interact with the `data` folder in the root.
+    * to render properly, the links inside the lesson .qmd should point to `data`, `images`, `slides`, or `resources` without the `lesson_` prefix
 * all content inside the supporting folders is copied over to the new course without modification.
 :::
 
@@ -78,5 +78,14 @@ As noted above, all content inside the supporting folders is copied over to the 
 
 ## Extensions and formatting
 
-- scss etc in the `_extensions` folder? or in root?
-- if extension, how to update styling (separate from content)
+The look of the course site (banner, fonts, colors, callout styling) is kept separate from the lesson content, in a Quarto extension.
+
+* `init_course()` installs the extension for the chosen template by running `quarto add nceas-learning-hub/theme_<template>` (e.g., `theme_delta`), along with `quarto-ext/fontawesome` for icons.  This requires the Quarto command line tool and an internet connection.  The extensions are installed into the course's `_extensions` folder, not the project root.
+* The template extension (`_extensions/nceas-learning-hub/theme/`) contains:
+    * `_extension.yml`, which sets the default HTML options for the site (light and dark themes, table of contents, numbered sections, code copy on hover, and the title banner) and registers the Lua filter.
+    * `theme_light.scss` and `theme_dark.scss`, which control fonts, colors, and callout styling.
+    * `banner/`, with the banner CSS and logo images used in the title banner at the top of each page.
+    * `callout_exercise.lua`, a filter that implements the custom exercise/hint/answer/example callouts (see the [content guidelines](8_content_guide.qmd)).
+* The `_quarto.yml` in the course root refers to the extension (under `filters:` and `format: theme-html:`) and holds course-specific settings such as the site title, navbar, and sidebar contents.
+
+To change the styling of a single course, edit the files inside its `_extensions` folder (or add course-specific CSS/SCSS and reference it from `_quarto.yml`).  Avoid editing the lesson `.qmd` files for styling purposes, so that lessons can still be updated from the lessons package and checked back in without carrying course-specific formatting.  Note that edits to the `_extensions` copy affect only that course; to change the styling for all future courses, the template extension in its own GitHub repository must be updated.

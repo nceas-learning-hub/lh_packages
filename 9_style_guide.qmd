@@ -1,0 +1,223 @@
+---
+title: Style guide
+---
+
+This page collects suggestions for styling lessons so that they look and behave consistently across the Learning Hub curriculum.  The suggestions come from how lessons were styled in recent courses (e.g., the 2026 Delta Synthesis week 3 course), plus some preferences we'd like to standardize.  Each suggestion includes a short explanation of _why_ it helps.
+
+This page is complementary to the [content guidelines](8_content_guide.qmd) (heading levels, callout types, YAML header) and the [structure guide](7_structure_guide.qmd) (file and folder organization).  These are suggestions, not rules - when a lesson needs something different, use your judgment.
+
+## Text case
+
+| Use | For | Why |
+|:-----------|:--------------------------|:-------------------------------------------|
+| `snake_case` | File names, folder names, and variable names wherever possible | Avoids spaces and capitals that break across operating systems, URLs, and code.  Matches the lesson naming scheme used by `{lhCore}` (e.g., `r_programmatic_data_access.qmd`). |
+| `kebab-case` | Code chunk labels (see [below](#code-chunks)) | Quarto's cross-reference labels (e.g., `fig-`, `tbl-` prefixes) use hyphens, so hyphenated labels stay compatible if a chunk later becomes a cross-referenced figure or table. |
+| Title Case | Lesson titles, headings, and callout titles | Headings are scanned in the sidebar and table of contents; consistent capitalization looks tidier and makes titles easy to distinguish from body text. |
+
+::: callout-note
+Callout titles are essentially headings (they are written with a header line inside the callout), so we suggest Title Case for them too, e.g., `### Remember to End the Preview When Done!`.
+:::
+
+## Learning objectives
+
+Start each lesson with a learning objectives callout (see the [content guidelines](8_content_guide.qmd#learning-objectives)).  Write each objective as an observable action that begins with a verb, completing the sentence "By the end of this lesson, you will be able to...".
+
+* **Content-driven lessons** (most lessons): choose verbs from [Bloom's Taxonomy](https://en.wikipedia.org/wiki/Bloom%27s_taxonomy#/media/File:Bloom%E2%80%99s_Taxonomy_Verbs.png){.external target="_blank" rel="noopener"}, which groups verbs by the depth of understanding they describe.
+* **Setup-style lessons** (focused on accomplishing a specific task rather than understanding content): more direct action verbs are fine, e.g., _set up_, _configure_, _install_, _define_.
+
+| Level | Example verbs |
+|:-----------|:-------------------------------------------------|
+| Remember | define, list, identify, name |
+| Understand | describe, explain, summarize, classify |
+| Apply | use, apply, create, demonstrate |
+| Analyze | compare, differentiate, examine, organize |
+| Evaluate | assess, justify, critique, choose |
+| Create | design, develop, construct, formulate |
+
+Why: verbs like "understand" or "know" can't be observed or assessed, while verbs like "compare" or "apply" tell the learner (and the instructor) what they should be able to do afterward - and suggest what the exercises should ask of them.
+
+```
+:::{.callout-learning}
+By the end of this lesson, you will be able to:
+
+- Define the key components of a Shiny application (UI, server, reactivity)
+- Apply the three rules for building reactive server outputs
+- Compare single-file and two-file app structures
+:::
+```
+
+## Code chunks {#code-chunks}
+
+### Functional code chunks
+
+* **Code that readers should see and run:** use a standard chunk with the default `echo: true`.
+* **Code that needs to run behind the scenes** (e.g., loading data from a different source than the one shown in the lesson): use `#| echo: false` (or `#| include: false` to hide output as well).  Why: it keeps the lesson focused on what you want the reader to learn, while the lesson still renders correctly.
+
+### Code that is shown but not run
+
+There are a few ways to show code without running it.  In order of preference:
+
+1. **A plain language fence, e.g., ```` ```r ````** - the best choice.  Why: it is simplest, and since it isn't a chunk at all, there's no chance it will accidentally execute (or fail) during rendering.
+2. **A chunk with `#| eval: false`** (i.e., ```` ```{r} ```` plus the option) - acceptable, and the most common choice in existing lessons.  Why it's second best: it gives you chunk features (labels, `code-fold`, `source-line-numbers`) but there is more that can go wrong, e.g., forgetting the option.
+3. **An escaped chunk header** - only when you need to show the chunk header and footer themselves, e.g., when teaching how to write a chunk.  In the lesson source, type the opening fence with doubled braces (as in the example below); Quarto renders them as single braces, so readers see a normal chunk that does not run.
+
+````
+```{{r}}
+#| label: load-packages
+
+library(dplyr)
+```
+````
+
+### Chunk labels
+
+Name your chunks with `#| label:` - yes, please!  Use short, descriptive, lowercase, hyphenated labels without spaces.  Why: labels appear in the document outline in Positron/RStudio so readers can navigate long lessons, they make rendering errors easier to trace, and they're required for cross-references.
+
+````
+```{{r}}
+#| label: read-yolo-catch
+
+yolo_catch <- read_csv(yolo_catch_file)
+```
+````
+
+### Explaining code: end-of-line comments vs. footnotes
+
+Both work, for different purposes:
+
+* **End-of-line comments** (e.g., `mean(foo) ### calculates the mean of foo`) travel with the code when readers copy it.  Use them for short notes the reader should keep in their own script.
+* **Code annotations / footnotes** (`mean(foo) # <1>` and then a numbered list after the chunk) show a hover note or numbered explanation without cluttering the code.  Use them for teaching-oriented explanations that don't belong in the script.  See the [content guidelines](8_content_guide.qmd#code-formatting) for the syntax.
+
+::: callout-tip
+If you highlight lines with `#| source-line-numbers:`, note that a footnote marker on a line can count as an extra line.  If the highlight lands in the wrong place, adjust the range (e.g., use `"3-4"` instead of `"3"`).
+:::
+
+### Long code
+
+For long, finished scripts that readers may want to copy but not read line by line, fold the chunk and give it a summary so readers can expand it on demand:
+
+````
+```{{r}}
+#| label: complete-app
+#| eval: false
+#| code-fold: true
+#| code-summary: "Show complete app.R"
+```
+````
+
+## Tabsets
+
+Tabsets are great for presenting alternatives that readers choose between, e.g., instructions for different IDEs or different methods for the same task.  Why: each reader sees only the path relevant to them, which shortens the lesson.
+
+Be careful with headings inside tabsets.  The tab labels are written as headings, and when section numbering is enabled (as it is in our theme), headings within tabsets take part in the numbering and can make the numbering behave unexpectedly.  So:
+
+* Use headings **only** to label the tabs, not for additional structure inside a tab.
+* Mark the tab label headings as unnumbered (`{.unnumbered}`) so they don't take part in the section numbering.
+* Use bold text or lists for any structure needed inside a tab.
+
+````
+::: {.panel-tabset}
+
+#### Positron {.unnumbered}
+
+Instructions for Positron...
+
+#### RStudio {.unnumbered}
+
+Instructions for RStudio...
+
+:::
+````
+
+::: {.panel-tabset}
+
+#### Positron {.unnumbered}
+
+Instructions for Positron...
+
+#### RStudio {.unnumbered}
+
+Instructions for RStudio...
+
+:::
+
+## Images
+
+Prefer the Markdown image syntax, `![](path){options}`, over the HTML `<img src="path">` tag.
+
+* **Strengths of the Markdown syntax:** Quarto options such as `fig-alt`, `fig-align`, and `.lightbox` work, captions and cross-references are available, and the syntax is shorter.
+* **Weaknesses:** less control over unusual layouts; for those, a fenced div or a raw HTML block may be needed.
+* **`<img>` mode:** works, but Quarto's image options (alt text via `fig-alt`, lightbox, alignment) don't apply, so accessibility and styling must be managed by hand.
+
+Useful options (use these and others as you see fit):
+
+```
+![](images/shiny_introduction/app-screenshot.png){fig-align="center" width="70%" .lightbox fig-alt="Screenshot of the example app showing a sidebar of filters and a time series plot"}
+```
+
+| Option | What it does | Why use it |
+|:--------------------|:----------------------------|:-----------------------------|
+| `fig-alt="..."` | Alternative text describing the image | Accessibility: screen readers read it, and it displays if the image fails to load.  Describe what the image shows and why it matters, not just "screenshot". |
+| `.lightbox` | Click the image to enlarge it | Helpful for screenshots with small text. |
+| `width="70%"` | Image width relative to the page | Keeps large images from dominating the page, and scales with the window. |
+| `fig-align="center"` | Centers the image | Looks more intentional than left-aligned images with white space on the right. |
+
+Also remember to keep the image folder name identical to the lesson name (see the [structure guide](7_structure_guide.qmd)), and to keep image file sizes small.
+
+## External links
+
+Mark links to other websites with `{.external target="_blank" rel="noopener"}`:
+
+```
+[NCEAS](https://www.nceas.ucsb.edu/){.external target="_blank" rel="noopener"}
+```
+
+* `.external` adds a small "leaving this site" icon next to the link, so readers know they're navigating away.
+* `target="_blank"` opens the link in a new tab, leaving the course page easily available.
+* `rel="noopener"` is a security measure that stops the new page from being able to access the page that opened it (browsers often add it automatically with `target="_blank"`, but it's good practice to be explicit).
+
+The course template also sets `link-external-newwindow` and `link-external-icon` in `_quarto.yml`, which apply this behavior to external links site-wide.  Adding the explicit attributes is a harmless safeguard, and a way to be sure the behavior is applied to a particular link.
+
+## Customizing callouts
+
+### Collapse long callouts
+
+Long callouts (extended code, optional details, solutions) can push the main content far down the page.  Collapse them with `collapse="true"`, and consider adding a note in the title to tell readers to click to expand.  The callout needs a title (header) for the collapse control to appear.
+
+```
+::: {.callout-tip collapse="true"}
+### Complete Code (Click to Expand)
+
+Long code or optional detail goes here.
+:::
+```
+
+::: {.callout-tip collapse="true"}
+### Complete Code (Click to Expand)
+
+Long code or optional detail goes here.
+:::
+
+::: callout-note
+This works for the built-in callouts.  As noted in the [content guidelines](8_content_guide.qmd#custom-callouts), the collapse option may not respond for the custom callouts (exercise, hint, answer, example).
+:::
+
+### Callouts with custom icons
+
+To use your own Font Awesome icon in place of the default callout icon, set `icon="false"` and include the icon in the callout's title line:
+
+```
+::: {.callout-warning icon="false"}
+### {{{< fa rocket >}}} Activity: Draft Elevator Pitch
+
+Activity instructions go here.
+:::
+```
+
+::: {.callout-warning icon="false"}
+### {{< fa rocket >}} Activity: Draft Elevator Pitch
+
+Activity instructions go here.
+:::
+
+Why: a distinctive icon makes a recurring type of content (e.g., activities, "your turn" prompts) instantly recognizable, without having to define a whole new callout type.  Browse the available icons in the [Font Awesome catalog](https://fontawesome.com/search?o=r&m=free){.external target="_blank" rel="noopener"}.

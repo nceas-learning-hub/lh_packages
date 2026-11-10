@@ -95,7 +95,7 @@ setup_lessons(lesson_df)
 These will result in an identical two-day course.
 :::
 
-::: callout-warning
+::: callout-important
 ### Using `overwrite = TRUE`
 
 If a lesson structure is already in place, `setup_lessons()` returns an error unless `overwrite = TRUE`.  With `overwrite = TRUE`, after asking for confirmation, the function **permanently deletes** the existing lesson files (`sXX_*.qmd`) and the matching lesson folders in `images`, `data`, `slides`, and `resources`, replaces the lesson list in `_quarto.yml` (between the `# START SESSIONS` and `# END SESSIONS` markers), and installs the new lessons.  Any local edits or customizations to those lessons will be lost, and this cannot be undone.  Before overwriting, commit your work to Git and consider running `compare_diffs()` to see how your lessons differ from the lessons package.  If the `_quarto.yml` is missing the START/END markers, the function stops without deleting anything.

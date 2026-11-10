@@ -6,7 +6,7 @@ In many cases, an instructor may wish to create a custom course book every time 
 
 The `update_lessons()` function can help with this.  The function scans an existing course (or limits itself to a set of lessons dictated by the instructor), and, depending on the selection of the instructor, can replace older lessons with versions from the most up to date version of the lessons package.  Optionally, the instructor can also revert a lesson to that from an *older* version of the lessons package, by providing an optional version number based on the lessons package history.
 
-::: callout-warning
+::: callout-important
 `update_lessons()` is **destructive**.  It overwrites the matching lesson `.qmd` files and lesson folders in `images`, `data`, `slides`, and `resources` with the versions from the lessons package, permanently discarding any local edits or customizations to those lessons.  Commit your work to Git first, and run `compare_diffs()` to see how your local lessons differ from the lessons package (and `checkin_lessons()` to save changes worth keeping).
 :::
 

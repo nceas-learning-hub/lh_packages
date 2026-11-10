@@ -2,7 +2,7 @@
 title: Compare changes and check in lessons
 ---
 
-Once a class has been taught, it is common for many, if not all, of the lessons to have been modified by the instructor.  Many of these changes are simply typo fixes, others may contain more substantial changes to the content of the lesson, still others may implement new ideas about curriculum and pedagogy.  Embedded in all these changes are improvements to the lesson, at least in the instructor's eye.  Being able to compare these changes to other versions of the lesson, discussing the merits and reasoning for changes among the Learning Hub staff, and incorporating the best improvements back into the lessons package will ensure the Learning Hub curriculum continues to improve.
+Once a class has been taught, it is common for many, if not all, of the lessons to have been modified by the instructor.  Many of these changes are simply typo fixes, others may contain more substantial changes to the content of the lesson, still others may implement new ideas about curriculum and pedagogy, or even entirely new lessons.  Embedded in all these changes are improvements to the lesson, at least in the instructor's eye.  Being able to compare these changes to other versions of the lesson, discussing the merits and reasoning for changes among the Learning Hub staff, and incorporating the best improvements back into the lessons package will ensure the Learning Hub curriculum continues to improve and evolve.
 
 ## Comparing with `compare_diffs()`
 

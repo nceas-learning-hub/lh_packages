@@ -24,56 +24,63 @@ For consistency, lesson files must be Quarto documents with a `.qmd` extension a
 
 ## Lesson supporting files
 
-Some lessons link to external images, data, or embedded slides.  These files are stored in directories named `images`, `data`, `slides`, and `resources` respectively.  For a given lesson, correspondingly named subdirectories will appear in each of these directories, like this (for a lesson `s01_r_programming_introduction.qmd`):
+Some lessons link to external images, data, or embedded slides.  These files are stored in directories named `lessons/images`, `lessons/data`, `lessons/slides`, and `lessons/resources` respectively.  For a given lesson, correspondingly named subdirectories will appear in each of these directories, like this (for a lesson `s01_r_programming_introduction.qmd`):
 
-<div style="font-family: monospace;">
+<div style="font-family: monospace; font-size: 0.9em;">
 {{< fa folder >}} **&lt;project root&gt;**  
-├── {{< fa file-code >}} s01_r_programming_introduction.qmd <span style="color:#6c757d">### the lesson document</span>  
-├── {{< fa file-code >}} s02_github_introduction.qmd <span style="color:#6c757d">### etc</span>  
-├── <span style="color:#209ACA">{{< fa folder >}} **data**</span>  
-|&nbsp;&nbsp;&nbsp;└── <span style="color:#209ACA">{{< fa folder >}} **r_programming_introduction**</span>  
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── {{< fa file-csv >}} dataset1.csv <span style="color:#6c757d">### filename as called in lesson qmd</span>  
-├── <span style="color:#209ACA">{{< fa folder >}} **images**</span>  
-|&nbsp;&nbsp;&nbsp;├──&nbsp; <span style="color:#209ACA">{{< fa folder >}} **r_programming_introduction**</span>  
-|&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;├── {{< fa file-image >}} image1.png <span style="color:#6c757d">### filename as called in lesson qmd</span>  
-|&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;└── {{< fa file-image >}} image2.png <span style="color:#6c757d">### etc</span>  
-|&nbsp;&nbsp;&nbsp;└── <span style="color:#209ACA">{{< fa folder >}} **github_introduction**</span>  
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── {{< fa file-image >}} image1.png <span style="color:#6c757d">### filename as called in lesson qmd</span>  
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── {{< fa file-image >}} image2.png <span style="color:#6c757d">### etc</span>  
-├── <span style="color:#209ACA">{{< fa folder >}} **slides**</span>  
-|&nbsp;&nbsp;&nbsp;├──&nbsp; <span style="color:#209ACA">{{< fa folder >}} **r_programming_introduction**</span>  
-|&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;├── {{< fa file-code >}} slides.qmd <span style="color:#6c757d">### filename as embedded in lesson qmd</span>  
-|&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;└── {{< fa file-code >}} lesson_style.scss <span style="color:#6c757d">### filename as noted in the slides qmd</span>  
-|&nbsp;&nbsp;&nbsp;└── <span style="color:#209ACA">{{< fa folder >}} **github_introduction**</span>  
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── {{< fa file-code >}} github_slides.qmd <span style="color:#6c757d">### filename as called in lesson qmd</span>  
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── {{< fa file-code >}} style.css <span style="color:#6c757d">### etc</span>  
-├── <span style="color:#209ACA">{{< fa folder >}} **resources**</span>  
-|&nbsp;&nbsp;&nbsp;└── <span style="color:#209ACA">{{< fa folder >}} **r_programming_introduction**</span>  
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── {{< fa file-code >}} references.bib <span style="color:#6c757d">### filename as called in lesson qmd</span>  
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── {{< fa file-pdf >}} document.pdf <span style="color:#6c757d">### etc</span>  
+├── {{< fa folder >}} **lessons** <span style="color:#6c757d">### all lesson .qmd files and supporting content</span>  
+│&nbsp;&nbsp;&nbsp;├── {{< fa file-code >}} s01_r_programming_introduction.qmd <span style="color:#6c757d">### lesson</span>  
+│&nbsp;&nbsp;&nbsp;├── {{< fa file-code >}} s02_github_introduction.qmd <span style="color:#6c757d">### etc</span>  
+│&nbsp;&nbsp;&nbsp;├── <span style="color:#209ACA">{{< fa folder >}} **data**</span>  
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── <span style="color:#209ACA">{{< fa folder >}} **r_programming_introduction**</span>  
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── {{< fa file-csv >}} dataset1.csv  
+│&nbsp;&nbsp;&nbsp;├── <span style="color:#209ACA">{{< fa folder >}} **images**</span>  
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── <span style="color:#209ACA">{{< fa folder >}} **r_programming_introduction**</span>  
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── {{< fa file-image >}} image1.png  
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── {{< fa file-image >}} image2.png  
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── <span style="color:#209ACA">{{< fa folder >}} **github_introduction**</span>  
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── {{< fa file-image >}} image1.png  
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── {{< fa file-image >}} image2.png  
+│&nbsp;&nbsp;&nbsp;├── <span style="color:#209ACA">{{< fa folder >}} **slides**</span>  
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── <span style="color:#209ACA">{{< fa folder >}} **r_programming_introduction**</span>  
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── {{< fa file-code >}} slides.qmd  
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── {{< fa file-code >}} lesson_style.scss  
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── <span style="color:#209ACA">{{< fa folder >}} **github_introduction**</span>  
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── {{< fa file-code >}} github_slides.qmd  
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── {{< fa file-code >}} style.css  
+│&nbsp;&nbsp;&nbsp;└── <span style="color:#209ACA">{{< fa folder >}} **resources**</span>  
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── <span style="color:#209ACA">{{< fa folder >}} **r_programming_introduction**</span>  
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── {{< fa file-code >}} references.bib  
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── {{< fa file-pdf >}} document.pdf  
 └── ...  
 </div>
 
+### What goes into each folder
+
+Each supporting folder is organized by lesson name (matching the lesson filename without the `sXX_` prefix and `.qmd` extension).  For example, `lessons/images/github_introduction/` contains all images for the `s02_github_introduction.qmd` lesson.  There are no strict rules about what goes into each of these folders, but generally:
+
+* **`lessons/images/`**: Image files (`.png`, `.jpg`, `.gif`, etc.)
+* **`lessons/slides/`**: Quarto slide decks, plus any supporting files like `.scss` stylesheets or sub-directories for slide-specific images
+* **`lessons/data/`**: Data files (`.csv`, `.gpkg`, etc.) required for rendering the lesson. When possible, link to data from its original source (e.g., an R data package, a URL) rather than storing it locally. Store only when data is not readily available, or provide a downloadable copy for learners.
+* **`lessons/resources/`**: Miscellaneous resources like PDFs, handouts, instructor documentation, etc.
+
 If a lesson *does not* have supporting files, e.g., no images, then there may not be a corresponding folder (e.g., the `github_introduction.qmd` lesson above does not have a data folder!)
+
+### File naming and sizing for supporting content
+
+Within each `lessons/images/`, `lessons/data/`, `lessons/slides/`, and `lessons/resources/` subdirectory, there are no specific naming conventions—just use **short, descriptive filenames** that make sense for the content.  Pay attention to:
+
+* **File size** — especially for images, which should be as small as reasonable. Screen captures are often captured at full resolution but remain readable when shrunk to a coarser resolution; use a photo app to optimize them.
+* **Naming** — keep it concise and meaningful, so it's clear what the file contains at a glance.
 
 :::{.callout-note}
 ### File structure in created course vs. in `lhLessons` package
 
-The file structure inside the `lhLessons` package is similar except:
+The file structure inside the `lhLessons` package mirrors the course structure, except nested within `inst/lessons` instead of at the Quarto course site root:
 
-* the lesson `.qmd`s and supporting files/folders all live in the `inst` folder inside the package repository
-* the supporting files folders are all prefaced with `lesson_` (e.g., `lesson_data`, `lesson_images`, `lesson_slides`, `lesson_resources`) - this is because R packages don't like a folder called `data` in the `inst` folder, since it may interact with the `data` folder in the root.
-    * to render properly, the links inside the lesson .qmd should point to `data`, `images`, `slides`, or `resources` without the `lesson_` prefix
+* the lesson `.qmd`s and supporting files/folders all live in the `inst/lessons` folder inside the package repository
+* supporting files are organized in `lessons/data`, `lessons/images`, `lessons/slides`, `lessons/resources` directories
 * all content inside the supporting folders is copied over to the new course without modification.
-:::
-
-:::{.callout-note}
-### File sizes and naming in supporting content
-
-As noted above, all content inside the supporting folders is copied over to the new course without modification.  Please be considerate when designing and organizing the supporting content!  This includes paying attention to:
-
-* File naming - short but descriptive.
-* File size - particularly for images, ensure the file is as small as reasonable.  This holds true especially for screen captures - these are typically captured at full screen resolution, but are quite readable shrunk down to a coarser resolution which saves a huge amount of space.  Use a photo app to shrink them please!
 :::
 
 ## Extensions and formatting

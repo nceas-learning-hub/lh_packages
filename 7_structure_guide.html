@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Course rendering – Learning Hub Course Development Packages</title>
+<title>File structure guide – Learning Hub Course Development Packages</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -308,7 +308,7 @@ ul.task-list li input[type="checkbox"] {
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <a class="flex-grow-1 no-decor" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-          <h1 class="quarto-secondary-nav-title">Course rendering</h1>
+          <h1 class="quarto-secondary-nav-title">File structure guide</h1>
         </a>     
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -320,7 +320,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title d-none d-lg-block">Course rendering</h1>
+      <h1 class="title d-none d-lg-block">File structure guide</h1>
                       </div>
   </div>
     
@@ -415,7 +415,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./7_structure_guide.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Course rendering</span></a>
+ <span class="menu-text">File structure guide</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -529,7 +529,7 @@ ul.task-list li input[type="checkbox"] {
 <li><strong><code>lessons/images/</code></strong>: Image files (<code>.png</code>, <code>.jpg</code>, <code>.gif</code>, etc.)</li>
 <li><strong><code>lessons/slides/</code></strong>: Quarto slide decks, plus any supporting files like <code>.scss</code> stylesheets or sub-directories for slide-specific images</li>
 <li><strong><code>lessons/data/</code></strong>: Data files (<code>.csv</code>, <code>.gpkg</code>, etc.) required for rendering the lesson. When possible, link to data from its original source (e.g., an R data package, a URL) rather than storing it locally. Store only when data is not readily available, or provide a downloadable copy for learners.</li>
-<li><strong><code>lessons/resources/</code></strong>: Miscellaneous resources like PDFs, handouts, instructor documentation, etc.</li>
+<li><strong><code>lessons/resources/</code></strong>: Miscellaneous resources like <code>.bib</code> files, PDFs, handouts, instructor documentation, etc.</li>
 </ul>
 <p>If a lesson <em>does not</em> have supporting files, e.g., no images, then there may not be a corresponding folder (e.g., the <code>github_introduction.qmd</code> lesson above does not have a data folder!)</p>
 </section>

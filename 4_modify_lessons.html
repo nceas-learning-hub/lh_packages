@@ -413,7 +413,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./7_structure_guide.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Course rendering</span></a>
+ <span class="menu-text">File structure guide</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -549,7 +549,12 @@ Note
 <li>Where possible, access data from its original source (e.g., an R data package, a url to an online .csv, etc). This should also be the preferred method for accessing the data while teaching.</li>
 <li>Where data are not readily available, data can be put in this folder and a link exposed in the lesson to let learners download the data.</li>
 </ul></li>
-<li><code>lessons/resources</code>: Other miscellaneous resource files. For example, the Lego reproducibility lesson has learner handout pdfs and instructor documentation in the <code>resources</code> folder.</li>
+<li><code>lessons/resources</code>: Other miscellaneous resource files.
+<ul>
+<li>For example, the Lego reproducibility lesson has learner handout pdfs and instructor documentation in the <code>resources</code> folder.<br>
+</li>
+<li>If a lesson cites references, you can put a <code>.bib</code> file here and reference it in the YAML header of the lesson.</li>
+</ul></li>
 </ul>
 </section>
 </section>

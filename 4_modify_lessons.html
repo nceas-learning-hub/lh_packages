@@ -459,6 +459,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#add-new-lesson-to-course-sequence" id="toc-add-new-lesson-to-course-sequence" class="nav-link" data-scroll-target="#add-new-lesson-to-course-sequence"><span class="header-section-number">3.2</span> Add new lesson to course sequence</a></li>
   </ul></li>
   <li><a href="#reorganizing-the-whole-lesson-sequence" id="toc-reorganizing-the-whole-lesson-sequence" class="nav-link" data-scroll-target="#reorganizing-the-whole-lesson-sequence"><span class="header-section-number">4</span> Reorganizing the whole lesson sequence</a></li>
+  <li><a href="#updating-lesson-content-in-lhlessons" id="toc-updating-lesson-content-in-lhlessons" class="nav-link" data-scroll-target="#updating-lesson-content-in-lhlessons"><span class="header-section-number">5</span> Updating lesson content in <code>{lhLessons}</code></a></li>
   </ul>
 </nav>
     </div>
@@ -506,9 +507,23 @@ Tip
 </section>
 <section id="changing-or-adding-images" class="level3" data-number="1.2">
 <h3 data-number="1.2" class="anchored" data-anchor-id="changing-or-adding-images"><span class="header-section-number">1.2</span> Changing or adding images</h3>
-<p>For each lesson that already has images, there is a corresponding folder in the <code>images</code> folder. For example, if the course uses the <code>git_setup</code> lesson, there will be a folder <code>images/git_setup/</code> where all the images for that lesson are stored. If you want to change an image (e.g., replace with a better resolution version, or swap for a different image), replace that file in the corresponding folder, and if you change the filename, update the filename inside the Quarto document as well. Easy!</p>
-<p>If you want to add a new image to a lesson, find the appropriate folder and put the image there, then edit the Quarto document to point toward the proper image location. Easy! NOTE: if you’re adding an image to a lesson that doesn’t currently have any images, you may need to create the corresponding image folder. It is important that the folder name match the lesson name <strong>exactly</strong> (minus the prefix <code>sXX_</code> and extension <code>.qmd</code>).</p>
-<p>If you want to <em>remove</em> an image, just edit the Quarto doc and remove the file from the corresponding images folder. If it’s the last image being removed, maybe delete the corresponding image folder? but not critical!</p>
+<p>For each lesson that already has images, there is a corresponding folder in the <code>lessons/images/</code> directory. For example, if the course uses the <code>git_setup</code> lesson, there will be a folder <code>lessons/images/git_setup/</code> where all the images for that lesson are stored. If you want to change an image (e.g., replace with a better resolution version, or swap for a different image), replace that file in the corresponding folder, and if you change the filename, update the filename inside the Quarto document as well. Easy!</p>
+<p>If you want to add a new image to a lesson, find the appropriate folder and put the image there, then edit the Quarto document to point toward the proper image location. Easy!</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Image folder must match lesson name!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you’re adding an image to a lesson that doesn’t currently have any images, you may need to create the corresponding image folder under <code>lessons/images/</code>. It is important that the <strong>folder name</strong> match the lesson name <strong>exactly</strong> (minus the prefix <code>sXX_</code> and extension <code>.qmd</code>).</p>
+<p><strong>Example:</strong> if lesson file is <code>s07_github_introduction.qmd</code>, then image folder is <code>lessons/images/github_introduction</code>.</p>
+</div>
+</div>
+<p>If you want to <em>remove</em> an image, just edit the Quarto doc and remove the file from the corresponding <code>lessons/images/</code> subfolder. If it’s the last image being removed, maybe delete the corresponding image folder? but not critical!</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -525,14 +540,28 @@ Note
 </section>
 <section id="changing-or-adding-slides-data-or-resources" class="level3" data-number="1.3">
 <h3 data-number="1.3" class="anchored" data-anchor-id="changing-or-adding-slides-data-or-resources"><span class="header-section-number">1.3</span> Changing or adding slides, data, or resources</h3>
-<p>Similar to changing or adding images - if a lesson is already associated with lesson-specific data or slides, it will have a corresponding folder in the <code>data</code>, <code>slides</code>, or <code>resources</code> folder, yay! Follow the same steps as noted for images.</p>
+<p>Similar to changing or adding images - if a lesson is already associated with lesson-specific data or slides, it will have a corresponding lesson-specific folder in the <code>lessons/data/</code>, <code>lessons/slides/</code>, or <code>lessons/resources/</code> directory, yay! Follow the same steps as noted for images. Note that there aren’t strict rules about content organization in these folders, but generally:</p>
+<ul>
+<li><code>lessons/images</code>: image files, e.g., <code>.png</code>, <code>.jpg</code>, <code>.gif</code> etc.</li>
+<li><code>lessons/slides</code>: Quarto slide decks, with perhaps additional files or subfolders to support the slide deck (e.g., <code>my_style.scss</code> for styling, <code>images/</code> for organizing images specific to the slide deck).</li>
+<li><code>lessons/data</code>: Data specific to the lesson at hand, required for rendering the course book, e.g., a .csv or .gpkg (careful of file size!).
+<ul>
+<li>Where possible, access data from its original source (e.g., an R data package, a url to an online .csv, etc). This should also be the preferred method for accessing the data while teaching.</li>
+<li>Where data are not readily available, data can be put in this folder and a link exposed in the lesson to let learners download the data.</li>
+</ul></li>
+<li><code>lessons/resources</code>: Other miscellaneous resource files. For example, the Lego reproducibility lesson has learner handout pdfs and instructor documentation in the <code>resources</code> folder.</li>
+</ul>
 </section>
 </section>
 <section id="rearranging-lessons" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="rearranging-lessons"><span class="header-section-number">2</span> Rearranging lessons</h2>
 <p>Oh noes! You created the course but now realize the flow would work better if the lessons were in a different order! No worries, this is pretty easy.</p>
-<p>First, the prefixes on the lesson files, e.g., <code>s01_r_studio_server_setup.qmd</code> do not determine the order of lessons - they just make it easy to see the files in order in a file browser. The only thing that determines lesson order is inside the <code>_quarto.yml</code> document. In the website sidebar, there is a section called <code>contents:</code> with the index.qmd as the first file, then lessons in order, possibly broken into modules. This is bracketed by <code># START SESSIONS</code> and <code># END SESSIONS</code> in the <code>_quarto.yml</code>. (Before lessons are set up, a <code># SESSION_LINKS</code> placeholder between these markers is what <code>setup_lessons()</code> replaces with the lesson sequence.)</p>
-<p>For example, contents for a very simple course might look like this:</p>
+<p>First, the prefixes on the lesson files, e.g., <code>s01_r_studio_server_setup.qmd</code> <strong>do not</strong> determine the order of lessons - they just make it easy to see the files in order in a file browser. <strong>The only thing that determines lesson order is inside the <code>_quarto.yml</code> document.</strong> In the website sidebar, there is a section called <code>contents:</code> with the index.qmd as the first file, then lessons in order, possibly broken into modules. This is bracketed by <code># START SESSIONS</code> and <code># END SESSIONS</code> in the <code>_quarto.yml</code>. (Before lessons are set up, a <code># SESSION_LINKS</code> placeholder between these markers is what <code>setup_lessons()</code> replaces with the lesson sequence.)</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Initial sequence</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Resequenced course</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>The contents for a very simple course might look like this when first created:</p>
 <pre><code>&lt;... other stuff ...&gt;
     contents:
       - index.qmd # preface
@@ -546,6 +575,8 @@ Note
         - s03_github_introduction.qmd
       # END SESSIONS
 &lt;... other stuff ...&gt;</code></pre>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <p>To reorder, you can just move the corresponding file into its new position in the sequence, without changing its prefix (the filename still needs to match the file!). If you have defined modules, make sure the lesson sequence falls into the proper modules. For example, to move the GitHub intro lesson to just before the Git setup lesson, and move the Git setup to day 2:</p>
 <pre><code>    contents:
       - index.qmd # preface
@@ -559,23 +590,25 @@ Note
         - s02_git_setup.qmd              ### moved down
       # END SESSIONS</code></pre>
 <p>If the mismatched sequence numbers bug you, feel free to edit them in the <code>_quarto.yml</code> doc and rename the corresponding files, but it is not functionally necessary.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="adding-a-new-lesson" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="adding-a-new-lesson"><span class="header-section-number">3</span> Adding a new lesson</h2>
 <p>Adding a new lesson is easy too. Two steps:</p>
 <ul>
-<li>Create (or modify a copy of) a lesson file and add content, including optional images/slides/data.</li>
+<li>Create (or modify a copy of) a lesson file and add content, including optional images/slides/data/resources.</li>
 <li>Add your new lesson into the <code>_quarto.yml</code> lesson sequence in the appropriate location.</li>
 </ul>
 <section id="createmodify-a-lesson-file-with-content" class="level3" data-number="3.1">
 <h3 data-number="3.1" class="anchored" data-anchor-id="createmodify-a-lesson-file-with-content"><span class="header-section-number">3.1</span> Create/modify a lesson file with content</h3>
 <p>Create a new file, or copy an existing one.</p>
 <ul>
-<li>Give the new file a name that follows the general naming scheme, and add a prefix <code>sXX_</code> where <code>XX</code> is a two-digit number (this prefix is important - it’s a flag that other <code>{lhCore}</code> package functions use to identify lesson files). Note, as for resequencing a lesson, the actual numbers aren’t important except for housekeeping - the actual sequencing is done in the <code>_quarto.yml</code> step that follows.<br>
-</li>
+<li>Give the new file a name that follows the general naming scheme, and add a prefix <code>sXX_</code> where <code>XX</code> is a two-digit number (this prefix is important - it’s a flag that other <code>{lhCore}</code> package functions use to identify lesson files). Note, as for resequencing a lesson, the actual numbers aren’t important except for housekeeping - the actual sequencing is done in the <code>_quarto.yml</code> step that follows. Place the lesson file in the <code>lessons/</code> directory.</li>
 <li>Format-wise, have a yaml header with a title (this gets printed in the lesson sidebar menu and at the top).</li>
 <li>Follow all the style guidelines for headers, callouts, etc. to keep consistency with existing lessons.</li>
-<li>If you include local figures, data, or slides, go to the appropriate folder (‘images’, ‘slides’, ‘data’, ‘resources’ - create if not already present in the course root directory) and add a subfolder with the bare name of your lesson (remove the <code>sXX_</code> prefix and <code>.qmd</code> extension). Put your auxiliary files in the subfolder, and link to them from your lesson Quarto file.</li>
+<li>If you include local figures, data, or slides, go to the appropriate subdirectory of <code>lessons/</code> (‘images’, ‘slides’, ‘data’, ‘resources’ - create if not already present) and add a subfolder with the bare name of your lesson (remove the <code>sXX_</code> prefix and <code>.qmd</code> extension). Put your auxiliary files in the subfolder, and link to them from your lesson Quarto file.</li>
 </ul>
 </section>
 <section id="add-new-lesson-to-course-sequence" class="level3" data-number="3.2">
@@ -598,19 +631,24 @@ Note
 <section id="reorganizing-the-whole-lesson-sequence" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="reorganizing-the-whole-lesson-sequence"><span class="header-section-number">4</span> Reorganizing the whole lesson sequence</h2>
 <p>If you wish to scrap the existing lesson sequence and restructure with new lessons, a different order, etc. you can use <code>setup_lessons(..., overwrite = TRUE)</code> with a new vector or dataframe defining a new lesson sequence.</p>
-<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Warning
+Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p><code>overwrite = TRUE</code> is <strong>destructive</strong>. After confirmation, it deletes all existing lesson <code>.qmd</code> files (<code>sXX_*.qmd</code>) and the matching lesson folders in <code>images</code>, <code>data</code>, <code>slides</code>, and <code>resources</code>, and then installs the new lessons. Any local edits or customizations to those lessons, including lessons you added yourself that follow the <code>sXX_</code> naming, will be permanently lost. Commit your work to Git first, and consider running <code>compare_diffs()</code> and <code>checkin_lessons()</code> (see <a href="./6_compare_changes_and_checkin.html">Compare changes and check in lessons</a>) to preserve changes worth keeping.</p>
 </div>
 </div>
+</section>
+<section id="updating-lesson-content-in-lhlessons" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="updating-lesson-content-in-lhlessons"><span class="header-section-number">5</span> Updating lesson content in <code>{lhLessons}</code></h2>
+<p>Once you’ve finished creating, editing, and teaching a course, you have likely made many improvements or perhaps even entirely new lessons. These will continue to live in your course repository, but do not affect the original content in the <code>{lhLessons}</code> package. This means you can do whatever you like within your course!</p>
+<p>But if, after all your hard work, you feel your improvements should be incorporated back into <code>{lhLessons}</code>, you can use the <code>compare_diffs()</code> and <code>checkin_lessons()</code> functions to do so. Work with Learning Hub folks to take care of this!</p>
 
 
 </section>

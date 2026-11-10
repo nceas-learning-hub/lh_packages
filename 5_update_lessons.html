@@ -460,13 +460,13 @@ ul.task-list li input[type="checkbox"] {
 
 <p>In many cases, an instructor may wish to create a custom course book every time the course is taught, typically with a <code>yyyy-mm-</code> date prefix to the course repo. This allows for course participants to maintain access to the course book exactly as it was taught to them, even years later, even if new versions of the course are entirely different. Other times, an instructor may wish to create a course book that is used every time the course is taught. Each philosophy has pros and cons. But one potential downside in either case is that lessons may become outdated over time. Perhaps a package version breaks old features, or perhaps a newer package supersedes the functionality of an older package.</p>
 <p>The <code>update_lessons()</code> function can help with this. The function scans an existing course (or limits itself to a set of lessons dictated by the instructor), and, depending on the selection of the instructor, can replace older lessons with versions from the most up to date version of the lessons package. Optionally, the instructor can also revert a lesson to that from an <em>older</em> version of the lessons package, by providing an optional version number based on the lessons package history.</p>
-<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Warning
+Important
 </div>
 </div>
 <div class="callout-body-container callout-body">

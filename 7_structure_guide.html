@@ -450,7 +450,11 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#quarto.yml" id="toc-quarto.yml" class="nav-link active" data-scroll-target="#quarto.yml"><span class="header-section-number">1</span> <code>_quarto.yml</code></a></li>
   <li><a href="#lessons" id="toc-lessons" class="nav-link" data-scroll-target="#lessons"><span class="header-section-number">2</span> Lessons</a></li>
-  <li><a href="#lesson-supporting-files" id="toc-lesson-supporting-files" class="nav-link" data-scroll-target="#lesson-supporting-files"><span class="header-section-number">3</span> Lesson supporting files</a></li>
+  <li><a href="#lesson-supporting-files" id="toc-lesson-supporting-files" class="nav-link" data-scroll-target="#lesson-supporting-files"><span class="header-section-number">3</span> Lesson supporting files</a>
+  <ul class="collapse">
+  <li><a href="#what-goes-into-each-folder" id="toc-what-goes-into-each-folder" class="nav-link" data-scroll-target="#what-goes-into-each-folder"><span class="header-section-number">3.1</span> What goes into each folder</a></li>
+  <li><a href="#file-naming-and-sizing-for-supporting-content" id="toc-file-naming-and-sizing-for-supporting-content" class="nav-link" data-scroll-target="#file-naming-and-sizing-for-supporting-content"><span class="header-section-number">3.2</span> File naming and sizing for supporting content</a></li>
+  </ul></li>
   <li><a href="#extensions-and-formatting" id="toc-extensions-and-formatting" class="nav-link" data-scroll-target="#extensions-and-formatting"><span class="header-section-number">4</span> Extensions and formatting</a></li>
   </ul>
 </nav>
@@ -489,35 +493,53 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="lesson-supporting-files" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="lesson-supporting-files"><span class="header-section-number">3</span> Lesson supporting files</h2>
-<p>Some lessons link to external images, data, or embedded slides. These files are stored in directories named <code>images</code>, <code>data</code>, <code>slides</code>, and <code>resources</code> respectively. For a given lesson, correspondingly named subdirectories will appear in each of these directories, like this (for a lesson <code>s01_r_programming_introduction.qmd</code>):</p>
-<div style="font-family: monospace;">
+<p>Some lessons link to external images, data, or embedded slides. These files are stored in directories named <code>lessons/images</code>, <code>lessons/data</code>, <code>lessons/slides</code>, and <code>lessons/resources</code> respectively. For a given lesson, correspondingly named subdirectories will appear in each of these directories, like this (for a lesson <code>s01_r_programming_introduction.qmd</code>):</p>
+<div style="font-family: monospace; font-size: 0.9em;">
 <p><i class="fa-solid fa-folder" aria-label="folder"></i> <strong>&lt;project root&gt;</strong><br>
-├── <i class="fa-solid fa-file-code" aria-label="file-code"></i> s01_r_programming_introduction.qmd <span style="color:#6c757d">### the lesson document</span><br>
-├── <i class="fa-solid fa-file-code" aria-label="file-code"></i> s02_github_introduction.qmd <span style="color:#6c757d">### etc</span><br>
-├── <span style="color:#209ACA"><i class="fa-solid fa-folder" aria-label="folder"></i> <strong>data</strong></span><br>
-|&nbsp;&nbsp;&nbsp;└── <span style="color:#209ACA"><i class="fa-solid fa-folder" aria-label="folder"></i> <strong>r_programming_introduction</strong></span><br>
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── <i class="fa-solid fa-file-csv" aria-label="file-csv"></i> dataset1.csv <span style="color:#6c757d">### filename as called in lesson qmd</span><br>
-├── <span style="color:#209ACA"><i class="fa-solid fa-folder" aria-label="folder"></i> <strong>images</strong></span><br>
-|&nbsp;&nbsp;&nbsp;├──&nbsp; <span style="color:#209ACA"><i class="fa-solid fa-folder" aria-label="folder"></i> <strong>r_programming_introduction</strong></span><br>
-|&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;├── <i class="fa-solid fa-file-image" aria-label="file-image"></i> image1.png <span style="color:#6c757d">### filename as called in lesson qmd</span><br>
-|&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;└── <i class="fa-solid fa-file-image" aria-label="file-image"></i> image2.png <span style="color:#6c757d">### etc</span><br>
-|&nbsp;&nbsp;&nbsp;└── <span style="color:#209ACA"><i class="fa-solid fa-folder" aria-label="folder"></i> <strong>github_introduction</strong></span><br>
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── <i class="fa-solid fa-file-image" aria-label="file-image"></i> image1.png <span style="color:#6c757d">### filename as called in lesson qmd</span><br>
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── <i class="fa-solid fa-file-image" aria-label="file-image"></i> image2.png <span style="color:#6c757d">### etc</span><br>
-├── <span style="color:#209ACA"><i class="fa-solid fa-folder" aria-label="folder"></i> <strong>slides</strong></span><br>
-|&nbsp;&nbsp;&nbsp;├──&nbsp; <span style="color:#209ACA"><i class="fa-solid fa-folder" aria-label="folder"></i> <strong>r_programming_introduction</strong></span><br>
-|&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;├── <i class="fa-solid fa-file-code" aria-label="file-code"></i> slides.qmd <span style="color:#6c757d">### filename as embedded in lesson qmd</span><br>
-|&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;└── <i class="fa-solid fa-file-code" aria-label="file-code"></i> lesson_style.scss <span style="color:#6c757d">### filename as noted in the slides qmd</span><br>
-|&nbsp;&nbsp;&nbsp;└── <span style="color:#209ACA"><i class="fa-solid fa-folder" aria-label="folder"></i> <strong>github_introduction</strong></span><br>
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── <i class="fa-solid fa-file-code" aria-label="file-code"></i> github_slides.qmd <span style="color:#6c757d">### filename as called in lesson qmd</span><br>
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── <i class="fa-solid fa-file-code" aria-label="file-code"></i> style.css <span style="color:#6c757d">### etc</span><br>
-├── <span style="color:#209ACA"><i class="fa-solid fa-folder" aria-label="folder"></i> <strong>resources</strong></span><br>
-|&nbsp;&nbsp;&nbsp;└── <span style="color:#209ACA"><i class="fa-solid fa-folder" aria-label="folder"></i> <strong>r_programming_introduction</strong></span><br>
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── <i class="fa-solid fa-file-code" aria-label="file-code"></i> references.bib <span style="color:#6c757d">### filename as called in lesson qmd</span><br>
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── <i class="fa-solid fa-file-pdf" aria-label="file-pdf"></i> document.pdf <span style="color:#6c757d">### etc</span><br>
+├── <i class="fa-solid fa-folder" aria-label="folder"></i> <strong>lessons</strong> <span style="color:#6c757d">### all lesson .qmd files and supporting content</span><br>
+│&nbsp;&nbsp;&nbsp;├── <i class="fa-solid fa-file-code" aria-label="file-code"></i> s01_r_programming_introduction.qmd <span style="color:#6c757d">### lesson</span><br>
+│&nbsp;&nbsp;&nbsp;├── <i class="fa-solid fa-file-code" aria-label="file-code"></i> s02_github_introduction.qmd <span style="color:#6c757d">### etc</span><br>
+│&nbsp;&nbsp;&nbsp;├── <span style="color:#209ACA"><i class="fa-solid fa-folder" aria-label="folder"></i> <strong>data</strong></span><br>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── <span style="color:#209ACA"><i class="fa-solid fa-folder" aria-label="folder"></i> <strong>r_programming_introduction</strong></span><br>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── <i class="fa-solid fa-file-csv" aria-label="file-csv"></i> dataset1.csv<br>
+│&nbsp;&nbsp;&nbsp;├── <span style="color:#209ACA"><i class="fa-solid fa-folder" aria-label="folder"></i> <strong>images</strong></span><br>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── <span style="color:#209ACA"><i class="fa-solid fa-folder" aria-label="folder"></i> <strong>r_programming_introduction</strong></span><br>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── <i class="fa-solid fa-file-image" aria-label="file-image"></i> image1.png<br>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── <i class="fa-solid fa-file-image" aria-label="file-image"></i> image2.png<br>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── <span style="color:#209ACA"><i class="fa-solid fa-folder" aria-label="folder"></i> <strong>github_introduction</strong></span><br>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── <i class="fa-solid fa-file-image" aria-label="file-image"></i> image1.png<br>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── <i class="fa-solid fa-file-image" aria-label="file-image"></i> image2.png<br>
+│&nbsp;&nbsp;&nbsp;├── <span style="color:#209ACA"><i class="fa-solid fa-folder" aria-label="folder"></i> <strong>slides</strong></span><br>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── <span style="color:#209ACA"><i class="fa-solid fa-folder" aria-label="folder"></i> <strong>r_programming_introduction</strong></span><br>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── <i class="fa-solid fa-file-code" aria-label="file-code"></i> slides.qmd<br>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── <i class="fa-solid fa-file-code" aria-label="file-code"></i> lesson_style.scss<br>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── <span style="color:#209ACA"><i class="fa-solid fa-folder" aria-label="folder"></i> <strong>github_introduction</strong></span><br>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── <i class="fa-solid fa-file-code" aria-label="file-code"></i> github_slides.qmd<br>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── <i class="fa-solid fa-file-code" aria-label="file-code"></i> style.css<br>
+│&nbsp;&nbsp;&nbsp;└── <span style="color:#209ACA"><i class="fa-solid fa-folder" aria-label="folder"></i> <strong>resources</strong></span><br>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── <span style="color:#209ACA"><i class="fa-solid fa-folder" aria-label="folder"></i> <strong>r_programming_introduction</strong></span><br>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── <i class="fa-solid fa-file-code" aria-label="file-code"></i> references.bib<br>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── <i class="fa-solid fa-file-pdf" aria-label="file-pdf"></i> document.pdf<br>
 └── …</p>
 </div>
+<section id="what-goes-into-each-folder" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="what-goes-into-each-folder"><span class="header-section-number">3.1</span> What goes into each folder</h3>
+<p>Each supporting folder is organized by lesson name (matching the lesson filename without the <code>sXX_</code> prefix and <code>.qmd</code> extension). For example, <code>lessons/images/github_introduction/</code> contains all images for the <code>s02_github_introduction.qmd</code> lesson. There are no strict rules about what goes into each of these folders, but generally:</p>
+<ul>
+<li><strong><code>lessons/images/</code></strong>: Image files (<code>.png</code>, <code>.jpg</code>, <code>.gif</code>, etc.)</li>
+<li><strong><code>lessons/slides/</code></strong>: Quarto slide decks, plus any supporting files like <code>.scss</code> stylesheets or sub-directories for slide-specific images</li>
+<li><strong><code>lessons/data/</code></strong>: Data files (<code>.csv</code>, <code>.gpkg</code>, etc.) required for rendering the lesson. When possible, link to data from its original source (e.g., an R data package, a URL) rather than storing it locally. Store only when data is not readily available, or provide a downloadable copy for learners.</li>
+<li><strong><code>lessons/resources/</code></strong>: Miscellaneous resources like PDFs, handouts, instructor documentation, etc.</li>
+</ul>
 <p>If a lesson <em>does not</em> have supporting files, e.g., no images, then there may not be a corresponding folder (e.g., the <code>github_introduction.qmd</code> lesson above does not have a data folder!)</p>
+</section>
+<section id="file-naming-and-sizing-for-supporting-content" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="file-naming-and-sizing-for-supporting-content"><span class="header-section-number">3.2</span> File naming and sizing for supporting content</h3>
+<p>Within each <code>lessons/images/</code>, <code>lessons/data/</code>, <code>lessons/slides/</code>, and <code>lessons/resources/</code> subdirectory, there are no specific naming conventions—just use <strong>short, descriptive filenames</strong> that make sense for the content. Pay attention to:</p>
+<ul>
+<li><strong>File size</strong> — especially for images, which should be as small as reasonable. Screen captures are often captured at full resolution but remain readable when shrunk to a coarser resolution; use a photo app to optimize them.</li>
+<li><strong>Naming</strong> — keep it concise and meaningful, so it’s clear what the file contains at a glance.</li>
+</ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -528,34 +550,15 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The file structure inside the <code>lhLessons</code> package is similar except:</p>
+<p>The file structure inside the <code>lhLessons</code> package mirrors the course structure, except nested within <code>inst/lessons</code> instead of at the Quarto course site root:</p>
 <ul>
-<li>the lesson <code>.qmd</code>s and supporting files/folders all live in the <code>inst</code> folder inside the package repository</li>
-<li>the supporting files folders are all prefaced with <code>lesson_</code> (e.g., <code>lesson_data</code>, <code>lesson_images</code>, <code>lesson_slides</code>, <code>lesson_resources</code>) - this is because R packages don’t like a folder called <code>data</code> in the <code>inst</code> folder, since it may interact with the <code>data</code> folder in the root.
-<ul>
-<li>to render properly, the links inside the lesson .qmd should point to <code>data</code>, <code>images</code>, <code>slides</code>, or <code>resources</code> without the <code>lesson_</code> prefix</li>
-</ul></li>
+<li>the lesson <code>.qmd</code>s and supporting files/folders all live in the <code>inst/lessons</code> folder inside the package repository</li>
+<li>supporting files are organized in <code>lessons/data</code>, <code>lessons/images</code>, <code>lessons/slides</code>, <code>lessons/resources</code> directories</li>
 <li>all content inside the supporting folders is copied over to the new course without modification.</li>
 </ul>
 </div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>File sizes and naming in supporting content
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>As noted above, all content inside the supporting folders is copied over to the new course without modification. Please be considerate when designing and organizing the supporting content! This includes paying attention to:</p>
-<ul>
-<li>File naming - short but descriptive.</li>
-<li>File size - particularly for images, ensure the file is as small as reasonable. This holds true especially for screen captures - these are typically captured at full screen resolution, but are quite readable shrunk down to a coarser resolution which saves a huge amount of space. Use a photo app to shrink them please!</li>
-</ul>
-</div>
-</div>
+</section>
 </section>
 <section id="extensions-and-formatting" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="extensions-and-formatting"><span class="header-section-number">4</span> Extensions and formatting</h2>

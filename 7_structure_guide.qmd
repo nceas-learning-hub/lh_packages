@@ -1,5 +1,5 @@
 ---
-title: Course rendering
+title: File structure guide
 ---
 
 Tips, suggestions, standards, naming conventions, structure for new lessons
@@ -62,7 +62,7 @@ Each supporting folder is organized by lesson name (matching the lesson filename
 * **`lessons/images/`**: Image files (`.png`, `.jpg`, `.gif`, etc.)
 * **`lessons/slides/`**: Quarto slide decks, plus any supporting files like `.scss` stylesheets or sub-directories for slide-specific images
 * **`lessons/data/`**: Data files (`.csv`, `.gpkg`, etc.) required for rendering the lesson. When possible, link to data from its original source (e.g., an R data package, a URL) rather than storing it locally. Store only when data is not readily available, or provide a downloadable copy for learners.
-* **`lessons/resources/`**: Miscellaneous resources like PDFs, handouts, instructor documentation, etc.
+* **`lessons/resources/`**: Miscellaneous resources like `.bib` files, PDFs, handouts, instructor documentation, etc.
 
 If a lesson *does not* have supporting files, e.g., no images, then there may not be a corresponding folder (e.g., the `github_introduction.qmd` lesson above does not have a data folder!)
 

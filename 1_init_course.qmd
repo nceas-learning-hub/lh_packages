@@ -4,7 +4,7 @@ title: Set up course infrastructure
 
 ## Initialize the course with `init_course()`
 
-The `init_course()` function is the first step to creating a course.  It creates a new R project for the course, saves some metadata about the course in a .csv (`metadata_course.csv`) for later reference, installs the Quarto website structure and theme template, and (by default) sets up Git/GitHub and automatic publishing.  This function has ten arguments, only the first of which is mandatory:
+The `init_course()` function is the first step to creating a course.  It creates a new R project for the course, saves some metadata about the course in a .csv (`metadata_course.csv`) for later reference, installs the Quarto website structure and theme template, and (by default) sets up Git/GitHub and automatic publishing.  This function has eleven arguments.  The course information can be supplied either as individual arguments or all at once in a single object, `course_info` (see [Supplying course info as a table or list](#course-info-object)).  When using individual arguments, only `course_proj` is mandatory:
 
 * `course_proj` is the desired name for the course project repository, and will also drive the course's eventual home on the interwebs.  We recommend a format like `yyyy-mm-<course type>`, such as `2024-10-coreR` or `2024-06-delta`.  Characters other than letters, numbers, `_` and `-` are replaced with `_` (with a warning).
 * `course_org` is the GitHub organization (or GH user) where the course project will live.  Defaults to `"nceas-learning-hub"`.
@@ -19,10 +19,60 @@ The `init_course()` function is the first step to creating a course.  It creates
     * Keep the current project open, but set `loc = '..'` to create the new course one level up, parallel to your current project.
     * Define some custom location and set `loc` to that directory.
 * `quiet` (default `TRUE`) controls whether progress and diagnostic messages are shown.  Set `quiet = FALSE` to see details.
+* `course_info` (optional) is an object holding all of the course information, to be used *instead of* the individual arguments above: either a one-row data frame whose column names match the argument names, or a named list whose names match the argument names.  See [below](#course-info-object) for details.
 
 The function invisibly returns the full path to the new course project.  With the default `quiet = TRUE`, the new project is activated automatically; with `quiet = FALSE` the instructor is instead prompted (y/n) whether to open the new project.  Either way, the instructor is advised to close the current project and open or activate the new course project directly.
 
 After this step, the course has structure but no lessons.  We'll fix that in the next step!
+
+### Supplying course info as a table or list {#course-info-object}
+
+Instead of typing each argument, you can pass all of the course information in the `course_info` argument, e.g., a table you maintain as a .csv and read in with your preferred function.  The rules:
+
+* `course_info` must be a one-row data frame whose column names match the argument names, or a named list whose names match the argument names.
+* `course_proj` is required.  Any other argument that is missing from `course_info`, or `NA` in `course_info` (e.g., a blank .csv cell), gets its default value.
+* Names in `course_info` that are not arguments of `init_course()` cause an error.
+* Supplying individual arguments alongside `course_info` also causes an error - use one approach or the other.
+* `setup_github` and `quiet` may be given as `TRUE`/`FALSE` or as text such as `"TRUE"` (handy when reading from a .csv).
+
+::: callout-example
+From a data frame (or a one-row .csv read in with, e.g., `read.csv()` or `readr::read_csv()`):
+
+```
+course_df <- data.frame(course_proj  = '2024-10-coreR',
+                        course_title = 'CoreR',
+                        course_desc  = 'CoreR course offered at NCEAS in Oct 2024',
+                        course_dates = 'Oct. 6 - 10, 2024')
+init_course(course_info = course_df)
+```
+
+The `{lhCore}` package includes an example table, `lhCore::test_course`, showing the expected layout: one row, one column per argument.  Any column can be left out, or set to `NA`, to use that argument's default.
+
+```
+lhCore::test_course
+```
+
+```
+  course_proj         course_org course_title                               course_desc
+1 test_course nceas-learning-hub        CoreR CoreR course offered at NCEAS in Oct 2024
+  course_dates setup_github template   package loc quiet
+1 October 2024         TRUE    corer lhLessons   .  TRUE
+```
+
+Note that the example has `setup_github = "TRUE"`, which will create a GitHub repository.  To try it out locally, change that to `"FALSE"` first:
+
+```
+test_df <- lhCore::test_course
+test_df$setup_github <- "FALSE"
+init_course(course_info = test_df)
+```
+
+Or from a named list:
+
+```
+init_course(course_info = list(course_proj = '2024-10-coreR', template = 'corer'))
+```
+:::
 
 ::: callout-warning
 The course files will be pulled from the version of `{lhLessons}` package that the instructor currently has installed.  We recommend reinstalling the package (`remotes::install_github('nceas-learning-hub/lhLessons')`) before running this function to make sure you have the latest version!
